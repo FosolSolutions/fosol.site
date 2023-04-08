@@ -1,2 +1,2 @@
-# fosole.site
+# fosol.site
 Fosol Software Solutions website
