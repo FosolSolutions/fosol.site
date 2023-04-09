@@ -393,7 +393,7 @@ details {
   display: none;
 }
 
-.skills-section .icon {
+.skills > div > img {
   height: 50px;
 }
 
@@ -409,4 +409,11 @@ details {
 .skills > div:hover {
   background-color: rgb(255, 255, 255, 0.5);
   border-radius: 0.5em;
+}
+
+.hr {
+  content: "-";
+  width: 10px;
+  height: 50px;
+  background-color: #fff;
 }
