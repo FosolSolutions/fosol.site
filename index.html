@@ -36,33 +36,37 @@
     <main>
       <div class="boxes">
         <div class="row">
-          <div class="box row intro">
-            <div class="col text">
+          <section class="box row intro">
+            <div class="col pad text">
               <p>
                 Fosol Software Solutions is a Canadian technology corporation located in Victoria BC.
                 We offer consulting and contractor resources for building software solutions.
               </p>
               <p>
                 We design, developer, and deliver technology solutions in a beautifully uncomplicated way.
-                Providing on time and on budget solutions through creative and result-oriented agile approach.
+                Providing on time and on budget solutions through a creative result-oriented agile approach.
               </p>
               <p>
                 We offer both on-site and remote availability with a proven track-record.
               </p>
             </div>
-            <div class="photo"></div>
-          </div>
+            <div class="photo-info"></div>
+          </section>
           <section class="box">
-            <h1><span class="fa fa-hand"></span> Contact Us</h1>
-            <div>
-              <p>
-                If you're looking for help to design, develop, and support your next software development project, reach out to us.
-              </p>
-              <p>
-                Send us an email to
-                <a href="mailto:sales@fosol.ca?subject=Project Inquiry">sales@fosol.ca</a>
-                or fill out our contact form.
-              </p>
+            <div class="contact-us">
+              <div class="pad">
+                <h1><span class="fa fa-hand"></span> Contact Us</h1>
+                <p>
+                  If you're looking for help to design, develop, and support your next software development project, reach out to us.
+                </p>
+                <p>
+                  Send us an email to
+                  <a href="mailto:sales@fosol.ca?subject=Project Inquiry">sales@fosol.ca</a>
+                  or fill out our contact form.
+                </p>
+                <input type="button" value="Contact Us"/>
+              </div>
+              <div class="photo-contact-us"></div>
             </div>
           </section>
         </div>
@@ -73,7 +77,7 @@
             <div><img src="/assets/icons/enterprise-architect.png"/>Solution Architect</div>
             <div><img src="/assets/icons/project-management.png"/>Project Management</div>
             <div><img src="/assets/icons/ux-ui.webp"/>User Research</div>
-            <div><img src="/assets/icons/developer.png"/>Developer</div>
+            <div><img src="/assets/icons/developer.png"/>Development</div>
             <div><img src="/assets/icons/support.png"/>Support</div>
             <div class="hr"></div>
             <div><img src="/assets/icons/openshift.png"/>Openshift</div>
@@ -146,12 +150,12 @@
           <div class="fa fa-caret-right shift"></div>
         </div>
         <div class="bk-03"></div>
-        <section class="box">
+        <section class="box pad">
           <h1><span class="fa fa-hammer"></span> What We're Currently Working On</h1>
           <div class="containers">
             <article class="container">
               <div>
-                <img class="icon icon-bk" src="assets/bc-gov/mmia-logo.svg"/>
+                <img class="icon icon-bk" src="assets/projects/bc-gov/mmia/mmia-logo.svg"/>
                 <h2>Media Monitoring Information & Analysis</h2>
               </div>
               <div>
@@ -159,7 +163,7 @@
                   <p>
                     A news aggregation system that takes in news sources of varying types and provides a single location for subscribers to access and report on the data.
                   </p>
-                  <img class="logo" src="assets/bc-gov/bc-gov-logo.png"/>
+                  <img class="logo" src="assets/projects/bc-gov/bc-gov-logo.png"/>
                 </div>
                 <p>
                   Container based microservice enterprise architecture.
@@ -167,7 +171,7 @@
                   Custom audio and video capture solution providing 24x7 up-time.
                 </p>
                 <p>
-                  Transcription, Natural Language Processing, Machine Learning
+                  Openshift, Kafka, Transcription, Natural Language Processing, Machine Learning
                 </p>
                 <div class="grid gc-2 g-links">
                   <div class="fa fa-info-circle"></div>
@@ -188,16 +192,23 @@
                   </div>
                 </div>
               </div>
+              <div class="work-mmia"></div>
             </article>
             <article class="container">
               <div>
-                <img class="icon" src="/assets/coevent/icon-white.svg"/>
+                <img class="icon" src="/assets/projects/coevent/icon-white.svg"/>
                 <h2>Coevent</h2>
               </div>
               <div>
                 <p>
                   Online membership volunteer scheduling tool.
                   Provides an interactive way to inform and enable membership of events, activities, and support openings.
+                </p>
+                <p>
+                  A simple project to support not-for-profit organization in the local Victoria area.
+                </p>
+                <p>
+                  React, Dotnet, PostgreSQL
                 </p>
                 <div class="grid gc-2 g-links">
                   <div class="fa fa-info-circle"></div>
@@ -224,6 +235,7 @@
                   </div>
                 </div>
               </div>
+              <div class="work-coevent"></div>
             </article>
             <article class="container">
               <h2>Raspberry Pi Kubernetes Cluster</h2>
@@ -231,6 +243,19 @@
                 <p>
                   Rack mounted RPi solution running Ubuntu and Kubernetes.
                   Provides a portable small testing and learning environment.
+                </p>
+                <p>
+                  Provided the ability to stand up a kubernetes cluster for testing and training.
+                </p>
+                <p>
+                  Pity RPi's are very difficult to purchase these days.
+                  It took longer to get the hardware than it did to set it all up.
+                </p>
+                <p>
+                  The next leg of the journey is to add persistent storage volumes.
+                </p>
+                <p>
+                  Raspberry Pi 4B, Ubuntu, Kubernetes
                 </p>
                 <div class="grid gc-2 g-links">
                   <div class="fa fa-info-circle"></div>
@@ -245,35 +270,75 @@
                   </div>
                 </div>
               </div>
+              <div class="work-rpi-cluster"></div>
             </article>
           </div>
         </section>
-        <section class="box">
+        <section class="box pad">
           <h1><span class="fa fa-building"></span> Clients</h1>
           <div class="clients">
             <article>
               <h2>Ministry of Citizen Services</h2>
-              BC Government
+              <p>
+                BC Government
+              </p>
+              <div>
+                <img class="logo" src="assets/projects/bc-gov/bc-gov-logo.png"/>
+              </div>
             </article>
             <article>
               <h2>Ministry of Post-Secondary Education and Future Skills</h2>
-              BC Government
+              <p>
+                BC Government
+              </p>
+              <div>
+                <img class="logo" src="assets/projects/bc-gov/bc-gov-logo.png"/>
+              </div>
             </article>
             <article>
               <h2>Ministry of Attorney General</h2>
-              BC Government
+              <p>
+                BC Government
+              </p>
+              <div>
+                <img class="logo" src="assets/projects/bc-gov/bc-gov-logo.png"/>
+              </div>
             </article>
             <article>
               <h2>Victoria Christadelphians</h2>
+              <p>
+                Not-for-Profit Organization
+              </p>
+              <div>
+                <img class="logo" src="assets/projects/coevent/victoria-christadelphian-logo-02.png"/>
+              </div>
             </article>
             <article>
               <h2>Quartech</h2>
+              <p>
+                
+              </p>
+              <div>
+                <img class="logo" src="assets/clients/quartech-logo.jfif"/>
+              </div>
             </article>
             <article>
               <h2>Avocette</h2>
+              <p>
+                
+              </p>
+              <div>
+                <img class="logo small" src="assets/clients/avocette-logo.png"/>
+              </div>
             </article>
             <article>
               <h2>Enkon</h2>
+              <p>
+                
+              </p>
+              <div>
+                <img class="logo small" src="assets/clients/enkon-logo.png"/>
+              </div>
             </article>
           </div>
         </section>

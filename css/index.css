@@ -148,7 +148,6 @@ details {
   flex-flow: column;
   background-color: rgb(255, 255, 255, 0.65);
   border-radius: 0.5em;
-  padding: 1em;
 }
 
 .box::before {
@@ -165,6 +164,10 @@ details {
   opacity: var(0.7);
   transition: opacity 0.3s;
   border-radius: inherit;
+}
+
+.pad {
+  padding: 1em;
 }
 
 /* 
@@ -198,6 +201,7 @@ details {
 
 .box {
   flex: 1;
+  overflow: hidden;
 }
 
 .col {
@@ -212,29 +216,6 @@ details {
 
 .small {
   font-size: smaller;
-}
-
-.intro {
-  flex-wrap: wrap-reverse;
-  align-items: stretch;
-  flex: 2 1 0;
-}
-
-.intro .text {
-  flex: 1;
-  min-width: 300px;
-}
-
-.intro .photo {
-  flex: 1 1 0;
-  background-image: url("/assets/photo-meeting-01.jpg");
-  background-position: top;
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 200px;
-  min-width: 300px;
-  max-width: 500px;
-  border-radius: 0.25em;
 }
 
 .containers {
@@ -255,6 +236,7 @@ details {
   border-radius: 0.75em;
   background-color: rgb(188, 51, 52, 0.9);
   color: #fff;
+  overflow: hidden;
 }
 
 .container h2 {
@@ -262,8 +244,9 @@ details {
   font-size: 1em;
 }
 
-.container:hover {
-  box-shadow: 1px 1px 5px #bc3334;
+.container:hover > :first-child {
+  background-color: #4b2626;
+  transition: background-color 0.5s ease;
 }
 
 .container > div:first-child {
@@ -303,9 +286,29 @@ details {
 
 .clients > article {
   flex: 1 1 0;
+  display: flex;
+  flex-flow: column;
+  align-content: stretch;
   padding: 1em;
   background-color: rgb(198, 182, 182, .5);
   border-radius: 0.5em;
+}
+
+.clients > article > * {
+  flex: 1;
+}
+
+.logo.small {
+  max-width: 100px;
+  height: auto;
+}
+
+
+.clients > article > div {
+  text-align: center;
+  background-color: #fff;
+  border-radius: 0.5em;
+  min-height: 75px;
 }
 
 .clients > article h2 {
@@ -416,4 +419,76 @@ details {
   width: 10px;
   height: 50px;
   background-color: #fff;
+}
+
+/**
+  Custom styles
+ */
+
+.intro {
+  flex-wrap: wrap-reverse;
+  align-items: stretch;
+  flex: 2 1 0;
+}
+
+.intro .text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.photo-info {
+  flex: 1 1 0;
+  background-image: url("/assets/photo-meeting-01.jpg");
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 200px;
+  min-width: 300px;
+}
+
+.contact-us {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap-reverse;
+  overflow: hidden;
+  height: 100%;
+}
+
+.contact-us > :first-child {
+  flex: 1;
+}
+
+.photo-contact-us {
+  flex: 1;
+  background-image: url("/assets/photo-contact-us-01.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100px;
+  min-width: 200px;
+}
+
+.work-mmia {
+  background-image: url("/assets/projects/bc-gov/mmia/mmia-01.png");
+  background-position: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 200px;
+}
+
+.work-coevent {
+  background-image: url("/assets/projects/coevent/coevent-02.png");
+  background-position: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 200px;
+}
+
+.work-rpi-cluster {
+  flex: 2;
+  background-image: url("/assets/projects/rpi/rpi-cluster-01.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 200px;
 }
