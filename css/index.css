@@ -10,7 +10,7 @@ body {
   background-size: cover;
 }
 
-header {
+body > header {
   flex: 1 1 1;
   display: flex;
   align-items: stretch;
@@ -21,9 +21,13 @@ header {
   background-color: rgb(255, 255, 255, 0.5);
 }
 
+body > header > a > img {
+  padding: 0.5em 0 0 0;
+
+}
+
 img.logo {
   height: 4em;
-  padding: 0.5em 0 0 0;
   margin: 0;
 }
 
@@ -277,14 +281,18 @@ details {
 }
 
 .clients {
-  display: flex;
-  flex-flow: row;
-  flex-wrap: wrap;
-  align-items: stretch;
-  gap: 1em;
+  box-sizing: border-box;
+  width: 100%;
 }
 
-.clients > article {
+.client-list {
+  display: flex;
+  gap: 1em;
+  width: auto;
+  overflow-x: auto;
+}
+
+.client-list > article {
   flex: 1 1 0;
   display: flex;
   flex-flow: column;
@@ -292,28 +300,30 @@ details {
   padding: 1em;
   background-color: rgb(198, 182, 182, .5);
   border-radius: 0.5em;
+  min-width: 120px;;
 }
 
-.clients > article > * {
+.client-list > article > * {
   flex: 1;
 }
 
-.logo.small {
-  max-width: 100px;
-  height: auto;
-}
-
-
-.clients > article > div {
-  text-align: center;
+.client-list > article > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #fff;
   border-radius: 0.5em;
   min-height: 75px;
 }
 
-.clients > article h2 {
+.client-list > article h2 {
   font-size: 1em;
   margin-bottom: 1em;
+}
+
+.logo.small {
+  max-width: 100px;
+  height: auto;
 }
 
 .grid {
