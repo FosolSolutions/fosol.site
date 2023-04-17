@@ -1,5 +1,10 @@
 {
   "cSpell.words": [
     "Fosol"
-  ]
+  ],
+  "eslint.workingDirectories": [
+   "./app"
+  ],
+  "vs-code-prettier-eslint.prettierLast": true,
+  "eslint.packageManager": "yarn"
 }

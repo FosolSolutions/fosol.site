@@ -1,16 +1,19 @@
 body {
-  font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
-  display: flex;
-  flex-flow: column;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
   background-image: url("/assets/background-02.jpg");
   background-position: center;
   background-size: cover;
+  margin: 0;
+  padding: 0;
 }
 
-body > header {
+#root {
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+}
+
+header {
   flex: 1 1 1;
   display: flex;
   flex-flow: row;
@@ -19,50 +22,50 @@ body > header {
   padding: 0 1em;
   display: flex;
   flex-direction: row;
-  background-color: rgb(255, 255, 255, 0.5);
+  background-color: rgb(255, 255, 255, 0.75);
+
+  img.logo {
+    height: 4em;
+    margin: 0;
+  }
+
+  h1.cname {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 4em;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+    color: #bc3334;
+  }
+
+  >a>img {
+    padding: 0.5em 0 0 0;
+  }
+
+  >.company-logo {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    gap: 1em;
+    margin: 0.25em;
+    align-items: center;
+  }
+
+  >nav {
+    display: flex;
+    flex-flow: row;
+    padding: 0 1em;
+
+    ul {
+      display: flex;
+      flex-flow: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: stretch;
+    }
+  }
 }
 
-body > header > a > img {
-  padding: 0.5em 0 0 0;
-
-}
-
-header > .company-logo {
-  display: flex;
-  flex-flow: row;
-  flex-wrap: nowrap;
-  gap: 1em;
-  margin: 0.25em;
-  align-items: center;
-}
-
-img.logo {
-  height: 4em;
-  margin: 0;
-}
-
-h1.cname {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 4em;
-  text-transform: uppercase;
-  margin: 0;
-  padding: 0;
-  color: #bc3334;
-}
-
-header > nav {
-  display: flex;
-  flex-flow: row;
-  padding: 0 1em;
-}
-
-header > nav > ul {
-  display: flex;
-  flex-flow: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: stretch;
-}
 
 main {
   flex: 1;
@@ -91,13 +94,13 @@ nav {
   margin: 0;
   padding: 0;
   font-size: 1em;
-}
 
-nav > ul {
-  display: flex;
-  flex-flow: row;
-  flex-wrap: wrap;
-  gap: 1em;
+  &>ul {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    gap: 1em;
+  }
 }
 
 ul {
@@ -109,22 +112,22 @@ ul {
 a {
   text-decoration: none;
   color: #000;
-}
 
-a:hover {
-  color: #bc3334;
-}
+  &:hover {
+    color: #bc3334;
+  }
 
-a:visited {
-  color: #000;
-}
+  &:visited {
+    color: #000;
+  }
 
-a:visited:hover {
-  color: #bc3334;
-}
+  &:visited:hover {
+    color: #bc3334;
+  }
 
-a:active {
-  color: #000;
+  &:active {
+    color: #000;
+  }
 }
 
 h1 {
@@ -155,48 +158,49 @@ details {
 }
 
 .box {
+  flex: 1;
   position: relative;
   display: flex;
   flex-flow: column;
   background-color: rgb(255, 255, 255, 0.65);
   border-radius: 0.5em;
-}
 
-.box::before {
-  content: "";
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(-45deg, #efefef 0%, #bc3334 100% );
-  transform: translate3d(0px, 20px, 0) scale(0.95);
-  filter: blur(20px);
-  opacity: var(0.7);
-  transition: opacity 0.3s;
-  border-radius: inherit;
+  &::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(-45deg, #efefef 0%, #bc3334 100%);
+    transform: translate3d(0px, 20px, 0) scale(0.95);
+    filter: blur(20px);
+    opacity: var(0.7);
+    transition: opacity 0.3s;
+    border-radius: inherit;
+  }
+
+  /* 
+  * Prevents issues when the parent creates a 
+  * stacking context. (For example, using the transform
+  * property )
+  */
+  &::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    border-radius: inherit;
+  }
 }
 
 .pad {
   padding: 1em;
-}
-
-/* 
-* Prevents issues when the parent creates a 
-* stacking context. (For example, using the transform
-* property )
-*/
-.box::after {
-  content: "";
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: inherit;
-  border-radius: inherit;
 }
 
 .text-white {
@@ -209,10 +213,6 @@ details {
   flex-wrap: wrap;
   align-items: stretch;
   gap: 1em;
-}
-
-.box {
-  flex: 1;
 }
 
 .col {
@@ -241,10 +241,10 @@ details {
   padding: 0.75em;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 12px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
 
-.btn:hover {
-  background-color: hsl(239, 59%, 40%);
+  &:hover {
+    background-color: hsl(239, 59%, 40%);
+  }
 }
 
 .containers {
@@ -266,61 +266,61 @@ details {
   background-color: rgb(188, 51, 52, 0.9);
   color: #fff;
   overflow: hidden;
-}
 
-.container h2 {
-  padding: 1em;
-  font-size: 1em;
-}
+  &>h2 {
+    padding: 1em;
+    font-size: 1em;
+  }
 
-.container:hover > :first-child {
-  background-color: #4b2626;
-  transition: background-color 0.5s ease;
-}
+  &:hover> :first-child {
+    background-color: #4b2626;
+    transition: background-color 0.5s ease;
+  }
 
-.container > div:first-child {
-  display: flex;
-  flex-flow: row;
-  align-items: center;
-}
+  &>div:first-child {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+  }
 
-.container .icon {
-  height: 35px;
-  margin: 0.25em;
-  padding: 0.25em;
-}
+  .icon {
+    height: 35px;
+    margin: 0.25em;
+    padding: 0.25em;
+  }
 
-.container .icon-bk {
-  border-radius: 0.5em;
-  background-color: rgb(255, 255, 255, 0.25);
-}
+  .icon-bk {
+    border-radius: 0.5em;
+    background-color: rgb(255, 255, 255, 0.25);
+  }
 
-.container > div:nth-child(2) {
-  flex: 1 1 auto;
-  padding: 1em;
-  background-color: rgb(255, 255, 255, .5);
-}
+  &>div:nth-child(2) {
+    flex: 1 1 auto;
+    padding: 1em;
+    background-color: rgb(255, 255, 255, .5);
+  }
 
-.container.secondary {
-  background-color:hsl(239, 58%, 31%)
-}
+  .secondary {
+    background-color: hsl(239, 58%, 31%);
 
-.container.secondary:hover > :first-child {
-  background-color: hsl(239, 58%, 21%);
-  transition: background-color 0.5s ease;
-}
+    &:hover> :first-child {
+      background-color: hsl(239, 58%, 21%);
+      transition: background-color 0.5s ease;
+    }
+  }
 
-.container.tertiary {
-  background-color:hsl(49, 61%, 45%)
-}
+  .tertiary {
+    background-color: hsl(49, 61%, 45%);
 
-.container.tertiary:hover > :first-child {
-  background-color: hsl(49, 61%, 20%);
-  transition: background-color 0.5s ease;
-}
+    &:hover> :first-child {
+      background-color: hsl(49, 61%, 20%);
+      transition: background-color 0.5s ease;
+    }
+  }
 
-.container.logo {
-  height: 50px;
+  .logo {
+    height: 50px;
+  }
 }
 
 .clients {
@@ -333,35 +333,35 @@ details {
   gap: 1em;
   width: auto;
   overflow-x: auto;
-}
 
-.client-list > article {
-  flex: 1 1 0;
-  display: flex;
-  flex-flow: column;
-  align-content: stretch;
-  padding: 1em;
-  background-color: rgb(198, 182, 182, .5);
-  border-radius: 0.5em;
-  min-width: 120px;;
-}
+  &>article {
+    flex: 1 1 0;
+    display: flex;
+    flex-flow: column;
+    align-content: stretch;
+    padding: 1em;
+    background-color: rgb(198, 182, 182, .5);
+    border-radius: 0.5em;
+    min-width: 120px;
+  }
 
-.client-list > article > * {
-  flex: 1;
-}
+  &>article>* {
+    flex: 1;
+  }
 
-.client-list > article > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #fff;
-  border-radius: 0.5em;
-  min-height: 75px;
-}
+  &>article>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 0.5em;
+    min-height: 75px;
+  }
 
-.client-list > article h2 {
-  font-size: 1em;
-  margin-bottom: 1em;
+  &>article h2 {
+    font-size: 1em;
+    margin-bottom: 1em;
+  }
 }
 
 .logo.small {
@@ -372,27 +372,29 @@ details {
 .grid {
   display: grid;
   gap: 0.5em;
+
+  .gc-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &>div:nth-child(odd) {
+    text-align: center;
+  }
 }
 
-.grid.gc-2 {
-  grid-template-columns: 1fr 1fr;
-}
-
-.grid > div:nth-child(odd) {
-  text-align: center;
-}
 
 .g-links {
   gap: 0;
+
+  .gc-2 {
+    grid-template-columns: 20px 1fr;
+  }
+
+  &>div:nth-child(even) {
+    padding-left: 0.5em;
+  }
 }
 
-.g-links.gc-2 {
-  grid-template-columns: 20px 1fr;
-}
-
-.g-links > div:nth-child(even) {
-  padding-left: 0.5em;
-}
 
 .bk-03 {
   background-image: url("/assets/background-04.jpg");
@@ -407,23 +409,23 @@ details {
   flex-wrap: nowrap;
   align-items: center;
   gap: 0;
-}
 
-.skills-section .shift {
-  width: 20px;
-  text-align: center;
-  font-size: 2em;
-  color: #bc3334;
-}
+  .shift {
+    width: 20px;
+    text-align: center;
+    font-size: 2em;
+    color: #bc3334;
+  }
 
-.skills-section .shift:hover {
-  color: rgb(188, 51, 52, 0.5);
-  cursor: pointer;
-}
+  .shift:hover {
+    color: rgb(188, 51, 52, 0.5);
+    cursor: pointer;
+  }
 
-.skills-section > h2 {
-  width: 80px;
-  overflow: hidden;
+  &>h2 {
+    width: 80px;
+    overflow: hidden;
+  }
 }
 
 .skills {
@@ -441,30 +443,32 @@ details {
   font-size: 1.25em;
   border-radius: 0.5em;
   padding: 0 1em;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
 
-.skills::-webkit-scrollbar {
-  display: none;
-}
+  /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
-.skills > div > img {
-  height: 50px;
-}
+  &>div>img {
+    height: 50px;
+  }
 
-.skills > div {
-  display: flex;
-  flex-flow: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  gap: 0.25em;
-  padding-right: 0.25em;
-}
+  &>div {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0.25em;
+    padding-right: 0.25em;
 
-.skills > div:hover {
-  background-color: rgb(255, 255, 255, 0.5);
-  border-radius: 0.5em;
+    &:hover {
+      background-color: rgb(255, 255, 255, 0.5);
+      border-radius: 0.5em;
+    }
+  }
 }
 
 .hr {
@@ -485,11 +489,11 @@ details {
   flex: 2 1 0;
   min-width: 300px;
   overflow: hidden;
-}
 
-.intro .text {
-  flex: 1;
-  min-width: 300px;
+  .text {
+    flex: 1;
+    min-width: 300px;
+  }
 }
 
 .photo-info {
@@ -509,10 +513,10 @@ details {
   overflow: hidden;
   height: 100%;
   border-radius: 0.5em;
-}
 
-.contact-us > :first-child {
-  flex: 1;
+  &:first-child {
+    flex: 1;
+  }
 }
 
 .photo-contact-us {
