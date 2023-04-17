@@ -1,0 +1,10 @@
+@import './_variables';
+@import './_colors';
+
+:export {
+  // Colors
+  primaryColor: $primaryColor;
+
+  // Variables
+  fontSize: $fontSize;
+}
