@@ -1,7 +1,22 @@
+import { Banner } from '@/components'
+import * as styled from './styled'
+
 export interface ITechnologies {
   children?: React.ReactNode
 }
 
 export const Technologies = ({ children }: ITechnologies) => {
-  return <div>Technologies</div>
+  return (
+    <styled.Technologies>
+      <Banner>
+        <h1>Technologies</h1>
+        <div>
+          <p>
+            We work with leading technology platforms, existing off-the-shelf technologies, and your
+            current tech stack to deliver exceptional results.
+          </p>
+        </div>
+      </Banner>
+    </styled.Technologies>
+  )
 }
