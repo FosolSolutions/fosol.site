@@ -8,8 +8,7 @@ export interface ITechnologies {
 export const Technologies = ({ children }: ITechnologies) => {
   return (
     <styled.Technologies>
-      <Banner>
-        <h1>Technologies</h1>
+      <Banner title="Technologies">
         <div>
           <p>
             We work with leading technology platforms, existing off-the-shelf technologies, and your
