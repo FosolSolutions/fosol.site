@@ -6,6 +6,8 @@ body {
   background-image: url("/assets/background-02.jpg");
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   margin: 0;
   padding: 0;
 }
@@ -64,11 +66,9 @@ header {
   }
 }
 
-
 main {
   flex: 1;
-  padding: 1em;
-  overflow: auto;
+  padding: 1em 0;
 }
 
 footer {
@@ -126,6 +126,15 @@ a {
   &:active {
     color: $black;
   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding-bottom: 0.5em;
 }
 
 h1 {
@@ -288,4 +297,8 @@ img.logo {
   width: 10px;
   height: 50px;
   background-color: $white;
+}
+
+.section {
+  margin: 0 1em;
 }

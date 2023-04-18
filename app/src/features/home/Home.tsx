@@ -7,15 +7,21 @@ export interface IHome {
 
 export const Home = ({ children }: IHome) => {
   return (
-    <styled.Home className="boxes">
-      <div className="row">
+    <styled.Home className="col">
+      <div className="row section">
         <Intro />
         <ContactUs />
       </div>
-      <Skills />
+      <div className="section">
+        <Skills />
+      </div>
       <div className="bk-03"></div>
-      <Projects />
-      <Clients />
+      <div className="section">
+        <Projects />
+      </div>
+      <div className="section">
+        <Clients />
+      </div>
     </styled.Home>
   )
 }

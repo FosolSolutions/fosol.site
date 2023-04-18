@@ -5,7 +5,7 @@ export interface IClients {
   children?: React.ReactNode
 }
 
-export const Clients = ({ children }: IClients) => {
+export const Clients = () => {
   return (
     <styled.Clients className="box pad clients">
       <h1>

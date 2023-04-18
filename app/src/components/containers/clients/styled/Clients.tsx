@@ -2,16 +2,17 @@ import styled from 'styled-components'
 
 export const Clients = styled.section`
   &.clients {
-    box-sizing: border-box;
-    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
 
     > .client-list {
       display: flex;
+      flex-flow: row;
       gap: 1em;
-      width: auto;
-      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      overflow: auto;
 
-      article {
+      > article {
         flex: 1 1 0;
         display: flex;
         flex-flow: column;
@@ -21,7 +22,7 @@ export const Clients = styled.section`
         border-radius: 0.5em;
         min-width: 120px;
 
-        h2 {
+        > h2 {
           font-size: 1em;
           margin-bottom: 1em;
         }
