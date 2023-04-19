@@ -35,5 +35,6 @@ export const Banner = styled.div<IBanner>`
 
   p {
     text-align: center;
+    max-width: 50%;
   }
 `

@@ -24,4 +24,8 @@ export const Intro = styled.section`
     min-height: 200px;
     min-width: 300px;
   }
+
+  h1 {
+    color: ${(props) => props.theme.css.themePrimaryColor};
+  }
 `

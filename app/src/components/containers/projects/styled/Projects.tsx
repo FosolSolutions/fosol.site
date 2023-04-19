@@ -83,4 +83,8 @@ export const Projects = styled.section`
       min-height: 200px;
     }
   }
+
+  h1 {
+    color: ${(props) => props.theme.css.themePrimaryColor};
+  }
 `

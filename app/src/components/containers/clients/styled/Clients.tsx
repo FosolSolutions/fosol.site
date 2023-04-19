@@ -42,4 +42,8 @@ export const Clients = styled.section`
       }
     }
   }
+
+  h1 {
+    color: ${(props) => props.theme.css.themePrimaryColor};
+  }
 `
