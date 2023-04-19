@@ -6,6 +6,7 @@ export const Banner = styled.div<IBanner>`
   flex-flow: column;
   align-items: center;
   justify-content: center;
+  padding: 1em;
   background-color: ${(props) => {
     switch (props.variant) {
       case 'secondary':
@@ -27,6 +28,8 @@ export const Banner = styled.div<IBanner>`
   }};
   color: ${(props) => props.theme.css.white};
   height: 200px;
+  min-width: 300px;
+  overflow: hidden;
 
   h1 {
     color: ${(props) => props.theme.css.white};

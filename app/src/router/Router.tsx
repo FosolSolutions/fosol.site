@@ -1,4 +1,4 @@
-import { AboutUs, Careers, ClientStories, Home, Services } from '@/features'
+import { AboutUs, Careers, ClientStories, Home, Services, Stories } from '@/features'
 import { DefaultLayout } from '@/layouts'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
@@ -24,6 +24,14 @@ const router = createBrowserRouter([
     element: (
       <DefaultLayout>
         <ClientStories />
+      </DefaultLayout>
+    ),
+  },
+  {
+    path: '/clients/stories/:id',
+    element: (
+      <DefaultLayout>
+        <Stories />
       </DefaultLayout>
     ),
   },

@@ -11,7 +11,7 @@ export const ClientStories = styled.div`
 
   > div:nth-child(2) {
     overflow: auto;
-    height: calc(100vh - 87px - 200px - 37px - 32px);
+    height: calc(100vh - 87px - 200px - 37px - 64px);
 
     padding: 1em;
     display: flex;
