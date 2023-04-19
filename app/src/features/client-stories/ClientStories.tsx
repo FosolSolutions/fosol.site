@@ -7,11 +7,8 @@ export interface IClientStories {
 export const ClientStories = ({ children }: IClientStories) => {
   return (
     <div>
-      <Banner>
-        <h1>Client Stories</h1>
-        <div>
-          <p>We're passionate about harnessing technology to better serve communities.</p>
-        </div>
+      <Banner title="Client Stories">
+        <p>We're passionate about harnessing technology to better serve communities.</p>
       </Banner>
     </div>
   )

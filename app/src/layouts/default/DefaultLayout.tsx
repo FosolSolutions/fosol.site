@@ -12,7 +12,7 @@ export const DefaultLayout = ({ children }: IDefaultLayout): JSX.Element => {
         <nav>
           <ul>
             <li>
-              <Link to="/technologies">Technologies</Link>
+              <Link to="/services">Services</Link>
             </li>
             <li>
               <Link to="/clients/stories">Client Stories</Link>
