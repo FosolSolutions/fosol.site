@@ -32,7 +32,22 @@ export const stories: IStoryModel[] = [
         <p>Newly published content was available nationwide within 5 minutes.</p>
       </div>
     ),
-    image: <img src="/assets/background-01.jpg" />,
+    image: <img src="/assets/projects/postmedia/papers.jpeg" />,
+    skills: ['Development'],
+    technology: [
+      'Dotnet',
+      'C#',
+      'MSSQL',
+      'RESTful API',
+      'AWS',
+      'Elasticsearch',
+      'Node',
+      'Javascript',
+      'jQuery',
+      'ExpressJs',
+      'Flash',
+      'Actionscript',
+    ],
   },
   {
     id: 2,
@@ -66,7 +81,15 @@ export const stories: IStoryModel[] = [
         </p>
       </div>
     ),
-    image: <img src="/assets/background-01.jpg" />,
+    image: <img src="/assets/projects/enkon/botswana-image-01.jpg" />,
+    skills: [
+      'Team Leadership',
+      'Solution Architect',
+      'Technical Architect',
+      'DevOps',
+      'Development',
+    ],
+    technology: ['Dotnet', 'C#', 'Razor', 'MSSQL', 'GIS', 'RESTful API'],
   },
   {
     id: 3,
@@ -90,7 +113,16 @@ export const stories: IStoryModel[] = [
         </p>
       </div>
     ),
-    image: <img src="/assets/background-01.jpg" />,
+    image: <img src="/assets/clients/avocette-office.jpg" />,
+    skills: [
+      'Team Leadership',
+      'Solution Architect',
+      'Technical Architect',
+      'Project Management',
+      'Scrum Master',
+      'DevOps',
+      'Development',
+    ],
   },
   {
     id: 4,
@@ -117,7 +149,16 @@ export const stories: IStoryModel[] = [
         </p>
       </div>
     ),
-    image: <img src="/assets/background-01.jpg" />,
+    image: <img src="/assets/clients/quartech-office.jpg" />,
+    skills: [
+      'Team Leadership',
+      'Solution Architect',
+      'Technical Architect',
+      'Project Management',
+      'Scrum Master',
+      'DevOps',
+      'Development',
+    ],
   },
   {
     id: 5,
@@ -144,6 +185,18 @@ export const stories: IStoryModel[] = [
       </div>
     ),
     image: <img src="/assets/projects/coevent/coevent-02.png" />,
+    skills: ['Solution Architect', 'DevOps', 'Development'],
+    technology: [
+      'Azure',
+      'Dotnet',
+      'C#',
+      'Entity Framework',
+      'React',
+      'DevOps',
+      'PostgreSQL',
+      'Git',
+      'Github',
+    ],
   },
   {
     id: 6,
@@ -168,12 +221,29 @@ export const stories: IStoryModel[] = [
         </p>
       </div>
     ),
-    image: <img src="/assets/background-01.jpg" />,
+    image: <img src="/assets/projects/bc-gov/mah/bc-housing-market.jpg" />,
+    skills: [
+      'Team Leadership',
+      'Technical Architect',
+      'DevOps',
+      'Development',
+      'Quality Assurance',
+    ],
+    technology: [
+      'Dotnet',
+      'C#',
+      'Entity Framework',
+      'AngularJs',
+      'Team Foundation Server',
+      'DevOps',
+      'MSSQL',
+      'RESTful API',
+    ],
   },
   {
     id: 7,
     title: 'Employer Training Grant',
-    organization: 'BC Municipal Affairs & housing',
+    organization: 'BC Municipal Affairs & Housing',
     organizationType: 'BC Government',
     logoUrl: '/assets/clients/bc-gov-logo.png',
     problem: (
@@ -190,7 +260,24 @@ export const stories: IStoryModel[] = [
         <p>Provided ongoing support and enhancements to handle new business requirements.</p>
       </div>
     ),
-    image: <img src="/assets/background-01.jpg" />,
+    image: <img src="/assets/projects/bc-gov/mah/bc-housing-market.jpg" />,
+    skills: [
+      'Team Leadership',
+      'Technical Architect',
+      'DevOps',
+      'Development',
+      'Quality Assurance',
+    ],
+    technology: [
+      'Dotnet',
+      'C#',
+      'Entity Framework',
+      'AngularJs',
+      'Team Foundation Server',
+      'DevOps',
+      'MSSQL',
+      'RESTful API',
+    ],
   },
   {
     id: 8,
@@ -212,7 +299,24 @@ export const stories: IStoryModel[] = [
         <p>Provided ongoing support and enhancements to handle new business requirements.</p>
       </div>
     ),
-    image: <img src="/assets/background-01.jpg" />,
+    image: <img src="/assets/projects/bc-gov/aved/gov-building-01.jpg" />,
+    skills: [
+      'Team Leadership',
+      'Technical Architect',
+      'DevOps',
+      'Development',
+      'Quality Assurance',
+    ],
+    technology: [
+      'Dotnet',
+      'C#',
+      'Entity Framework',
+      'AngularJs',
+      'Team Foundation Server',
+      'DevOps',
+      'MSSQL',
+      'RESTful API',
+    ],
   },
   {
     id: 9,
@@ -234,7 +338,24 @@ export const stories: IStoryModel[] = [
         <p>Provided ongoing support and enhancements to handle new business requirements.</p>
       </div>
     ),
-    image: <img src="/assets/background-01.jpg" />,
+    image: <img src="/assets/projects/bc-gov/aved/training-01.jpeg" />,
+    skills: [
+      'Team Leadership',
+      'Technical Architect',
+      'DevOps',
+      'Development',
+      'Quality Assurance',
+    ],
+    technology: [
+      'Dotnet',
+      'C#',
+      'Entity Framework',
+      'AngularJs',
+      'Team Foundation Server',
+      'DevOps',
+      'MSSQL',
+      'RESTful API',
+    ],
   },
   {
     id: 10,
@@ -260,7 +381,9 @@ export const stories: IStoryModel[] = [
         </p>
       </div>
     ),
-    image: <img src="/assets/background-01.jpg" />,
+    image: <img src="/assets/projects/bc-gov/mag/office-meeting.jpg" />,
+    skills: ['Technical Architect', 'DevOps'],
+    technology: ['Microsoft 365 Dynamics', 'Git'],
   },
   {
     id: 11,
@@ -285,7 +408,18 @@ export const stories: IStoryModel[] = [
         </p>
       </div>
     ),
-    image: <img src="/assets/background-01.jpg" />,
+    image: <img src="/assets/projects/bc-gov/pssg/bc-driver-license.jpg" />,
+    skills: ['Scrum Master', 'Solution Architect', 'Development'],
+    technology: [
+      'Openshift',
+      'Java',
+      'Bluesphere',
+      'Machine Learning',
+      'Optical Character Recognition',
+      'RESTful API',
+      'Git',
+      'Github',
+    ],
   },
   {
     id: 12,
@@ -312,6 +446,32 @@ export const stories: IStoryModel[] = [
       </div>
     ),
     image: <img src="/assets/projects/bc-gov/citz/pims/app.png" />,
+    skills: [
+      'Team Leadership',
+      'Scrum Master',
+      'UX/UI Design',
+      'Development',
+      'GIS Development',
+      'DevOps',
+    ],
+    technology: [
+      'Leaflet',
+      'Kubernetes',
+      'Openshift',
+      'Jenkins',
+      'Docker',
+      'MSSQL',
+      'Dotnet',
+      'C#',
+      'Entity Framework',
+      'Javascript',
+      'React',
+      'Keycloak',
+      'Single Sign On',
+      'RESTful API',
+      'Git',
+      'Github',
+    ],
   },
   {
     id: 13,
@@ -343,6 +503,35 @@ export const stories: IStoryModel[] = [
       </div>
     ),
     image: <img src="/assets/projects/bc-gov/moti/psp/login.png" />,
+    skills: [
+      'Team Leadership',
+      'Hybrid Agile Process',
+      'Business Analyst',
+      'UX/UI Design',
+      'Development',
+      'GIS Development',
+      'DevOps',
+      'Quality Assurances',
+    ],
+    technology: [
+      'ArcGIS',
+      'Leaflet',
+      'Kubernetes',
+      'Openshift',
+      'Jenkins',
+      'Docker',
+      'MSSQL',
+      'Dotnet',
+      'C#',
+      'Entity Framework',
+      'Javascript',
+      'React',
+      'Keycloak',
+      'Single Sign On',
+      'RESTful API',
+      'Git',
+      'Github',
+    ],
   },
   {
     id: 14,
@@ -352,14 +541,80 @@ export const stories: IStoryModel[] = [
     logoUrl: '/assets/clients/bc-gov-logo.png',
     problem: (
       <div>
-        <p></p>
+        <p>
+          GCPE’s primary role is to inform the public about government programs, services, policies,
+          and priorities through traditional communication practices and, increasingly, through
+          direct engagement and online services.
+        </p>
+        <p>
+          One of GCPE’s featured services to clients is Today’s News Online Media Monitoring.
+          Through this application, GCPE tracks breaking news stories in British Columbia, Canada,
+          and around the world that impact our province.
+        </p>
+        <p>
+          The TNO application provides a variety of key services to senior executives throughout
+          government including near-live issue alerts, morning and evening summary reports, as well
+          as in-depth media analysis of key government initiatives and issues.
+        </p>
+        <p>
+          The current solution has reached end-of-life and can no longer be supported. Many of the
+          components require significant rewrites to make them compliant with security and business
+          requirements.
+        </p>
       </div>
     ),
     solution: (
       <div>
-        <p></p>
+        <p>
+          Designed new modern microservice cloud architecture solution that would support all
+          current business requirements and enable future incremental enhancements.
+        </p>
+        <p>Performing user research and development to complete the new solution on-time.</p>
       </div>
     ),
-    image: <img src="/assets/background-01.jpg" />,
+    image: <img src="/assets/projects/bc-gov/citz/mmia/mmia-01.png" />,
+    skills: [
+      'Team Leadership',
+      'Solution Architect',
+      'Technical Architect',
+      'Agile Project Management',
+      'Scrum Master',
+      'User Research',
+      'UX/UI Design',
+      'Development',
+      'DevOps',
+    ],
+    technology: [
+      'Microservices',
+      'AWS',
+      'Azure',
+      'Kubernetes',
+      'Openshift',
+      'Tekton',
+      'Docker',
+      'Kafka',
+      'Elasticsearch',
+      'PostgreSQL',
+      'Dotnet',
+      'C#',
+      'Entity Framework',
+      'Razor',
+      'Javascript',
+      'React',
+      'Java',
+      'Transcription',
+      'Natural Language Processing',
+      'OpenNLP',
+      'Sysdig',
+      'Grafana',
+      'Kibana',
+      'Audio/Video Capture and Streaming',
+      'FFmpeg',
+      'Keycloak',
+      'Single Sign On',
+      'RESTful API',
+      'Git',
+      'Github',
+    ],
   },
 ]

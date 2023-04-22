@@ -16,6 +16,7 @@ export const Header = ({ children }: IHeader): JSX.Element => {
         </Link>
       </div>
       {children}
+      <div></div>
     </header>
   )
 }

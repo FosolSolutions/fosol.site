@@ -38,6 +38,7 @@ export const Story = styled.div`
     }
 
     section {
+      min-width: 330px;
       > h1 {
         color: ${(props) => props.theme.css.themePrimaryColor};
         text-transform: uppercase;
@@ -47,7 +48,9 @@ export const Story = styled.div`
     .picture {
       > img {
         width: 100%;
+        min-width: 300px;
         height: auto;
+        box-shadow: 0 0 10px ${(props) => props.theme.css.black};
       }
     }
   }
