@@ -1,6 +1,6 @@
 import { Banner } from '@/components'
+import { stories } from '@/data'
 import { useNavigate } from 'react-router-dom'
-import { stories } from './data'
 import * as styled from './styled'
 
 export interface IClientStories {}

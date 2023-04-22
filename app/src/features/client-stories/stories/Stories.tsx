@@ -1,6 +1,6 @@
+import { stories } from '@/data'
 import { useParams } from 'react-router-dom'
 import { Story } from '.'
-import { stories } from '../data'
 
 export const Stories = () => {
   const { id } = useParams()

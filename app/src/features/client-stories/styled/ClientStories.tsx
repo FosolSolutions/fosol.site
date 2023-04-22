@@ -30,6 +30,8 @@ export const ClientStories = styled.div`
       flex-flow: column;
       background-color: ${(props) => props.theme.css.primaryBackgroundColor};
       border: solid 1px ${(props) => props.theme.css.themePrimaryColor};
+      border-top-right-radius: 1em;
+      border-bottom-left-radius: 1em;
 
       h1 {
         font-weight: 100;
@@ -60,6 +62,10 @@ export const ClientStories = styled.div`
 
       &:hover {
         box-shadow: 0 0 5px ${(props) => props.theme.css.themePrimaryColor};
+
+        h1 {
+          color: ${(props) => props.theme.css.themePrimaryColor};
+        }
 
         .link {
           color: ${(props) => props.theme.css.themePrimaryColor};
