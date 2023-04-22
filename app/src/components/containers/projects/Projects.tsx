@@ -14,7 +14,7 @@ export const Projects = ({ children }: IProjects) => {
       <div className="containers">
         <article className="container">
           <div>
-            <img className="icon icon-bk" src="assets/projects/bc-gov/mmia/mmia-logo.svg" />
+            <img className="icon icon-bk" src="assets/projects/bc-gov/citz/mmia/mmia-logo.svg" />
             <h2>Media Monitoring Information & Analysis</h2>
           </div>
           <div>

@@ -22,19 +22,22 @@ export const Story = ({
 }: IStoryProps) => {
   return (
     <styled.Story>
-      <Banner>
-        <div className="row">
-          <div>
-            <h1>{organization}</h1>
-            <p>{organizationType}</p>
-          </div>
-          <div>{logoUrl && <img className="logo" src={logoUrl} />}</div>
-        </div>
+      <Banner title="Client Story">
+        <p>
+          {title} - {organization}
+        </p>
       </Banner>
       <div>
         <article>
           <div>
-            <h1>{title}</h1>
+            <div className="row">
+              <div>
+                <h1>{title}</h1>
+                <p>{organization}</p>
+                <p>{organizationType}</p>
+              </div>
+              <div>{logoUrl && <img className="logo" src={logoUrl} />}</div>
+            </div>
             <section>
               <h1>Problem</h1>
               <p>{problem}</p>

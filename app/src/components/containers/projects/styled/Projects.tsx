@@ -59,7 +59,7 @@ export const Projects = styled.section`
     }
 
     .work-mmia {
-      background-image: url('/assets/projects/bc-gov/mmia/mmia-01.png');
+      background-image: url('/assets/projects/bc-gov/citz/mmia/mmia-01.png');
       background-position: top;
       background-size: cover;
       background-repeat: no-repeat;

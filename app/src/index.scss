@@ -2,14 +2,16 @@
 @import './css/_colors';
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
-  background-image: url("/assets/background-02.jpg");
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  font-size: 1em;
+  background-color: rgba(249, 250, 251, 1);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   margin: 0;
   padding: 0;
+  min-width: 322px;
 }
 
 #root {
@@ -27,7 +29,8 @@ header {
   padding: 0 1em;
   display: flex;
   flex-direction: row;
-  background-color: rgba($primaryBackgroundColor, 0.75);
+  background-color: rgba($primaryBackgroundColor, 1);
+  border-bottom: solid 1px hwb(210 98% 12%);
 
   h1.cname {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
