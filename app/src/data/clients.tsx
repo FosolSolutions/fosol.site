@@ -61,12 +61,18 @@ export const clients: IClientModel[] = [
   },
   {
     id: 10,
+    name: 'BC Developer Exchange',
+    organizationType: 'BC Government',
+    logoUrl: '/assets/clients/bcdevexchange-logo.png',
+  },
+  {
+    id: 11,
     name: 'Ministry of Transportation & Infrastructure',
     organizationType: 'BC Government',
     logoUrl: '/assets/clients/bc-gov-logo.png',
   },
   {
-    id: 11,
+    id: 12,
     name: 'Ministry of Citizen Services',
     organizationType: 'BC Government',
     logoUrl: '/assets/clients/bc-gov-logo.png',
