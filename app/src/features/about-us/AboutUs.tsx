@@ -8,10 +8,10 @@ export const AboutUs = ({ children }: IAboutUs) => {
   return (
     <div>
       <Banner title="Our Team">
-        <p>Our highly skilled professionals are diverse in experience and work style.</p>
+        <p>We love designing and building beautiful software solutions.</p>
         <p>
-          Our lived experience drives a passion to help clients realize bold goals through smarter
-          technology solutions.
+          Our team is composed of both employee and subcontractor resources that have a history of
+          successfully working together.
         </p>
       </Banner>
     </div>

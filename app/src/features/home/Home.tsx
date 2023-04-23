@@ -1,4 +1,4 @@
-import { Clients, ContactUs, Intro, Projects, Skills } from '@/components'
+import { Clients, ContactUs, Intro, Projects } from '@/components'
 import * as styled from './styled'
 
 export interface IHome {
@@ -11,9 +11,6 @@ export const Home = ({ children }: IHome) => {
       <div className="row section">
         <Intro />
         <ContactUs />
-      </div>
-      <div className="section">
-        <Skills />
       </div>
       <div className="bk-03"></div>
       <div className="section">

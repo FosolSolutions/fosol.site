@@ -70,7 +70,8 @@ export const Skills = styled.div`
       padding-right: 0.25em;
 
       &:hover {
-        background-color: rgb(255, 255, 255, 0.5);
+        cursor: pointer;
+        background-color: ${(props) => props.theme.css.primaryBackgroundColor};
         border-radius: 0.5em;
       }
     }
