@@ -1,4 +1,4 @@
-import { Banner } from '@/components'
+import { Banner, Skills } from '@/components'
 import * as styled from './styled'
 
 export interface IServices {
@@ -33,6 +33,7 @@ export const Services = ({ children }: IServices) => {
             <div>Audio/Video Capture</div>
           </div>
         </section>
+        <Skills title="Our Toolkit Includes" />
         <section>
           <h1>Our Toolkit Includes</h1>
           <div>
