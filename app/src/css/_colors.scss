@@ -1,17 +1,42 @@
-$primaryColor: #003366;
-
-$primaryBackgroundColor: #fff;
-
-$btnPrimaryColor: hsl(239, 59%, 55%);
-$btnPrimaryHoverColor: hsl(239, 59%, 40%);
-
-$themePrimaryColor: #bc3334;
-$themeSecondaryColor: #5d83d4;
-$themeTertiaryColor: #7ac962;
-$themeInfoColor: #506a9b;
-$themeSuccessColor: #3c993c;
-$themeWarningColor: #e4e01c;
-$themeErrorColor: hsl(360, 80%, 47%);
-
 $white: #fff;
 $black: #000;
+
+$theme1stColor: #bc3334;
+$theme2ndColor: #003049;
+$theme3rdColor: #568EA3;
+$theme4thColor: #363537;
+$theme5thColor: #CBBFBB;
+$theme6thColor: #F3C677;
+$theme7thColor: #FFE8D1;
+
+$primaryColor: $theme1stColor;
+$secondaryColor: $theme2ndColor;
+
+$primaryBkColor: $white;
+$secondaryBkColor: $theme7thColor;
+
+$themePrimaryColor: $theme1stColor;
+$themeSecondaryColor: $theme2ndColor;
+$themeInfoColor: $theme3rdColor;
+$themeLinkColor: #F5F3BB;
+$themeSuccessColor: #7BD389;
+$themeWarningColor: #FF9505;
+$themeErrorColor: #F3B3A6;
+
+$btnPrimaryColor: $theme1stColor;
+$btnPrimaryHoverColor: hsl(360, 57%, 55%);
+$btnSecondaryColor: $theme2ndColor;
+$btnSecondaryHoverColor: hsl(201, 100%, 20%);
+$btnInfoColor: $themeInfoColor;
+$btnInfoHoverColor: hsl(201, 100%, 20%);
+$btnLinkColor: $themeLinkColor;
+$btnLinkHoverColor: hsl(201, 100%, 20%);
+$btnSuccessColor: $themeSuccessColor;
+$btnSuccessHoverColor: hsl(201, 100%, 20%);
+$btnWarningColor: $themeWarningColor;
+$btnWarningHoverColor: hsl(201, 100%, 20%);
+$btnErrorColor: $themeErrorColor;
+$btnErrorHoverColor: hsl(201, 100%, 20%);
+
+$themePrimaryBkColor: $primaryBkColor;
+$themeSecondaryBkColor: $secondaryBkColor;

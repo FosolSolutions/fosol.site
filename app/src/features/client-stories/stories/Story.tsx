@@ -34,7 +34,7 @@ export const Story = ({
       <div>
         <article>
           <div>
-            <div className="row">
+            <div className="intro">
               <div>
                 <h1>{title}</h1>
                 <p>{organization}</p>

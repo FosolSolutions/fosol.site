@@ -3,24 +3,40 @@
 
 :export {
   // Colors
-  primaryColor: $primaryColor;
+  white: $white;
+  black: $black;
 
-  primaryBackgroundColor: $primaryBackgroundColor;
+  theme1stColor: $theme1stColor;
+  theme2ndColor: $theme2ndColor;
+  theme3rdColor: $theme3rdColor;
+  theme4thColor: $theme4thColor;
+  theme5thColor: $theme5thColor;
+  theme6thColor: $theme6thColor;
+  theme7thColor: $theme7thColor;
+
+  primaryColor: $primaryColor;
+  secondaryColor: $secondaryColor;
+
+  primaryBkColor: $primaryBkColor;
+  secondaryBkColor: $secondaryBkColor;
 
   btnPrimaryColor: $btnPrimaryColor;
   btnPrimaryHoverColor: $btnPrimaryHoverColor;
+  btnSecondaryColor: $btnSecondaryColor;
+  btnSecondaryHoverColor: $btnSecondaryHoverColor;
 
   themePrimaryColor: $themePrimaryColor;
   themeSecondaryColor: $themeSecondaryColor;
-  themeTertiaryColor: $themeTertiaryColor;
   themeInfoColor: $themeInfoColor;
+  themeLinkColor: $themeLinkColor;
   themeSuccessColor: $themeSuccessColor;
   themeWarningColor: $themeWarningColor;
   themeErrorColor: $themeErrorColor;
 
-  white: $white;
-  black: $black;
+  themePrimaryBkColor: $themePrimaryBkColor;
+  themeSecondaryBkColor: $themeSecondaryBkColor;
 
   // Variables
   fontSize: $fontSize;
+  bannerSize: $bannerSize;
 }
