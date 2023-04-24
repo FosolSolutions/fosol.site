@@ -23,7 +23,7 @@ export const Services = styled.div`
       flex-flow: column;
       margin: 0 1em;
       padding: 1em;
-      background-color: ${(props) => props.theme.css.primaryBackgroundColor};
+      background-color: ${(props) => props.theme.css.primaryBkColor};
       border-radius: 0.5em;
 
       h1 {

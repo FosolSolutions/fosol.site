@@ -28,7 +28,7 @@ export const ClientStories = styled.div`
       padding: 1em;
       display: flex;
       flex-flow: column;
-      background-color: ${(props) => props.theme.css.primaryBackgroundColor};
+      background-color: ${(props) => props.theme.css.primaryBkColor};
       border: solid 1px ${(props) => props.theme.css.themePrimaryColor};
       border-top-right-radius: 1em;
       border-bottom-left-radius: 1em;

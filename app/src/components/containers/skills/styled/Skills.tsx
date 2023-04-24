@@ -71,7 +71,7 @@ export const Skills = styled.div`
 
       &:hover {
         cursor: pointer;
-        background-color: ${(props) => props.theme.css.primaryBackgroundColor};
+        background-color: ${(props) => props.theme.css.primaryBkColor};
         border-radius: 0.5em;
       }
     }

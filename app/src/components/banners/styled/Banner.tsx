@@ -11,8 +11,6 @@ export const Banner = styled.div<IBanner>`
     switch (props.variant) {
       case 'secondary':
         return props.theme.css.themeSecondaryColor
-      case 'tertiary':
-        return props.theme.css.themeTertiaryColor
       case 'info':
         return props.theme.css.themeInfoColor
       case 'success':
@@ -27,7 +25,7 @@ export const Banner = styled.div<IBanner>`
     }
   }};
   color: ${(props) => props.theme.css.white};
-  height: 200px;
+  height: ${(props) => props.height ?? props.theme.css.bannerSize};
   min-width: 300px;
   overflow: hidden;
 

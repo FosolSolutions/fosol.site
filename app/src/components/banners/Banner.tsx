@@ -3,7 +3,8 @@ import * as styled from './styled'
 
 export interface IBanner extends React.HTMLAttributes<HTMLDivElement> {
   title?: string
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'info' | 'success' | 'warning' | 'error'
+  variant?: 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'error'
+  height?: string
 }
 
 export const Banner = ({ title, children, className, ...rest }: IBanner) => {

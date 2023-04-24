@@ -9,7 +9,7 @@ export const stories: IStoryModel[] = [
     id: 1,
     title: 'National Content Management Solution & API',
     organization: 'Postmedia',
-    organizationType: 'Private Corporation',
+    organizationType: 'Public Corporation',
     logoUrl: '/assets/clients/postmedia-logo.png',
     problem: (
       <div>
@@ -47,6 +47,7 @@ export const stories: IStoryModel[] = [
       'ExpressJs',
       'Flash',
       'Actionscript',
+      'Redis',
     ],
   },
   {
