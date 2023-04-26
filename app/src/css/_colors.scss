@@ -1,13 +1,20 @@
-$white: #fff;
-$black: #000;
+$white: hsl(0, 0%, 100%);
+$black: hsl(0, 0%, 0%);
 
 $theme1stColor: #bc3334;
+$theme1stColorHsl: hsl(360, 57%, 47%);
 $theme2ndColor: #003049;
+$theme2ndColorHsl: hsl(201, 100%, 14%);
 $theme3rdColor: #568EA3;
+$theme3rdColorHsl: hsl(196, 31%, 49%);
 $theme4thColor: #363537;
+$theme4thColorHsl: hsl(270, 2%, 21%);
 $theme5thColor: #CBBFBB;
+$theme5thColorHsl: hsl(15, 13%, 76%);
 $theme6thColor: #F3C677;
+$theme6thColorHsl: hsl(38, 84%, 71%);
 $theme7thColor: #FFE8D1;
+$theme7thColorHsl: hsl(30, 100%, 91%);
 
 $primaryColor: $theme1stColor;
 $secondaryColor: $theme2ndColor;

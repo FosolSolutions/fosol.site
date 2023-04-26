@@ -1,3 +1,5 @@
 export * from './clients'
 export * from './openings'
+export * from './services'
+export * from './skills'
 export * from './stories'

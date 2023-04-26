@@ -1,7 +1,7 @@
 import { IArticleModel } from '@/components'
 import { FaHandshake, FaToolbox, FaUsers } from 'react-icons/fa'
 
-export const articles: IArticleModel[] = [
+export const highlights: IArticleModel[] = [
   {
     title: 'Culture',
     icon: <FaUsers />,

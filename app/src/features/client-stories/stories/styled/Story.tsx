@@ -20,7 +20,7 @@ export const Story = styled.div`
   .intro {
     display: flex;
     flex-flow: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap-reverse;
     align-items: center;
 
     > div:nth-child(1) {
@@ -37,6 +37,10 @@ export const Story = styled.div`
       height: auto;
       max-width: 300px;
       max-height: 100px;
+    }
+
+    .company-name {
+      font-weight: bold;
     }
   }
 

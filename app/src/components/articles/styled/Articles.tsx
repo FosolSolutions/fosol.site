@@ -3,10 +3,10 @@ import styled from 'styled-components'
 export const Articles = styled.section`
   display: flex;
   flex-flow: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 1em;
   background-color: ${(props) => props.theme.css.theme7thColor};
-  padding: 0 100px;
+  padding: 0 5%;
 
   > article {
     flex: 1;
