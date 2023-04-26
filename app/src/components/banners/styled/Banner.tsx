@@ -38,4 +38,10 @@ export const Banner = styled.div<IBanner>`
     text-align: center;
     max-width: 50%;
   }
+
+  @media only screen and (max-width: 600px) {
+    p {
+      max-width: unset;
+    }
+  }
 `

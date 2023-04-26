@@ -4,47 +4,59 @@ export const Services = styled.div`
   display: flex;
   flex-flow: column;
 
-  .banner-01 {
-    background-image: url('/assets/background-06.jpg');
-    background-size: contain;
-    background-position: center;
-    background-repeat: repeat;
-    height: 500px;
-  }
+  section.services {
+    padding: 1em;
+    background-color: ${(props) => props.theme.css.theme4thColor};
 
-  > div:nth-child(2) {
-    display: flex;
-    flex-flow: column;
-    gap: 1em;
-    margin: 1em 0;
+    h1 {
+      color: ${(props) => props.theme.css.theme6thColor};
+    }
 
-    > section {
+    > div {
       display: flex;
-      flex-flow: column;
-      margin: 0 1em;
-      padding: 1em;
-      background-color: ${(props) => props.theme.css.primaryBkColor};
-      border-radius: 0.5em;
+      flex-flow: row;
+      flex-wrap: wrap;
+      gap: 1em;
 
-      h1 {
-        color: ${(props) => props.theme.css.themePrimaryColor};
+      > div:nth-child(1) {
+        flex: 1 1 0;
+        min-width: 300px;
+        padding: 1em;
+        color: ${(props) => props.theme.css.theme6thColor};
+        font-size: 1.15em;
       }
 
-      > div {
-        padding: 0 1em;
+      > div:nth-child(2) {
+        flex: 3 3 0;
         display: flex;
         flex-flow: row;
         flex-wrap: wrap;
         gap: 1em;
-        max-width: 80%;
-        margin: auto;
+        align-items: stretch;
+        justify-content: stretch;
 
         > div {
-          flex: 1 1 auto;
-          padding: 0.5em;
-          border: solid 1px ${(props) => props.theme.css.themePrimaryColor};
+          flex-grow: 1;
+          width: calc(33% - 4em);
+          min-width: 300px;
+          background-color: hsl(0, 0%, 85%);
           border-radius: 0.5em;
-          text-align: center;
+          padding: 1em;
+          display: flex;
+          flex-flow: row;
+          align-items: center;
+          gap: 1em;
+
+          h2 {
+            font-size: 1.5em;
+          }
+          .icon {
+            flex: 1;
+            img {
+              max-height: 50px;
+              width: auto;
+            }
+          }
         }
       }
     }

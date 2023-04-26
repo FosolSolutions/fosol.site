@@ -8,7 +8,7 @@ export const Skills = styled.div`
 
   > h2 {
     overflow: hidden;
-    background-color: #000;
+    background-color: ${(props) => props.theme.css.theme4thColor};
     color: #fff;
     width: 100%;
     text-align: center;
@@ -55,6 +55,10 @@ export const Skills = styled.div`
     /* Firefox */
     &::-webkit-scrollbar {
       display: none;
+    }
+
+    .hr {
+      background-color: ${(props) => props.theme.css.theme2ndColor};
     }
 
     & > div > img {

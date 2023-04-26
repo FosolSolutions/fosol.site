@@ -1,3 +1,4 @@
+import { skills } from '@/data'
 import { FaCaretLeft, FaCaretRight } from 'react-icons/fa'
 import * as styled from './styled'
 
@@ -14,26 +15,12 @@ export const Skills = ({ title = 'Skills' }: ISkillsProps) => {
           <FaCaretLeft />
         </div>
         <div className="skills">
-          <div>
-            <img src="/assets/icons/enterprise-architect.png" />
-            Solution Architect
-          </div>
-          <div>
-            <img src="/assets/icons/project-management.png" />
-            Project Management
-          </div>
-          <div>
-            <img src="/assets/icons/ux-ui.webp" />
-            User Research
-          </div>
-          <div>
-            <img src="/assets/icons/developer.png" />
-            Development
-          </div>
-          <div>
-            <img src="/assets/icons/support.png" />
-            Support
-          </div>
+          {skills.map((skill) => (
+            <div>
+              {skill.icon}
+              {skill.name}
+            </div>
+          ))}
           <div className="hr"></div>
           <div>
             <img src="/assets/icons/openshift.png" />

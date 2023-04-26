@@ -2,7 +2,7 @@ import { Articles, Banner, Button } from '@/components'
 import { openings } from '@/data'
 import { FaSmile } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
-import { articles } from './constants'
+import { highlights, progression } from './constants'
 import * as styled from './styled'
 
 export const Careers = () => {
@@ -13,7 +13,6 @@ export const Careers = () => {
   return (
     <styled.Careers>
       <Banner title="Careers">
-        <p>We're always looking to find talented people.</p>
         <p>We support local on-site and remote work, employees and contractors.</p>
         <p>Submit your resume, and we'll reach out to you when we have an opening.</p>
         <Button label="Submit Resume" />
@@ -39,7 +38,8 @@ export const Careers = () => {
               {opening.name}
             </div>
           ))}
-      <Articles articles={articles} />
+      <Articles articles={highlights} />
+      <Articles articles={progression} className="progression" />
     </styled.Careers>
   )
 }

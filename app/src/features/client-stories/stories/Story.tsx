@@ -37,29 +37,29 @@ export const Story = ({
             <div className="intro">
               <div>
                 <h1>{title}</h1>
-                <p>{organization}</p>
+                <p className="company-name">{organization}</p>
                 <p>{organizationType}</p>
               </div>
               <div>{logoUrl && <img className="logo" src={logoUrl} />}</div>
             </div>
             <section>
               <h1>Problem</h1>
-              <p>{problem}</p>
+              <div>{problem}</div>
             </section>
             <section>
               <h1>Solution</h1>
-              <p>{solution}</p>
+              <div>{solution}</div>
             </section>
             {skills && (
               <section>
                 <h1>Applied Skills</h1>
-                <p>{skills.join(', ')}</p>
+                <div>{skills.join(', ')}</div>
               </section>
             )}
             {technology && (
               <section>
                 <h1>Technology Used</h1>
-                <p>{technology.join(', ')}</p>
+                <div>{technology.join(', ')}</div>
               </section>
             )}
           </div>
