@@ -61,4 +61,8 @@ export const Services = styled.div`
       }
     }
   }
+
+  section.skill {
+    padding: 2em;
+  }
 `

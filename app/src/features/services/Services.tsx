@@ -1,5 +1,6 @@
 import { Banner, Skills } from '@/components'
-import { services } from '@/data'
+import { ISkillModel, services } from '@/data'
+import React from 'react'
 import * as styled from './styled'
 
 export interface IServices {
@@ -7,6 +8,8 @@ export interface IServices {
 }
 
 export const Services = ({ children }: IServices) => {
+  const [skill, setSkill] = React.useState<ISkillModel>()
+
   return (
     <styled.Services>
       <Banner title="Services">
@@ -34,8 +37,13 @@ export const Services = ({ children }: IServices) => {
             </div>
           </div>
         </section>
-        <Skills title="Our Toolkit Includes" />
-        <section className="skill"></section>
+        <Skills title="Our Toolkit Includes" onClick={setSkill} />
+        {skill && (
+          <section className="skill">
+            <h1>{skill?.name}</h1>
+            {skill?.description}
+          </section>
+        )}
       </div>
     </styled.Services>
   )
