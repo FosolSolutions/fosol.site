@@ -8,8 +8,7 @@ export const progression: IArticleModel[] = [
     summary: (
       <div>
         <p>
-          Just starting your career, or perhaps just starting a new career. We're a great place to
-          start.
+          Starting your career, or perhaps just starting a new career. We're a great place to start.
         </p>
         <p>We can help you gain the experience you need to have a great career.</p>
       </div>
@@ -21,7 +20,7 @@ export const progression: IArticleModel[] = [
     summary: (
       <div>
         <p>Congratulations you're officially experienced! We need people like you.</p>
-        <p>Join us and gain more experience, and learn the latest technology.</p>
+        <p>Technology keeps changing, join us and learn the latest technology.</p>
       </div>
     ),
   },

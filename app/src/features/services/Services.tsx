@@ -1,4 +1,4 @@
-import { Banner, Skills } from '@/components'
+import { Banner, Button, Skills } from '@/components'
 import { ISkillModel, services } from '@/data'
 import React from 'react'
 import * as styled from './styled'
@@ -26,6 +26,7 @@ export const Services = ({ children }: IServices) => {
               <p>Looking for assistance designing and developing a software solution?</p>
               <p>We provide individual resources or teams to support your business needs.</p>
               <p>Contact us and get a quote.</p>
+              <Button label="Start Your Next Project" />
             </div>
             <div>
               {services.map((service) => (

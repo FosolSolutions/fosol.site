@@ -15,7 +15,7 @@ export const Careers = () => {
       <Banner title="Careers">
         <p>We support local on-site and remote work, employees and contractors.</p>
         <p>Submit your resume, and we'll reach out to you when we have an opening.</p>
-        <Button label="Submit Resume" />
+        <Button label="Join Our Team" variant="warning" />
       </Banner>
       {!hasOpening && (
         <Banner height="30px" variant="secondary">
