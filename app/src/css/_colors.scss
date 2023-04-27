@@ -1,5 +1,5 @@
 $white: hsl(0, 0%, 100%);
-$black: hsl(0, 0%, 0%);
+$black: #000000;
 
 $theme1stColor: #bc3334;
 $theme1stColorHsl: hsl(360, 57%, 47%);
@@ -23,27 +23,34 @@ $primaryBkColor: $white;
 $secondaryBkColor: $theme7thColor;
 
 $themePrimaryColor: $theme1stColor;
+$themePrimaryColorHsl: $theme1stColorHsl;
 $themeSecondaryColor: $theme2ndColor;
+$themeSecondaryColorHsl: $theme2ndColorHsl;
 $themeInfoColor: $theme3rdColor;
+$themeInfoColorHsl: $theme3rdColorHsl;
 $themeLinkColor: #F5F3BB;
+$themeLinkColorHsl: hsl(58, 74%, 85%);
 $themeSuccessColor: #7BD389;
+$themeSuccessColorHsl: hsl(130, 50%, 65%);
 $themeWarningColor: #FF9505;
+$themeWarningColorHsl: hsl(35, 100%, 51%);
 $themeErrorColor: #F3B3A6;
+$themeErrorColorHsl: hsl(10, 76%, 80%);
 
 $btnPrimaryColor: $theme1stColor;
 $btnPrimaryHoverColor: hsl(360, 57%, 55%);
 $btnSecondaryColor: $theme2ndColor;
-$btnSecondaryHoverColor: hsl(201, 100%, 20%);
+$btnSecondaryHoverColor: hsl(201, 100%, 24%);
 $btnInfoColor: $themeInfoColor;
-$btnInfoHoverColor: hsl(201, 100%, 20%);
+$btnInfoHoverColor: hsl(196, 31%, 59%);
 $btnLinkColor: $themeLinkColor;
-$btnLinkHoverColor: hsl(201, 100%, 20%);
+$btnLinkHoverColor: hsl(58, 74%, 95%);
 $btnSuccessColor: $themeSuccessColor;
-$btnSuccessHoverColor: hsl(201, 100%, 20%);
+$btnSuccessHoverColor: hsl(130, 50%, 75%);
 $btnWarningColor: $themeWarningColor;
-$btnWarningHoverColor: hsl(201, 100%, 20%);
+$btnWarningHoverColor: hsl(35, 100%, 61%);
 $btnErrorColor: $themeErrorColor;
-$btnErrorHoverColor: hsl(201, 100%, 20%);
+$btnErrorHoverColor: hsl(10, 76%, 90%);
 
 $themePrimaryBkColor: $primaryBkColor;
 $themeSecondaryBkColor: $secondaryBkColor;

@@ -246,7 +246,8 @@ export const skills: ISkillModel[] = [
     id: 27,
     name: 'Sass',
     showName: false,
-    description: '',
+    description:
+      "Sass (which stands for 'Syntactically awesome style sheets) is an extension of CSS that enables you to use things like variables, nested rules, inline imports and more. It also helps to keep things organised and allows you to create style sheets faster. Sass is compatible with all versions of CSS.",
     icon: <img src="/assets/icons/sass.webp" />,
     categories: ['language'],
   },
@@ -254,15 +255,17 @@ export const skills: ISkillModel[] = [
     id: 28,
     name: 'Kafka',
     showName: true,
-    description: '',
+    description:
+      'Kafka is primarily used to build real-time streaming data pipelines and applications that adapt to the data streams. It combines messaging, storage, and stream processing to allow storage and analysis of both historical and real-time data.',
     icon: <img src="/assets/icons/kafka.png" />,
     categories: ['tool', 'queue', 'event streaming', 'database'],
   },
   {
     id: 29,
-    name: 'TSL',
+    name: 'TSQL',
     showName: false,
-    description: '',
+    description:
+      'Structured query language (SQL) is a programming language for storing and processing information in a relational database. A relational database stores information in tabular form, with rows and columns representing different data attributes and the various relationships between the data values.',
     icon: <img src="/assets/icons/tsql.webp" />,
     categories: ['database', 'language'],
   },
@@ -270,7 +273,8 @@ export const skills: ISkillModel[] = [
     id: 30,
     name: 'SQL Server',
     showName: true,
-    description: '',
+    description:
+      'Microsoft SQL Server is a relational database management system (RDBMS) that supports a wide variety of transaction processing, business intelligence and analytics applications in corporate IT environments.',
     icon: <img src="/assets/icons/mssql.png" />,
     categories: ['database'],
   },
@@ -278,7 +282,8 @@ export const skills: ISkillModel[] = [
     id: 31,
     name: 'Oracle DB',
     showName: true,
-    description: '',
+    description:
+      'It is a database commonly used for running online transaction processing (OLTP), data warehousing (DW) and mixed (OLTP & DW) database workloads. Oracle Database is available by several service providers on-prem, on-cloud, or as a hybrid cloud installation.',
     icon: <img src="/assets/icons/oracle.png" />,
     categories: ['database'],
   },
@@ -286,7 +291,8 @@ export const skills: ISkillModel[] = [
     id: 32,
     name: 'PostgreSQL',
     showName: true,
-    description: '',
+    description:
+      'PostgreSQL is a powerful, open source object-relational database system that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workloads.',
     icon: <img src="/assets/icons/postgresql.webp" />,
     categories: ['database'],
   },
@@ -294,7 +300,8 @@ export const skills: ISkillModel[] = [
     id: 33,
     name: 'Elasticsearch',
     showName: true,
-    description: '',
+    description:
+      'Elasticsearch is a distributed search and analytics engine built on Apache Lucene. Since its release in 2010, Elasticsearch has quickly become the most popular search engine and is commonly used for log analytics, full-text search, security intelligence, business analytics, and operational intelligence use cases.',
     icon: <img src="/assets/icons/elasticsearch.png" />,
     categories: ['database'],
   },
@@ -302,7 +309,8 @@ export const skills: ISkillModel[] = [
     id: 34,
     name: 'MongoDB',
     showName: true,
-    description: '',
+    description:
+      'MongoDB is a non-relational document database that provides support for JSON-like storage. The MongoDB database has a flexible data model that enables you to store unstructured data, and it provides full indexing support, and replication with rich and intuitive APIs.',
     icon: <img src="/assets/icons/mongodb.png" />,
     categories: ['database'],
   },
@@ -310,7 +318,8 @@ export const skills: ISkillModel[] = [
     id: 35,
     name: 'Redis',
     showName: true,
-    description: '',
+    description:
+      'Redis is an open source (BSD licensed), in-memory data structure store used as a database, cache, message broker, and streaming engine. Redis provides data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes, and streams.',
     icon: <img src="/assets/icons/redis.png" />,
     categories: ['database'],
   },
@@ -318,7 +327,8 @@ export const skills: ISkillModel[] = [
     id: 36,
     name: 'Kibana',
     showName: true,
-    description: '',
+    description:
+      'Kibana is a visual interface tool that allows you to explore, visualize, and build a dashboard over the log data massed in Elasticsearch Clusters. Elastic is the company behind Kibana and the two other open source tools - Elasticsearch and Logstash.',
     icon: <img src="/assets/icons/kibana.webp" />,
     categories: ['monitor'],
   },
@@ -326,7 +336,8 @@ export const skills: ISkillModel[] = [
     id: 37,
     name: 'Grafana',
     showName: true,
-    description: '',
+    description:
+      'Grafana is a multi-platform open source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources.',
     icon: <img src="/assets/icons/grafana.png" />,
     categories: ['monitor'],
   },
@@ -334,7 +345,8 @@ export const skills: ISkillModel[] = [
     id: 38,
     name: 'Sysdig',
     showName: true,
-    description: '',
+    description:
+      'Sysdig Monitor is a monitoring, troubleshooting, cost-optimization, and alerting suite offering deep, process-level visibility into dynamic, distributed production environments. Sysdig Monitor captures, correlates, and visualizes full-stack data, and provides dashboards for monitoring your cloud-native environment.',
     icon: <img src="/assets/icons/sysdig.png" />,
     categories: ['monitor'],
   },
@@ -342,7 +354,8 @@ export const skills: ISkillModel[] = [
     id: 39,
     name: 'Prometheus',
     showName: true,
-    description: '',
+    description:
+      'Prometheus is an open-source technology designed to provide monitoring and alerting functionality for cloud-native environments, including Kubernetes. It can collect and store metrics as time-series data, recording information with a timestamp.',
     icon: <img src="/assets/icons/prometheus.png" />,
     categories: ['monitor'],
   },
@@ -350,7 +363,8 @@ export const skills: ISkillModel[] = [
     id: 40,
     name: 'Github',
     showName: true,
-    description: '',
+    description:
+      'GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere. This tutorial teaches you GitHub essentials like repositories, branches, commits, and pull requests.',
     icon: <img src="/assets/icons/github.png" />,
     categories: ['tool'],
   },
@@ -358,7 +372,8 @@ export const skills: ISkillModel[] = [
     id: 41,
     name: 'Git',
     showName: true,
-    description: '',
+    description:
+      'Git (/ɡɪt/) is a distributed version control system that tracks changes in any set of computer files, usually used for coordinating work among programmers collaboratively developing source code during software development.',
     icon: <img src="/assets/icons/git.webp" />,
     categories: ['tool'],
   },
@@ -366,7 +381,8 @@ export const skills: ISkillModel[] = [
     id: 42,
     name: 'SVN',
     showName: true,
-    description: '',
+    description:
+      'Apache Subversion (often abbreviated SVN, after its command name svn) is a software versioning and revision control system distributed as open source under the Apache License. Software developers use Subversion to maintain current and historical versions of files such as source code, web pages, and documentation.',
     icon: <img src="/assets/icons/svn.png" />,
     categories: ['tool'],
   },
@@ -374,7 +390,8 @@ export const skills: ISkillModel[] = [
     id: 43,
     name: 'Team Foundation Server',
     showName: true,
-    description: '',
+    description:
+      'Team Foundation Server (TFS) is a Microsoft product which provides source code management, reporting, requirements management, project management, automated builds, lab management, testing and release management capabilities.',
     icon: <img src="/assets/icons/tfs.png" />,
     categories: ['devops'],
   },
@@ -382,7 +399,8 @@ export const skills: ISkillModel[] = [
     id: 44,
     name: 'Jenkins',
     showName: true,
-    description: '',
+    description:
+      'Jenkins is an open source continuous integration/continuous delivery and deployment (CI/CD) automation software DevOps tool written in the Java programming language. It is used to implement CI/CD workflows, called pipelines.',
     icon: <img src="/assets/icons/jenkins.png" />,
     categories: ['devops'],
   },
@@ -390,7 +408,8 @@ export const skills: ISkillModel[] = [
     id: 45,
     name: 'Tekton',
     showName: true,
-    description: '',
+    description:
+      'Tekton is a powerful yet flexible Kubernetes-native open source framework for creating continuous integration and delivery (CI/CD) systems. It lets you build, test, and deploy across multiple cloud providers or on-premises systems by abstracting away the underlying implementation details.',
     icon: <img src="/assets/icons/tekton.png" />,
     categories: ['devops'],
   },
@@ -398,7 +417,8 @@ export const skills: ISkillModel[] = [
     id: 46,
     name: 'OpenNLP',
     showName: false,
-    description: '',
+    description:
+      'The Apache OpenNLP library is a machine learning based toolkit for the processing of natural language text. It supports the most common NLP tasks, such as tokenization, sentence segmentation, part-of-speech tagging, named entity extraction, chunking, and parsing.',
     icon: <img src="/assets/icons/opennlp.png" />,
     categories: ['tool'],
   },
@@ -406,7 +426,8 @@ export const skills: ISkillModel[] = [
     id: 47,
     name: 'FFmpeg',
     showName: true,
-    description: '',
+    description:
+      'FFmpeg is a free and open-source software project consisting of a suite of libraries and programs for handling video, audio, and other multimedia files and streams. At its core is the command-line ffmpeg tool itself, designed for processing of video and audio files.',
     icon: <img src="/assets/icons/ffmpeg.png" />,
     categories: ['tool'],
   },
@@ -414,7 +435,8 @@ export const skills: ISkillModel[] = [
     id: 48,
     name: 'Keycloak',
     showName: true,
-    description: '',
+    description:
+      'Keycloak is an open source Identity and Access Management tool with features such as Single-Sign-On (SSO), Identity Brokering and Social Login, User Federation, Client Adapters, an Admin Console, and an Account Management Console.',
     icon: <img src="/assets/icons/keycloak.png" />,
     categories: ['tool'],
   },
@@ -422,7 +444,8 @@ export const skills: ISkillModel[] = [
     id: 49,
     name: 'OIDC',
     showName: true,
-    description: '',
+    description:
+      'OpenID Connect (OIDC) is an open authentication protocol that works on top of the OAuth 2.0 framework. Targeted toward consumers, OIDC allows individuals to use single sign-on (SSO) to access relying party sites using OpenID Providers (OPs), such as an email provider or social network, to authenticate their identities.',
     icon: <img src="/assets/icons/oidc.png" />,
     categories: ['specification'],
   },
@@ -430,7 +453,8 @@ export const skills: ISkillModel[] = [
     id: 50,
     name: 'Oauth',
     showName: true,
-    description: '',
+    description:
+      'OAuth is an authentication protocol that allows you to approve one application interacting with another on your behalf without giving away your password.',
     icon: <img src="/assets/icons/oauth2.png" />,
     categories: ['specification'],
   },
@@ -438,7 +462,8 @@ export const skills: ISkillModel[] = [
     id: 51,
     name: 'VS Code',
     showName: true,
-    description: '',
+    description:
+      'Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux.',
     icon: <img src="/assets/icons/vscode.webp" />,
     categories: ['ide'],
   },
@@ -446,7 +471,8 @@ export const skills: ISkillModel[] = [
     id: 52,
     name: 'Visual Studio',
     showName: true,
-    description: '',
+    description:
+      'The Visual Studio IDE is a creative launching pad that you can use to edit, debug, and build code, and then publish an app.',
     icon: <img src="/assets/icons/visualstudio.png" />,
     categories: ['ide'],
   },
@@ -454,7 +480,8 @@ export const skills: ISkillModel[] = [
     id: 53,
     name: 'UXPin',
     showName: false,
-    description: '',
+    description:
+      'UXPin is a product design platform used by the best designers on the planet. Let your team easily design, collaborate, and present from low-fidelity wireframes to fully-interactive prototypes.',
     icon: <img src="/assets/icons/uxpin.png" />,
     categories: ['ide'],
   },
@@ -462,7 +489,8 @@ export const skills: ISkillModel[] = [
     id: 54,
     name: 'Jira',
     showName: true,
-    description: '',
+    description:
+      'Jira is a suite of agile work management solutions that powers collaboration across all teams from concept to customer, empowering you to do the best work of your life, together. Jira offers several products and deployment options that are purpose-built for Software, IT, Business, Ops teams, and more.',
     icon: <img src="/assets/icons/jira.png" />,
     categories: ['tool', 'process'],
   },
@@ -470,7 +498,8 @@ export const skills: ISkillModel[] = [
     id: 55,
     name: 'Agile',
     showName: true,
-    description: '',
+    description:
+      'Agile is an iterative approach to project management and software development that helps teams deliver value to their customers faster and with fewer headaches. Instead of betting everything on a "big bang" launch, an agile team delivers work in small, but consumable, increments.',
     icon: <img src="/assets/icons/agile.png" />,
     categories: ['process'],
   },
@@ -478,7 +507,8 @@ export const skills: ISkillModel[] = [
     id: 56,
     name: 'Scrum',
     showName: true,
-    description: '',
+    description:
+      'Scrum is a management framework that teams use to self-organize and work towards a common goal. It describes a set of meetings, tools, and roles for efficient project delivery. Much like a sports team practicing for a big match, Scrum practices allow teams to self-manage, learn from experience, and adapt to change.',
     icon: <img src="/assets/icons/scrum.png" />,
     categories: ['process'],
   },
@@ -486,7 +516,8 @@ export const skills: ISkillModel[] = [
     id: 57,
     name: 'Waterfall',
     showName: true,
-    description: '',
+    description:
+      'The waterfall project management approach entails a clearly defined sequence of execution with project phases that do not advance until a phase receives final approval. Once a phase is completed, it can be difficult and costly to revisit a previous stage.',
     icon: <img src="/assets/icons/waterfall.png" />,
     categories: ['process'],
   },
