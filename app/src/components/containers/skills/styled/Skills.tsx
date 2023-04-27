@@ -3,14 +3,14 @@ import styled from 'styled-components'
 export const Skills = styled.div`
   display: flex;
   flex-flow: column;
-  align-items: center;
+  align-items: stretch;
   border-bottom: solid 1px #000;
+  max-width: 100%;
 
   > h2 {
     overflow: hidden;
     background-color: ${(props) => props.theme.css.theme4thColor};
     color: #fff;
-    width: 100%;
     text-align: center;
     padding: 0.25em;
     margin: 0;
@@ -41,7 +41,7 @@ export const Skills = styled.div`
     gap: 1em;
     overflow-x: scroll;
     overflow-y: hidden;
-    max-width: calc(100vw - 120px);
+    width: 100%;
     background-color: rgb(255, 255, 255, 0.5);
     color: #000;
     /* text-shadow: 1px 1px 5px #000; */
@@ -73,9 +73,10 @@ export const Skills = styled.div`
       gap: 0.25em;
       padding-right: 0.25em;
 
-      &:hover {
+      &:hover:not(.hr) {
         cursor: pointer;
-        background-color: ${(props) => props.theme.css.primaryBkColor};
+        color: ${(props) => props.theme.css.theme3rdColor};
+        box-shadow: 0 0 10px ${(props) => props.theme.css.theme3rdColor};
         border-radius: 0.5em;
       }
     }

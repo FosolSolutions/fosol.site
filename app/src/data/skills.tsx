@@ -1,239 +1,493 @@
 export interface ISkillModel {
   id: number
   name: string
+  showName?: boolean
   description: React.ReactNode
   icon?: React.ReactNode
-  category: string;
+  categories: string[]
 }
 
 export const skills: ISkillModel[] = [
   {
     id: 1,
-    name: 'Enterprise Architects',
+    name: 'Openshift',
+    showName: true,
+    description:
+      "OpenShift is a cloud development Platform as a Service (PaaS) hosted by Red Hat. It's an open source cloud-based user-friendly platform used to create, test, and run applications, and finally deploy them on cloud. OpenShift is capable of managing applications written in different languages, such as Node.",
+    icon: <img src="/assets/icons/openshift.png" />,
+    categories: ['container'],
+  },
+  {
+    id: 2,
+    name: 'Kubernetes',
+    showName: true,
+    description:
+      'Kubernetes automates operational tasks of container management and includes built-in commands for deploying applications, rolling out changes to your applications, scaling your applications up and down to fit changing needs, monitoring your applications, and more—making it easier to manage applications.',
+    icon: <img src="/assets/icons/kubernetes.webp" />,
+    categories: ['container'],
+  },
+  {
+    id: 3,
+    name: 'Docker',
+    showName: true,
+    description:
+      'Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. With Docker, you can manage your infrastructure in the same ways you manage your applications.',
+    icon: <img src="/assets/icons/docker.webp" />,
+    categories: ['container'],
+  },
+  {
+    id: 4,
+    name: 'Azure',
+    showName: true,
+    description:
+      'Azure is a huge collection of servers and networking hardware, which runs a complex set of distributed applications. These applications orchestrate the configuration and operation of virtualized hardware and software on those servers. The orchestration of these servers is what makes Azure so powerful.',
+    icon: <img src="/assets/icons/azure.png" />,
+    categories: ['cloud'],
+  },
+  {
+    id: 5,
+    name: 'AWS',
+    showName: false,
+    description:
+      'Amazon web service is an online platform that provides scalable and cost-effective cloud computing solutions. AWS is a broadly adopted cloud platform that offers several on-demand operations like compute power, database storage, content delivery, etc., to help corporates scale and grow.',
+    icon: <img src="/assets/icons/aws.png" />,
+    categories: ['cloud'],
+  },
+  {
+    id: 6,
+    name: 'Windows',
+    showName: false,
+    description:
+      'Microsoft Windows is a group of OSs manufactured by Microsoft. Windows is available in 32 and 64-bit versions and offers a graphical user interface (GUI), multitasking functionalities, virtual memory management capabilities, and support for several peripheral devices.',
+    icon: <img src="/assets/icons/windows.png" />,
+    categories: ['os'],
+  },
+  {
+    id: 7,
+    name: 'Mac',
+    showName: false,
+    description:
+      "MacOS is the computer operating system (OS) for Apple desktops and laptops. It is a proprietary graphical OS that powers every Mac. OSes interact with a computer's hardware, allocating the resources necessary to complete tasks given to it -- for example, running an application.",
+    icon: <img src="/assets/icons/mac.png" />,
+    categories: ['os'],
+  },
+  {
+    id: 8,
+    name: 'Linux',
+    showName: false,
+    description:
+      'Linux is a free, open source operating system, released under the GNU General Public License (GPL). Anyone can run, study, modify, and redistribute the source code, or even sell copies of their modified code, as long as they do so under the same license.',
+    icon: <img src="/assets/icons/linux.png" />,
+    categories: ['os'],
+  },
+  {
+    id: 9,
+    name: 'Raspberry Pi',
+    showName: false,
+    description:
+      'The Raspberry Pi is a low cost, credit-card sized computer that plugs into a computer monitor or TV, and uses a standard keyboard and mouse. It is a capable little device that enables people of all ages to explore computing, and to learn how to program in languages like Scratch and Python.',
+    icon: <img src="/assets/icons/raspberry-pi.png" />,
+    categories: ['os'],
+  },
+  {
+    id: 10,
+    name: 'C#',
+    showName: false,
+    description:
+      'C# is an object-oriented, component-oriented programming language. C# provides language constructs to directly support these concepts, making C# a natural language in which to create and use software components. Since its origin, C# has added features to support new workloads and emerging software design practices.',
+    icon: <img src="/assets/icons/csharp.png" />,
+    categories: ['language'],
+  },
+  {
+    id: 11,
+    name: 'Dotnet',
+    showName: false,
+    description:
+      '.NET is a free, cross-platform, open source developer platform for building many different types of applications. With .NET, you can use multiple languages, editors, and libraries to build for web, mobile, desktop, games, IoT, and more.',
+    icon: <img src="/assets/icons/dotnet.png" />,
+    categories: ['language'],
+  },
+  {
+    id: 12,
+    name: 'ASP.NET',
+    showName: false,
+    description:
+      'ASP.NET is a free web framework for building great websites and web applications using HTML, CSS, and JavaScript. You can also create Web APIs and use real-time technologies like Web Sockets. ASP.NET Core is an alternative to ASP.NET.',
+    icon: <img src="/assets/icons/aspnet.webp" />,
+    categories: ['language'],
+  },
+  {
+    id: 13,
+    name: 'SignalR',
+    showName: true,
+    description:
+      'SignalR is a free and open-source software library for Microsoft ASP.NET that allows server code to send asynchronous notifications to client-side web applications. The library includes server-side and client-side JavaScript components.',
+    icon: <img src="/assets/icons/signalr.png" />,
+    categories: ['language'],
+  },
+  {
+    id: 14,
+    name: 'Java',
+    showName: true,
+    description:
+      'Java is a multi-platform, object-oriented, and network-centric language that can be used as a platform in itself. It is a fast, secure, reliable programming language for coding everything from mobile apps and enterprise software to big data applications and server-side technologies.',
+    icon: <img src="/assets/icons/java.png" />,
+    categories: ['language'],
+  },
+  {
+    id: 15,
+    name: 'bash',
+    showName: true,
+    description:
+      'Bash is a command processor that typically runs in a text window where the user types commands that cause actions. Bash can also read and execute commands from a file, called a shell script.',
+    icon: <img src="/assets/icons/bash.png" />,
+    categories: ['language'],
+  },
+  {
+    id: 16,
+    name: 'NodeJs',
+    showName: false,
+    description:
+      'Node. js (Node) is an open source, cross-platform runtime environment for executing JavaScript code. Node is used extensively for server-side programming, making it possible for developers to use JavaScript for client-side and server-side code without needing to learn an additional language.',
+    icon: <img src="/assets/icons/node.png" />,
+    categories: ['language'],
+  },
+  {
+    id: 17,
+    name: 'Javascript',
+    showName: true,
+    description:
+      'JavaScript (JS) is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions. While it is most well-known as the scripting language for Web pages, many non-browser environments also use it, such as Node.js, Apache CouchDB and Adobe Acrobat.',
+    icon: <img src="/assets/icons/javascript.png" />,
+    categories: ['language'],
+  },
+  {
+    id: 18,
+    name: 'Typescript',
+    showName: true,
+    description:
+      'TypeScript is a strongly typed, object-oriented, compiled programming language that builds on JavaScript. It is a superset of the JavaScript language, designed to give you better tooling at any scale. The lead architect behind TypeScript is Anders Hejlsberg, designer of C# at Microsoft.',
+    icon: <img src="/assets/icons/typescript.jpeg" />,
+    categories: ['language'],
+  },
+  {
+    id: 19,
+    name: 'React',
+    showName: true,
+    description:
+      'React is a JavaScript-based UI development library. Facebook and an open-source developer community run it. Although React is a library rather than a language, it is widely used in web development. The library first appeared in May 2013 and is now one of the most commonly used frontend libraries for web development.',
+    icon: <img src="/assets/icons/react.png" />,
+    categories: ['language'],
+  },
+  {
+    id: 20,
+    name: 'Redux',
+    showName: false,
+    description:
+      'Redux is a pattern and library for managing and updating application state, using events called "actions". It serves as a centralized store for state that needs to be used across your entire application, with rules ensuring that the state can only be updated in a predictable fashion.',
+    icon: <img src="/assets/icons/redux.png" />,
+    categories: ['language'],
+  },
+  {
+    id: 21,
+    name: 'AngularJS',
+    showName: true,
+    description:
+      "AngularJS is a structural framework for dynamic web apps. It lets you use HTML as your template language and lets you extend HTML's syntax to express your application's components clearly and succinctly. AngularJS's data binding and dependency injection eliminate much of the code you would otherwise have to write.",
+    icon: <img src="/assets/icons/angularjs.png" />,
+    categories: ['language'],
+  },
+  {
+    id: 22,
+    name: 'Leaflet',
+    showName: true,
+    description:
+      'Leaflet is the leading open-source JavaScript library for mobile-friendly interactive maps. Weighing just about 42 KB of JS , it has all the mapping features most developers ever need. Leaflet is designed with simplicity, performance and usability in mind.',
+    icon: <img src="/assets/icons/leaflet.webp" />,
+    categories: ['library'],
+  },
+  {
+    id: 23,
+    name: 'ArcJS',
+    showName: true,
+    description:
+      "ArcGIS API for JavaScript Overview. The ArcGIS API for JavaScript is a lightweight way to embed maps and tasks in web applications. You can get these maps from ArcGIS Online, your own ArcGIS Server or others' servers.",
+    icon: <img src="/assets/icons/arcjs.png" />,
+    categories: ['library'],
+  },
+  {
+    id: 24,
+    name: 'jQuery',
+    showName: false,
+    description:
+      'jQuery is an open-sourced JavaScript library that simplifies creation and navigation of web applications. Specifically, jQuery simplifies HTML Document Object Model (DOM) manipulation, Asynchronous JavaScript and XML (Ajax) and event handling.',
+    icon: <img src="/assets/icons/jquery.png" />,
+    categories: ['library'],
+  },
+  {
+    id: 25,
+    name: 'HTML',
+    showName: false,
+    description:
+      'HyperText Markup Language, or HTML, is the standard markup language for describing the structure of documents displayed on the web. HTML consists of a series of elements and attributes which are used to mark up all the components of a document to structure it in a meaningful way.',
+    icon: <img src="/assets/icons/html5.png" />,
+    categories: ['language'],
+  },
+  {
+    id: 26,
+    name: 'CSS',
+    showName: false,
+    description:
+      'CSS is the language for describing the presentation of Web pages, including colors, layout, and fonts. It allows one to adapt the presentation to different types of devices, such as large screens, small screens, or printers. CSS is independent of HTML and can be used with any XML-based markup language.',
+    icon: <img src="/assets/icons/css3.webp" />,
+    categories: ['language'],
+  },
+  {
+    id: 27,
+    name: 'Sass',
+    showName: false,
     description: '',
-    icon: <img src="/assets/icons/enterprise-architect.png" />,
-    category: 
+    icon: <img src="/assets/icons/sass.webp" />,
+    categories: ['language'],
+  },
+  {
+    id: 28,
+    name: 'Kafka',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/kafka.png" />,
+    categories: ['tool', 'queue', 'event streaming', 'database'],
+  },
+  {
+    id: 29,
+    name: 'TSL',
+    showName: false,
+    description: '',
+    icon: <img src="/assets/icons/tsql.webp" />,
+    categories: ['database', 'language'],
+  },
+  {
+    id: 30,
+    name: 'SQL Server',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/mssql.png" />,
+    categories: ['database'],
+  },
+  {
+    id: 31,
+    name: 'Oracle DB',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/oracle.png" />,
+    categories: ['database'],
+  },
+  {
+    id: 32,
+    name: 'PostgreSQL',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/postgresql.webp" />,
+    categories: ['database'],
+  },
+  {
+    id: 33,
+    name: 'Elasticsearch',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/elasticsearch.png" />,
+    categories: ['database'],
+  },
+  {
+    id: 34,
+    name: 'MongoDB',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/mongodb.png" />,
+    categories: ['database'],
+  },
+  {
+    id: 35,
+    name: 'Redis',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/redis.png" />,
+    categories: ['database'],
+  },
+  {
+    id: 36,
+    name: 'Kibana',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/kibana.webp" />,
+    categories: ['monitor'],
+  },
+  {
+    id: 37,
+    name: 'Grafana',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/grafana.png" />,
+    categories: ['monitor'],
+  },
+  {
+    id: 38,
+    name: 'Sysdig',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/sysdig.png" />,
+    categories: ['monitor'],
+  },
+  {
+    id: 39,
+    name: 'Prometheus',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/prometheus.png" />,
+    categories: ['monitor'],
+  },
+  {
+    id: 40,
+    name: 'Github',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/github.png" />,
+    categories: ['tool'],
+  },
+  {
+    id: 41,
+    name: 'Git',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/git.webp" />,
+    categories: ['tool'],
+  },
+  {
+    id: 42,
+    name: 'SVN',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/svn.png" />,
+    categories: ['tool'],
+  },
+  {
+    id: 43,
+    name: 'Team Foundation Server',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/tfs.png" />,
+    categories: ['devops'],
+  },
+  {
+    id: 44,
+    name: 'Jenkins',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/jenkins.png" />,
+    categories: ['devops'],
+  },
+  {
+    id: 45,
+    name: 'Tekton',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/tekton.png" />,
+    categories: ['devops'],
+  },
+  {
+    id: 46,
+    name: 'OpenNLP',
+    showName: false,
+    description: '',
+    icon: <img src="/assets/icons/opennlp.png" />,
+    categories: ['tool'],
+  },
+  {
+    id: 47,
+    name: 'FFmpeg',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/ffmpeg.png" />,
+    categories: ['tool'],
+  },
+  {
+    id: 48,
+    name: 'Keycloak',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/keycloak.png" />,
+    categories: ['tool'],
+  },
+  {
+    id: 49,
+    name: 'OIDC',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/oidc.png" />,
+    categories: ['specification'],
+  },
+  {
+    id: 50,
+    name: 'Oauth',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/oauth2.png" />,
+    categories: ['specification'],
+  },
+  {
+    id: 51,
+    name: 'VS Code',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/vscode.webp" />,
+    categories: ['ide'],
+  },
+  {
+    id: 52,
+    name: 'Visual Studio',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/visualstudio.png" />,
+    categories: ['ide'],
+  },
+  {
+    id: 53,
+    name: 'UXPin',
+    showName: false,
+    description: '',
+    icon: <img src="/assets/icons/uxpin.png" />,
+    categories: ['ide'],
+  },
+  {
+    id: 54,
+    name: 'Jira',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/jira.png" />,
+    categories: ['tool', 'process'],
+  },
+  {
+    id: 55,
+    name: 'Agile',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/agile.png" />,
+    categories: ['process'],
+  },
+  {
+    id: 56,
+    name: 'Scrum',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/scrum.png" />,
+    categories: ['process'],
+  },
+  {
+    id: 57,
+    name: 'Waterfall',
+    showName: true,
+    description: '',
+    icon: <img src="/assets/icons/waterfall.png" />,
+    categories: ['process'],
   },
 ]
-
-
-<div>
-<img src="/assets/icons/openshift.png" />
-Openshift
-</div>
-<div>
-<img src="/assets/icons/kubernetes.webp" />
-Kubernetes
-</div>
-<div>
-<img src="/assets/icons/docker.webp" />
-Docker
-</div>
-<div>
-<img src="/assets/icons/azure.png" />
-Azure
-</div>
-<div>
-<img src="/assets/icons/aws.png" />
-</div>
-<div className="hr"></div>
-<div>
-<img src="/assets/icons/windows.png" />
-</div>
-<div>
-<img src="/assets/icons/mac.png" />
-</div>
-<div>
-<img src="/assets/icons/linux.png" />
-</div>
-<div>
-<img src="/assets/icons/raspberry-pi.png" />
-</div>
-<div className="hr"></div>
-<div>
-<img src="/assets/icons/csharp.png" />
-</div>
-<div>
-<img src="/assets/icons/dotnet.png" />
-</div>
-<div>
-<img src="/assets/icons/aspnet.webp" />
-</div>
-<div>
-<img src="/assets/icons/signalr.png" />
-SignalR
-</div>
-<div>
-<img src="/assets/icons/java.png" />
-Java
-</div>
-<div>
-<img src="/assets/icons/bash.png" />
-bash
-</div>
-<div>
-<img src="/assets/icons/node.png" />
-</div>
-<div>
-<img src="/assets/icons/javascript.png" />
-Javascript
-</div>
-<div>
-<img src="/assets/icons/typescript.jpeg" />
-Typescript
-</div>
-<div>
-<img src="/assets/icons/react.png" />
-React
-</div>
-<div>
-<img src="/assets/icons/redux.png" />
-</div>
-<div>
-<img src="/assets/icons/angularjs.png" />
-AngularJS
-</div>
-<div>
-<img src="/assets/icons/leaflet.webp" />
-Leaflet
-</div>
-<div>
-<img src="/assets/icons/arcjs.png" />
-ArcJS
-</div>
-<div>
-<img src="/assets/icons/jquery.png" />
-</div>
-<div>
-<img src="/assets/icons/html5.png" />
-</div>
-<div>
-<img src="/assets/icons/css3.webp" />
-</div>
-<div>
-<img src="/assets/icons/sass.webp" />
-</div>
-<div className="hr"></div>
-<div>
-<img src="/assets/icons/kafka.png" />
-Kafka
-</div>
-<div>
-<img src="/assets/icons/tsql.webp" />
-</div>
-<div>
-<img src="/assets/icons/mssql.png" />
-SQL Server
-</div>
-<div>
-<img src="/assets/icons/oracle.png" />
-DB
-</div>
-<div>
-<img src="/assets/icons/postgresql.webp" />
-PostgreSQL
-</div>
-<div>
-<img src="/assets/icons/elasticsearch.png" />
-Elasticsearch
-</div>
-<div>
-<img src="/assets/icons/mongodb.png" />
-MongoDB
-</div>
-<div>
-<img src="/assets/icons/redis.png" />
-Redis
-</div>
-<div className="hr"></div>
-<div>
-<img src="/assets/icons/kibana.webp" />
-Kibana
-</div>
-<div>
-<img src="/assets/icons/grafana.png" />
-Grafana
-</div>
-<div>
-<img src="/assets/icons/sysdig.png" />
-Sysdig
-</div>
-<div>
-<img src="/assets/icons/prometheus.png" />
-Prometheus
-</div>
-<div className="hr"></div>
-<div>
-<img src="/assets/icons/github.png" />
-Github
-</div>
-<div>
-<img src="/assets/icons/git.webp" />
-Git
-</div>
-<div>
-<img src="/assets/icons/svn.png" />
-SVN
-</div>
-<div>
-<img src="/assets/icons/tfs.png" />
-Team Foundation Server
-</div>
-<div>
-<img src="/assets/icons/jenkins.png" />
-Jenkins
-</div>
-<div>
-<img src="/assets/icons/tekton.png" />
-Tekton
-</div>
-<div className="hr"></div>
-<div>
-<img src="/assets/icons/opennlp.png" />
-</div>
-<div>
-<img src="/assets/icons/ffmpeg.png" />
-FFmpeg
-</div>
-<div>
-<img src="/assets/icons/keycloak.png" />
-Keycloak
-</div>
-<div className="hr"></div>
-<div>
-<img src="/assets/icons/oidc.png" />
-OIDC
-</div>
-<div>
-<img src="/assets/icons/oauth2.png" />
-Oauth
-</div>
-<div className="hr"></div>
-<div>
-<img src="/assets/icons/vscode.webp" />
-VS Code
-</div>
-<div>
-<img src="/assets/icons/visualstudio.png" />
-Visual Studio
-</div>
-<div>
-<img src="/assets/icons/uxpin.png" />
-</div>
-<div className="hr"></div>
-<div>
-<img src="/assets/icons/jira.png" />
-Jira
-</div>
-<div>
-<img src="/assets/icons/agile.png" />
-Agile
-</div>
-<div>
-<img src="/assets/icons/scrum.png" />
-Scrum
-</div>
-<div>
-<img src="/assets/icons/waterfall.png" />
-Waterfall
-</div>
