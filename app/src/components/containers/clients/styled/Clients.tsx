@@ -12,7 +12,7 @@ export const Clients = styled.section`
       gap: 0.5em;
       -webkit-overflow-scrolling: touch;
       overflow: auto;
-      background-color: ${(props) => props.theme.css.primaryColor};
+      background-color: ${(props) => props.theme.css.theme5thColor};
       padding: 0.5em;
       border-radius: 0.75em;
 
@@ -25,7 +25,7 @@ export const Clients = styled.section`
         background-color: ${(props) => props.theme.css.primaryBkColor};
         border-radius: 0.5em;
         min-width: 120px;
-        border: solid 1px ${(props) => props.theme.css.primaryColor};
+        border: solid 1px ${(props) => props.theme.css.theme5thColor};
 
         > h2 {
           font-size: 1em;
