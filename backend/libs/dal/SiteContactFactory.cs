@@ -72,11 +72,11 @@ public class SiteContextFactory : IDesignTimeDbContextFactory<SiteContext>
     _logger.LogInformation("Context Factory Started");
 
     var config = builder.Build();
-    var cs = config.GetConnectionString("Site");
+    var cs = config.GetConnectionString("Default");
     var sqlBuilder = new NpgsqlConnectionStringBuilder(cs)
     {
-      Username = config["DB_POSTGRES_USERNAME"],
-      Password = config["DB_POSTGRES_PASSWORD"]
+      Username = config["POSTGRES_USER"],
+      Password = config["POSTGRES_PASSWORD"]
     };
     var optionsBuilder = new DbContextOptionsBuilder<SiteContext>();
     optionsBuilder.UseNpgsql(sqlBuilder.ConnectionString, options =>

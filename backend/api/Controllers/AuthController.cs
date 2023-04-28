@@ -8,7 +8,6 @@ namespace Fosol.Site.Api.Controllers;
 
 [ApiController]
 [ApiVersion("1.0")]
-[Route("[controller]")]
 [Route("v{version:apiVersion}/[controller]")]
 public class AuthController : ControllerBase
 {

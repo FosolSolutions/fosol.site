@@ -7,8 +7,8 @@ export dockerHost=host.docker.internal
 #######################################################
 # Database Variables
 #######################################################
-export dbName=coevent
-export dbUser=$("$GREP" -Po 'DB_USER=\K.*$' ./db/.env 2>/dev/null)
+export dbName=fosol
+export dbUser=$("$GREP" -Po 'POSTGRES_USER=\K.*$' ./db/.env 2>/dev/null)
 if [ -z "$dbUser" ]
 then
     echo 'Enter a username for the database.'
@@ -16,7 +16,7 @@ then
     export dbUser
 fi
 
-export dbPassword=$("$GREP" -Po 'DB_PASSWORD=\K.*$' ./db/.env 2>/dev/null)
+export dbPassword=$("$GREP" -Po 'POSTGRES_PASSWORD=\K.*$' ./db/.env 2>/dev/null)
 if [ -z "$dbPassword" ]
 then
     # Generate a random password that satisfies password requirements.
