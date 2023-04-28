@@ -1,50 +1,50 @@
 version: '3.5'
 
 services:
-  # database:
-  #   image: fosol:database
-  #   profiles:
-  #     - all
-  #   restart: "no"
-  #   container_name: fss-database
-  #   build:
-  #     context: db
-  #   env_file:
-  #     - db/.env
-  #   ports:
-  #     - ${DB_PORT:-30000}:1433
-  #   volumes:
-  #     - fosol-database:/var/opt/mssql
-  #   networks:
-  #     - fosol
+  database:
+    image: fosol:database
+    profiles:
+      - all
+    restart: "no"
+    container_name: fss-database
+    build:
+      context: db
+    env_file:
+      - db/.env
+    ports:
+      - ${DB_PORT:-30000}:5432
+    volumes:
+      - fosol-database:${DB_VOLUME:-/var/lib/postgresql/data}
+    networks:
+      - fosol
       
-  # api:
-  #   image: fosol:api
-  #   profiles:
-  #     - all
-  #   restart: "no"
-  #   container_name: fss-api
-  #   build:
-  #     context: backend
-  #     dockerfile: api/Dockerfile
-  #   env_file:
-  #     - backend/api/.env
-  #   ports:
-  #     - ${API_HTTP_PORT:-30001}:8080
-  #     - ${API_HTTPS_PORT:-30002}:8443
-  #   extra_hosts:
-  #     - host.docker.internal:host-gateway
-  #   networks:
-  #     - fosol
+  api:
+    image: fosol:api
+    profiles:
+      - all
+    restart: "no"
+    container_name: fss-api
+    build:
+      context: backend
+      dockerfile: api/Dockerfile
+    env_file:
+      - backend/api/.env
+    ports:
+      - ${API_HTTP_PORT:-30001}:8080
+      - ${API_HTTPS_PORT:-30002}:8443
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    networks:
+      - fosol
 
   app:
-    image: fosol:site
+    image: fosol:app
     profiles:
       - all
     stdin_open: true
     tty: true
     restart: "no"
-    container_name: fss-site
+    container_name: fss-app
     build:
       context: app
       dockerfile: Dockerfile
@@ -57,8 +57,8 @@ services:
       - ${APP_HTTPS_PORT:-30004}:5443
     extra_hosts:
       - host.docker.internal:host-gateway
-    # depends_on:
-    #   - api
+    depends_on:
+      - api
     networks:
       - fosol
 
@@ -78,7 +78,7 @@ services:
     extra_hosts:
       - host.docker.internal:host-gateway
     depends_on:
-      # - api
+      - api
       - app
     networks:
       - fosol

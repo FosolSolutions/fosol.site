@@ -42,9 +42,10 @@ gen_db_env () {
     echo "./db/.env exists"
   else
     echo \
-"DB_NAME=$dbName
-DB_USER=$dbUser
-DB_PASSWORD=$dbPassword" >> ./db/.env
+"POSTGRES_DB=$dbName
+POSTGRES_PASSWORD=$dbPassword
+POSTGRES_USER=$dbUser
+POSTGRES_ADMIN_PASSWORD=$dbPassword" >> ./db/.env
     echo "./db/.env created"
   fi
 }
@@ -59,7 +60,7 @@ ASPNETCORE_ENVIRONMENT=Development
 ASPNETCORE_URLS=http://+:8080
 
 # Database
-ConnectionStrings__DefaultConnection=Server=$dockerHost,$portDb;TrustServerCertificate=True
+ConnectionStrings__Default=Server=$dockerHost,$portDb;TrustServerCertificate=True
 DB_NAME=$dbName
 DB_USER=$dbUser
 DB_PASSWORD=$dbPassword
@@ -84,10 +85,9 @@ gen_dal_env () {
     echo "./backend/libs/dal/.env exists"
   else
     echo \
-"ConnectionStrings__DefaultConnection=Server=$dockerHost,$portDb;TrustServerCertificate=True
-DB_NAME=$dbName
-DB_USER=$dbUser
-DB_PASSWORD=$dbPassword
+"ConnectionStrings__Default=Host=$dockerHost:$portDb;Database=$dbName;Include Error Detail=true;Log Parameters=true;
+POSTGRES_USER=$dbUser
+POSTGRES_PASSWORD=$dbPassword
 
 DEFAULT_PASSWORD=$defaultPassword
 SALT_LENGTH=$saltLength" >> ./backend/libs/dal/.env
