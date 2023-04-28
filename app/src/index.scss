@@ -223,6 +223,12 @@ details {
   gap: 1em;
 }
 
+.row.stretch {
+  &>* {
+    flex: 1;
+  }
+}
+
 .nowrap {
   flex-wrap: nowrap;
 }
