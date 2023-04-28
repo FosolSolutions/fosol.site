@@ -1,12 +1,16 @@
-import { Banner, Button } from '@/components'
+import { Banner } from '@/components'
 import { ISkillModel, services } from '@/data'
+import { Button } from '@mui/material'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Skills } from './containers'
 import * as styled from './styled'
 
 export interface IServices {}
 
 export const Services = () => {
+  const navigate = useNavigate()
+
   const [skill, setSkill] = React.useState<ISkillModel>()
 
   return (
@@ -26,7 +30,9 @@ export const Services = () => {
               <p>We provide individual resources or teams to support your business needs.</p>
               <p>Contact us and get a quote.</p>
               <div className="center">
-                <Button label="Start Your Next Project" variant="warning" />
+                <Button variant="contained" onClick={() => navigate('/start')}>
+                  Start Your Next Project
+                </Button>
               </div>
             </div>
             <div>

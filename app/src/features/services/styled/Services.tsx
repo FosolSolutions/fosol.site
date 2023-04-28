@@ -6,7 +6,7 @@ export const Services = styled.div`
 
   section.services {
     padding: 1em;
-    background-color: ${(props) => props.theme.css.theme4thColor};
+    background-color: ${(props) => props.theme.css.theme2ndColor};
 
     h1 {
       color: ${(props) => props.theme.css.theme6thColor};
@@ -39,7 +39,7 @@ export const Services = styled.div`
           flex-grow: 1;
           width: calc(33% - 4em);
           min-width: 300px;
-          background-color: hsl(0, 0%, 85%);
+          background-color: ${(props) => props.theme.css.primaryBkColor};
           border-radius: 0.5em;
           padding: 1em;
           display: flex;

@@ -1,7 +1,8 @@
-import { Banner, Button } from '@/components'
+import { Banner } from '@/components'
 import { stories } from '@/data'
+import { Button } from '@mui/material'
 import { FaComments, FaHeartbeat, FaSignal, FaUsers } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import * as styled from './styled'
 
 export interface IAboutUs {
@@ -9,6 +10,8 @@ export interface IAboutUs {
 }
 
 export const AboutUs = ({ children }: IAboutUs) => {
+  const navigate = useNavigate()
+
   const now = new Date()
 
   return (
@@ -20,7 +23,9 @@ export const AboutUs = ({ children }: IAboutUs) => {
             <p>Let us help you complete your next project.</p>
           </div>
           <div>
-            <Button label="Contact Us" variant="warning" />
+            <Button variant="contained" color="secondary" onClick={() => navigate('/contact-us')}>
+              Contact Us
+            </Button>
           </div>
         </div>
       </Banner>
@@ -68,7 +73,9 @@ export const AboutUs = ({ children }: IAboutUs) => {
             </li>
           </ul>
           <div className="center">
-            <Button label="Start Your Next Project" variant="warning" />
+            <Button variant="contained" color="primary" onClick={() => navigate('/start')}>
+              Start Your Next Project
+            </Button>
           </div>
         </div>
         <div className="image"></div>

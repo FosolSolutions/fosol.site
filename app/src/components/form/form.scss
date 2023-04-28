@@ -1,0 +1,21 @@
+.frm-in {
+  padding: 0.5em;
+
+  &>div:first-child {
+    display: flex;
+    flex-flow: column;
+
+    &>div:first-child {
+      display: flex;
+      flex-flow: column;
+
+      >label {
+        min-width: 50px;
+      }
+    }
+  }
+
+  .error {
+    color: red;
+  }
+}

@@ -9,7 +9,7 @@ export const Skills = styled.div`
 
   > h2 {
     overflow: hidden;
-    background-color: ${(props) => props.theme.css.theme4thColor};
+    background-color: ${(props) => props.theme.css.theme2ndColor};
     color: #fff;
     text-align: center;
     padding: 0.25em;

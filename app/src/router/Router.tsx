@@ -1,4 +1,15 @@
-import { AboutUs, Career, Careers, ClientStories, Home, Services, Stories } from '@/features'
+import {
+  AboutUs,
+  Career,
+  Careers,
+  ClientStories,
+  ContactUs,
+  Home,
+  Resume,
+  Services,
+  Start,
+  Stories,
+} from '@/features'
 import { DefaultLayout } from '@/layouts'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
@@ -56,6 +67,30 @@ const router = createBrowserRouter([
     element: (
       <DefaultLayout>
         <Career />
+      </DefaultLayout>
+    ),
+  },
+  {
+    path: '/contact-us',
+    element: (
+      <DefaultLayout>
+        <ContactUs />
+      </DefaultLayout>
+    ),
+  },
+  {
+    path: '/start',
+    element: (
+      <DefaultLayout>
+        <Start />
+      </DefaultLayout>
+    ),
+  },
+  {
+    path: '/resume',
+    element: (
+      <DefaultLayout>
+        <Resume />
       </DefaultLayout>
     ),
   },
