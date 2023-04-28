@@ -4,13 +4,17 @@ export const Clients = styled.section`
   &.clients {
     max-width: 100vw;
     overflow: hidden;
+    background-color: ${(props) => props.theme.css.primaryBkColor};
 
     > .client-list {
       display: flex;
       flex-flow: row;
-      gap: 1em;
+      gap: 0.5em;
       -webkit-overflow-scrolling: touch;
       overflow: auto;
+      background-color: ${(props) => props.theme.css.primaryColor};
+      padding: 0.5em;
+      border-radius: 0.75em;
 
       > article {
         flex: 1 1 0;
@@ -18,9 +22,10 @@ export const Clients = styled.section`
         flex-flow: column;
         align-content: stretch;
         padding: 1em;
-        background-color: rgb(198, 182, 182, 0.5);
+        background-color: ${(props) => props.theme.css.primaryBkColor};
         border-radius: 0.5em;
         min-width: 120px;
+        border: solid 1px ${(props) => props.theme.css.primaryColor};
 
         > h2 {
           font-size: 1em;
@@ -35,7 +40,7 @@ export const Clients = styled.section`
           display: flex;
           justify-content: center;
           align-items: center;
-          background-color: #fff;
+          background-color: ${(props) => props.theme.css.primaryBkColor};
           border-radius: 0.5em;
           min-height: 75px;
         }

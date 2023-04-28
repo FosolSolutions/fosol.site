@@ -1,3 +1,4 @@
+import { Button } from '@/components'
 import * as styled from './styled'
 
 export interface IIntro {
@@ -17,6 +18,9 @@ export const Intro = ({ children }: IIntro) => {
           process of creating tools which improve life.
         </p>
         <p>We offer both on-site and remote availability with a proven track-record.</p>
+        <div className="center">
+          <Button label="Start Your Next Project" />
+        </div>
       </div>
       <div className="photo-info"></div>
     </styled.Intro>

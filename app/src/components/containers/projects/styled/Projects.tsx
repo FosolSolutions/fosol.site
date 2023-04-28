@@ -49,8 +49,14 @@ export const Projects = styled.section`
 
       & > div:nth-child(2) {
         flex: 1 1 auto;
+        display: flex;
+        flex-flow: column;
         padding: 1em;
         background-color: rgb(255, 255, 255, 0.5);
+
+        & > p:last-of-type {
+          flex: 1;
+        }
       }
 
       .logo {

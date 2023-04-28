@@ -26,7 +26,9 @@ export const Services = ({ children }: IServices) => {
               <p>Looking for assistance designing and developing a software solution?</p>
               <p>We provide individual resources or teams to support your business needs.</p>
               <p>Contact us and get a quote.</p>
-              <Button label="Start Your Next Project" />
+              <div className="center">
+                <Button label="Start Your Next Project" variant="warning" />
+              </div>
             </div>
             <div>
               {services.map((service) => (

@@ -65,4 +65,9 @@ export const Services = styled.div`
   section.skill {
     padding: 2em;
   }
+
+  .center {
+    padding-top: 1em;
+    text-align: center;
+  }
 `
