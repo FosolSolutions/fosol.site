@@ -1,4 +1,4 @@
-import { Clients, ContactUs, Intro, Projects } from '@/components'
+import { Clients, ContactUs, Intro, Projects } from './containers'
 import * as styled from './styled'
 
 export interface IHome {

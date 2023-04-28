@@ -1,13 +1,12 @@
-import { Banner, Button, Skills } from '@/components'
+import { Banner, Button } from '@/components'
 import { ISkillModel, services } from '@/data'
 import React from 'react'
+import { Skills } from './containers'
 import * as styled from './styled'
 
-export interface IServices {
-  children?: React.ReactNode
-}
+export interface IServices {}
 
-export const Services = ({ children }: IServices) => {
+export const Services = () => {
   const [skill, setSkill] = React.useState<ISkillModel>()
 
   return (
