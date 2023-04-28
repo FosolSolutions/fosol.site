@@ -58,7 +58,7 @@ export const Projects = ({ children }: IProjects) => {
                 <FaLink />
               </div>
               <div>
-                <a href="https://github.com/bcgov/tno" className="text-white">
+                <a href="https://github.com/bcgov/tno" className="text-white" target="_blank">
                   Github
                 </a>
               </div>
@@ -107,7 +107,11 @@ export const Projects = ({ children }: IProjects) => {
                 <FaLink />
               </div>
               <div>
-                <a href="https://github.com/fosolsolutions/coevent" className="text-white">
+                <a
+                  href="https://github.com/fosolsolutions/coevent"
+                  className="text-white"
+                  target="_blank"
+                >
                   Github
                 </a>
               </div>

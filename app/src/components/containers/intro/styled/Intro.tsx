@@ -28,4 +28,8 @@ export const Intro = styled.section`
   h1 {
     color: ${(props) => props.theme.css.themePrimaryColor};
   }
+
+  .center {
+    text-align: center;
+  }
 `

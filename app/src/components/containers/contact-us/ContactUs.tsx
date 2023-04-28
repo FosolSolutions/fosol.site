@@ -1,3 +1,4 @@
+import { Button } from '@/components'
 import { FaHandPaper } from 'react-icons/fa'
 import * as styled from './styled'
 
@@ -22,7 +23,9 @@ export const ContactUs = ({ children }: IContactUs) => {
             <a href="mailto:sales@fosol.ca?subject=Project Inquiry">sales@fosol.ca</a> or fill out
             our contact form.
           </p>
-          <input className="btn primary" type="button" value="Contact Us" />
+          <div className="center">
+            <Button label="Contact Us" />
+          </div>
         </div>
         <div className="photo-contact-us"></div>
       </div>
