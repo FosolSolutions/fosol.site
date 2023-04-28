@@ -536,7 +536,7 @@ export const stories: IStoryModel[] = [
   },
   {
     id: 14,
-    title: 'Media Monitoring Insights & Analysis  (TNO/MMIA)',
+    title: 'Media Monitoring Insights & Analysis (TNO/MMIA)',
     organization: 'Ministry of Citizen Services',
     organizationType: 'BC Government',
     logoUrl: '/assets/clients/bc-gov-logo.png',

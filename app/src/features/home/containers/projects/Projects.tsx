@@ -1,11 +1,13 @@
-import { FaBuilding, FaHammer, FaInfoCircle, FaLink, FaOsi } from 'react-icons/fa'
+import { stories } from '@/data'
+import { FaBuilding, FaHammer, FaLink, FaOsi } from 'react-icons/fa'
 import * as styled from './styled'
 
-export interface IProjects {
-  children?: React.ReactNode
-}
+export interface IProjects {}
 
-export const Projects = ({ children }: IProjects) => {
+export const Projects = () => {
+  const p1 = stories.find((s) => s.title.includes('TNO'))
+  const p2 = stories.find((s) => s.title.includes('CoEvent'))
+
   return (
     <styled.Projects className="box pad">
       <h1>
@@ -15,7 +17,7 @@ export const Projects = ({ children }: IProjects) => {
         <article className="container">
           <div>
             <img className="icon icon-bk" src="assets/projects/bc-gov/citz/mmia/mmia-logo.svg" />
-            <h2>Media Monitoring Information & Analysis</h2>
+            <h2>Media Monitoring Insights & Analysis</h2>
           </div>
           <div>
             <div className="row nowrap">
@@ -32,16 +34,6 @@ export const Projects = ({ children }: IProjects) => {
             </p>
             <p>Openshift, Kafka, Transcription, Natural Language Processing, Machine Learning</p>
             <div className="grid gc-2 g-links">
-              <div>
-                <FaInfoCircle />
-              </div>
-              <div>
-                <p>
-                  <a href="/stories/mmia.html" className="text-white">
-                    Read more here
-                  </a>
-                </p>
-              </div>
               <div title="client">
                 <FaBuilding />
               </div>
@@ -81,16 +73,6 @@ export const Projects = ({ children }: IProjects) => {
             </p>
             <p>React, Dotnet, PostgreSQL</p>
             <div className="grid gc-2 g-links">
-              <div>
-                <FaInfoCircle />
-              </div>
-              <div>
-                <p>
-                  <a href="/stories/coevent.html" className="text-white">
-                    Read more here
-                  </a>
-                </p>
-              </div>
               <div title="client">
                 <FaBuilding />
               </div>
@@ -134,16 +116,6 @@ export const Projects = ({ children }: IProjects) => {
             <p>The next leg of the journey is to add persistent storage volumes.</p>
             <p>Raspberry Pi 4B, Ubuntu, Kubernetes</p>
             <div className="grid gc-2 g-links">
-              <div>
-                <FaInfoCircle />
-              </div>
-              <div>
-                <p>
-                  <a href="/stories/rpi-kubernetes.html" className="text-white">
-                    Read more here
-                  </a>
-                </p>
-              </div>
               <div title="client">
                 <FaBuilding />
               </div>
