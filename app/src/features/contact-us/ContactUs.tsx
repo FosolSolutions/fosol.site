@@ -40,12 +40,14 @@ export const ContactUs = () => {
             placeholder="Your name"
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
+            inputProps={{ maxLength: 100 }}
           />
           <TextField
             name="company"
             label="Company"
             value={form.company}
             onChange={(e) => setForm({ ...form, company: e.target.value })}
+            inputProps={{ maxLength: 100 }}
           />
           <div className="row stretch">
             <TextField
@@ -55,13 +57,16 @@ export const ContactUs = () => {
               required
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
+              inputProps={{ maxLength: 250 }}
             />
             <TextField
               name="phone"
               label="Phone"
               type="phone"
               value={form.phone}
+              placeholder="+1 123 123-1234"
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
+              inputProps={{ maxLength: 15 }}
             />
           </div>
           <TextField
@@ -73,6 +78,7 @@ export const ContactUs = () => {
             placeholder="Tell us what you would like to know"
             required
             onChange={(e) => setForm({ ...form, message: e.target.value })}
+            inputProps={{ maxLength: 2000 }}
           />
           <Button variant="contained" type="submit">
             Submit
