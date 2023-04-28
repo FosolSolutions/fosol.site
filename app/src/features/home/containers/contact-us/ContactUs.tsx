@@ -1,12 +1,13 @@
-import { Button } from '@/components'
+import { Button } from '@mui/material'
 import { FaHandPaper } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 import * as styled from './styled'
 
-export interface IContactUs {
-  children?: React.ReactNode
-}
+export interface IContactUs {}
 
-export const ContactUs = ({ children }: IContactUs) => {
+export const ContactUs = () => {
+  const navigate = useNavigate()
+
   return (
     <styled.ContactUs className="box">
       <div className="contact-us">
@@ -19,12 +20,14 @@ export const ContactUs = ({ children }: IContactUs) => {
             development project, reach out to us.
           </p>
           <p>
-            Send us an email to{' '}
-            <a href="mailto:sales@fosol.ca?subject=Project Inquiry">sales@fosol.ca</a> or fill out
-            our contact form.
+            Send us an email{' '}
+            <a href="mailto:sales@fosol.ca?subject=Request for Information">sales@fosol.ca</a> or
+            fill out our contact form.
           </p>
           <div className="center">
-            <Button label="Contact Us" />
+            <Button variant="contained" onClick={() => navigate('/contact-us')}>
+              Contact Us
+            </Button>
           </div>
         </div>
         <div className="photo-contact-us"></div>

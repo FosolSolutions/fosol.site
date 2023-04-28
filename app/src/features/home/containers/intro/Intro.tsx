@@ -1,4 +1,5 @@
-import { Button } from '@/components'
+import { Button } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 import * as styled from './styled'
 
 export interface IIntro {
@@ -6,6 +7,8 @@ export interface IIntro {
 }
 
 export const Intro = ({ children }: IIntro) => {
+  const navigate = useNavigate()
+
   return (
     <styled.Intro className="box row intro">
       <div className="col pad text">
@@ -19,7 +22,9 @@ export const Intro = ({ children }: IIntro) => {
         </p>
         <p>We offer both on-site and remote availability with a proven track-record.</p>
         <div className="center">
-          <Button label="Start Your Next Project" />
+          <Button variant="contained" onClick={() => navigate('/start')}>
+            Start Your Next Project
+          </Button>
         </div>
       </div>
       <div className="photo-info"></div>

@@ -1,5 +1,6 @@
-import { Articles, Banner, Button } from '@/components'
+import { Articles, Banner } from '@/components'
 import { openings } from '@/data'
+import { Button } from '@mui/material'
 import { FaSmile } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import { highlights, progression } from './constants'
@@ -15,7 +16,9 @@ export const Careers = () => {
       <Banner title="Careers">
         <p>We support local on-site and remote work, employees and contractors.</p>
         <p>Submit your resume, and we'll reach out to you when we have an opening.</p>
-        <Button label="Join Our Team" variant="warning" />
+        <Button variant="contained" color="secondary" onClick={() => navigate('/resume')}>
+          Join Our Team
+        </Button>
       </Banner>
       {!hasOpening && (
         <Banner height="30px" variant="secondary">
