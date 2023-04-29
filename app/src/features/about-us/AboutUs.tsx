@@ -23,7 +23,7 @@ export const AboutUs = ({ children }: IAboutUs) => {
             <p>Let us help you complete your next project.</p>
           </div>
           <div>
-            <Button variant="contained" color="secondary" onClick={() => navigate('/contact-us')}>
+            <Button variant="contained" color="secondary" onMouseUp={() => navigate('/contact-us')}>
               Contact Us
             </Button>
           </div>
@@ -73,7 +73,7 @@ export const AboutUs = ({ children }: IAboutUs) => {
             </li>
           </ul>
           <div className="center">
-            <Button variant="contained" color="primary" onClick={() => navigate('/start')}>
+            <Button variant="contained" color="primary" onMouseUp={() => navigate('/start')}>
               Start Your Next Project
             </Button>
           </div>

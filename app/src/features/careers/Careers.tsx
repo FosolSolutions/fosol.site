@@ -16,7 +16,7 @@ export const Careers = () => {
       <Banner title="Careers">
         <p>We support local on-site and remote work, employees and contractors.</p>
         <p>Submit your resume, and we'll reach out to you when we have an opening.</p>
-        <Button variant="contained" color="secondary" onClick={() => navigate('/resume')}>
+        <Button variant="contained" color="secondary" onMouseUp={() => navigate('/resume')}>
           Join Our Team
         </Button>
       </Banner>

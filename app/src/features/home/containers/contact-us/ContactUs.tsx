@@ -25,7 +25,7 @@ export const ContactUs = () => {
             fill out our contact form.
           </p>
           <div className="center">
-            <Button variant="contained" onClick={() => navigate('/contact-us')}>
+            <Button variant="contained" onMouseUp={() => navigate('/contact-us')}>
               Contact Us
             </Button>
           </div>
