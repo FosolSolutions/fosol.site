@@ -60,4 +60,17 @@ public static class EnumExtensions
   {
     return items.Where(v => v != null && !String.IsNullOrWhiteSpace($"{v}"));
   }
+
+  /// <summary>
+  /// 
+  /// </summary>
+  /// <typeparam name="TEnum"></typeparam>
+  /// <param name="value"></param>
+  /// <param name="defaultValue"></param>
+  /// <returns></returns>
+  public static TEnum TryParseEnum<TEnum>(this string value, TEnum defaultValue = default)
+       where TEnum : struct
+  {
+    return Enum.TryParse<TEnum>(value, out TEnum result) ? result : defaultValue;
+  }
 }

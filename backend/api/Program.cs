@@ -1,5 +1,7 @@
+using Fosol.Mail;
 using Fosol.Site.Api.Middleware;
 using Fosol.Site.Api.Swagger;
+using Fosol.Site.UoW;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
@@ -55,8 +57,8 @@ public class Program
         })
       .ConfigureOptions<ConfigureSwaggerOptions>()
       .Configure<RouteOptions>(options => options.LowercaseUrls = true)
-    // .AddSiteUoW(config)
-    // .AddMail(config)
+      .AddSiteUoW(config)
+      .AddMail(config)
       .Configure<ForwardedHeadersOptions>(options =>
       {
         options.ForwardedHeaders = ForwardedHeaders.All;

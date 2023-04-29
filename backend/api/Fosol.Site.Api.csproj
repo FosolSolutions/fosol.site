@@ -20,7 +20,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\libs\models\Fosol.Site.Models.csproj" />
-    <ProjectReference Include="..\libs\dal\Fosol.Site.Dal.csproj" />
+    <ProjectReference Include="..\libs\uow\Fosol.Site.UoW.csproj" />
+    <ProjectReference Include="..\libs\mail\Fosol.Mail.csproj" />
   </ItemGroup>
 
 </Project>
