@@ -1,29 +1,31 @@
 using System.Net.Mime;
 using System.Security.Claims;
 using Fosol.Site.Models;
+using Fosol.Site.Models.Contacts.Messages;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace Fosol.Site.Api.Controllers;
 
 /// <summary>
-/// AuthController class, provides a controller for authentication endpoints.
+/// ContactMessageController class, provides a controller for contact message endpoints.
 /// </summary>
 [ApiController]
 [ApiVersion("1.0")]
-[Route("v{version:apiVersion}/[controller]")]
-public class AuthController : ControllerBase
+[Area("contacts")]
+[Route("v{version:apiVersion}/messages")]
+public class ContactMessageController : ControllerBase
 {
   #region Variables
-  private readonly ILogger<AuthController> _logger;
+  private readonly ILogger<ContactMessageController> _logger;
   #endregion
 
   #region Constructors
   /// <summary>
-  /// Creates a new instance of a AuthController object.
+  /// Creates a new instance of a ContactMessageController object.
   /// </summary>
   /// <param name="logger"></param>
-  public AuthController(ILogger<AuthController> logger)
+  public ContactMessageController(ILogger<ContactMessageController> logger)
   {
     _logger = logger;
   }
@@ -31,14 +33,14 @@ public class AuthController : ControllerBase
 
   #region Endpoints
   /// <summary>
-  /// Returns the current user's information.
+  /// Submit a new message from a contact.
   /// </summary>
   /// <returns></returns>
-  [HttpGet("userinfo", Name = "GetUserInfo")]
+  [HttpPost(Name = "AddMessage")]
   [Produces(MediaTypeNames.Application.Json)]
-  [ProducesResponseType(typeof(UserInfoModel), 200)]
-  [SwaggerOperation(Tags = new[] { "Auth" })]
-  public IActionResult GetUserInfo()
+  [ProducesResponseType(typeof(ContactMessageModel), 201)]
+  [SwaggerOperation(Tags = new[] { "Contacts" })]
+  public IActionResult AddMessage()
   {
     var user = this.User.Identity as ClaimsPrincipal;
     return new JsonResult(new UserInfoModel(user));

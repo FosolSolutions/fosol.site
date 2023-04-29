@@ -30,7 +30,7 @@ export const Services = () => {
               <p>We provide individual resources or teams to support your business needs.</p>
               <p>Contact us and get a quote.</p>
               <div className="center">
-                <Button variant="contained" onClick={() => navigate('/start')}>
+                <Button variant="contained" onMouseUp={() => navigate('/start')}>
                   Start Your Next Project
                 </Button>
               </div>

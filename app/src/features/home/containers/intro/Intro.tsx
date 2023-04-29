@@ -22,7 +22,7 @@ export const Intro = ({ children }: IIntro) => {
         </p>
         <p>We offer both on-site and remote availability with a proven track-record.</p>
         <div className="center">
-          <Button variant="contained" onClick={() => navigate('/start')}>
+          <Button variant="contained" onMouseUp={() => navigate('/start')}>
             Start Your Next Project
           </Button>
         </div>

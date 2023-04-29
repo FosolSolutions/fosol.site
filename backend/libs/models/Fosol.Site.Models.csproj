@@ -1,9 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <RootNamespace>Fosol.Site.Models</RootNamespace>
+    <Version>0.0.0.1-alpha</Version>
+    <AssemblyVersion>0.0.0.1</AssemblyVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\entities\Fosol.Site.Entities.csproj" />
+    <ProjectReference Include="..\core\Fosol.Core.csproj" />
+  </ItemGroup>
 
 </Project>
