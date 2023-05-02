@@ -4,7 +4,7 @@ namespace Fosol.Site.Entities;
 /// 
 /// </summary>
 /// <typeparam name="TKey"></typeparam>
-public class SortableCodeColumns<TKey> : SortableColumns<TKey>
+public class SortableCodeAuditable<TKey> : SortableAuditable<TKey>
   where TKey : notnull
 {
   #region Properties
@@ -16,16 +16,16 @@ public class SortableCodeColumns<TKey> : SortableColumns<TKey>
 
   #region Constructors
   /// <summary>
-  /// Creates a new instance of an SortableCodeColumns object.
+  /// Creates a new instance of an SortableCodeAuditable object.
   /// </summary>
-  protected SortableCodeColumns() { }
+  protected SortableCodeAuditable() { }
 
   /// <summary>
-  /// Creates new instance of a SortableCodeColumns object, initializes with specified parameters.
+  /// Creates new instance of a SortableCodeAuditable object, initializes with specified parameters.
   /// </summary>
   /// <param name="code"></param>
   /// <param name="name"></param>
-  public SortableCodeColumns(string code, string name) : base(name)
+  public SortableCodeAuditable(string code, string name) : base(name)
   {
     this.Code = code;
   }

@@ -4,7 +4,7 @@ namespace Fosol.Site.Entities;
 /// 
 /// </summary>
 /// <typeparam name="TKey"></typeparam>
-public class CommonColumns<TKey> : Auditable
+public class CommonAuditable<TKey> : Auditable
   where TKey : notnull
 {
   #region Properties
@@ -31,15 +31,15 @@ public class CommonColumns<TKey> : Auditable
 
   #region Constructors
   /// <summary>
-  /// Creates a new instance of an CommonColumns object.
+  /// Creates a new instance of an CommonAuditable object.
   /// </summary>
-  protected CommonColumns() { }
+  protected CommonAuditable() { }
 
   /// <summary>
-  /// Creates a new instance of a CommonColumns object, initializes with specified parameters.
+  /// Creates a new instance of a CommonAuditable object, initializes with specified parameters.
   /// </summary>
   /// <param name="name"></param>
-  public CommonColumns(string name)
+  public CommonAuditable(string name)
   {
     this.Name = name;
   }

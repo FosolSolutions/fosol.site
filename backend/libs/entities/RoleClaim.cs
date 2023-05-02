@@ -3,7 +3,7 @@ namespace Fosol.Site.Entities;
 /// <summary>
 /// 
 /// </summary>
-public class RoleClaim
+public class RoleClaim : Auditable
 {
   #region Properties
   /// <summary>
