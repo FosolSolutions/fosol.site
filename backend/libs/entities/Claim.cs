@@ -3,7 +3,7 @@ namespace Fosol.Site.Entities;
 /// <summary>
 /// 
 /// </summary>
-public class Claim : SortableColumns<int>
+public class Claim : SortableAuditable<int>
 {
   #region Properties
   /// <summary>

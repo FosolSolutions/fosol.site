@@ -1,7 +1,6 @@
 using System.Net.Mime;
-using System.Security.Claims;
-using Fosol.Site.Models;
 using Fosol.Site.Models.Contacts.Messages;
+using Fosol.Site.UoW;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -14,20 +13,20 @@ namespace Fosol.Site.Api.Controllers;
 [ApiVersion("1.0")]
 [Area("contacts")]
 [Route("v{version:apiVersion}/messages")]
-public class ContactMessageController : ControllerBase
+public class BasicMessageController : ControllerBase
 {
   #region Variables
-  private readonly ILogger<ContactMessageController> _logger;
+  private readonly IBasicMessageService _messageService;
   #endregion
 
   #region Constructors
   /// <summary>
-  /// Creates a new instance of a ContactMessageController object.
+  /// Creates a new instance of a BasicMessageController object.
   /// </summary>
-  /// <param name="logger"></param>
-  public ContactMessageController(ILogger<ContactMessageController> logger)
+  /// <param name="messageService"></param>
+  public BasicMessageController(IBasicMessageService messageService)
   {
-    _logger = logger;
+    _messageService = messageService;
   }
   #endregion
 
@@ -35,15 +34,16 @@ public class ContactMessageController : ControllerBase
   /// <summary>
   /// Submit a new message from a contact.
   /// </summary>
+  /// <param name="model"></param>
   /// <returns></returns>
   [HttpPost(Name = "AddMessage")]
   [Produces(MediaTypeNames.Application.Json)]
-  [ProducesResponseType(typeof(ContactMessageModel), 201)]
+  [ProducesResponseType(typeof(BasicMessageModel), 201)]
   [SwaggerOperation(Tags = new[] { "Contacts" })]
-  public IActionResult AddMessage()
+  public IActionResult AddMessage(BasicMessageModel model)
   {
-    var user = this.User.Identity as ClaimsPrincipal;
-    return new JsonResult(new UserInfoModel(user));
+    var message = _messageService.AddAndSave(model.ToEntity());
+    return new JsonResult(new BasicMessageModel(message));
   }
   #endregion
 }

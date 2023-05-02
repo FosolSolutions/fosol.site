@@ -29,8 +29,6 @@ public class Contact : Auditable
 
   [Column("note")]
   public string Note { get; set; } = "";
-
-  public virtual List<ContactMessage> Messages { get; } = new List<ContactMessage>();
   #endregion
 
   #region Constructor

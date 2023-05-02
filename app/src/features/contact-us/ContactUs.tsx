@@ -22,7 +22,7 @@ export const ContactUs = () => {
         <p>We would love to hear from you</p>
       </Banner>
       <section>
-        <p>We'll response to your inquiry as soon as possible.</p>
+        <p>We'll respond to your inquiry as soon as possible.</p>
         <form
           onSubmit={(e) => {
             e.preventDefault()

@@ -3,7 +3,7 @@ namespace Fosol.Site.Entities;
 /// <summary>
 /// 
 /// </summary>
-public class Account : CommonColumns<int>
+public class Account : CommonAuditable<int>
 {
   #region Properties
   /// <summary>
