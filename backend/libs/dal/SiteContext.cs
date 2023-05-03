@@ -21,7 +21,7 @@ public class SiteContext : DbContext
 
   #region Properties
   public DbSet<Contact> Contacts => Set<Contact>();
-  public DbSet<ContactMessage> ContactMessages => Set<ContactMessage>();
+  public DbSet<BasicMessage> BasicMessages => Set<BasicMessage>();
   public DbSet<Account> Accounts => Set<Account>();
   public DbSet<Claim> Claims => Set<Claim>();
   public DbSet<Role> Roles => Set<Role>();
