@@ -10,7 +10,7 @@ namespace Fosol.Site.UoW;
 /// <summary>
 /// 
 /// </summary>
-public class ClaimService : BaseService<Contact, long>, IContactService
+public class ContactService : BaseService<Contact, long>, IContactService
 {
   #region Constructors
   /// <summary>
@@ -20,7 +20,7 @@ public class ClaimService : BaseService<Contact, long>, IContactService
   /// <param name="principal"></param>
   /// <param name="serviceProvider"></param>
   /// <param name="logger"></param>
-  public ClaimService(SiteContext dbContext, System.Security.Claims.ClaimsPrincipal principal, IServiceProvider serviceProvider, ILogger<BaseService<Contact, long>> logger) : base(dbContext, principal, serviceProvider, logger)
+  public ContactService(SiteContext dbContext, System.Security.Claims.ClaimsPrincipal principal, IServiceProvider serviceProvider, ILogger<BaseService<Contact, long>> logger) : base(dbContext, principal, serviceProvider, logger)
   {
   }
   #endregion

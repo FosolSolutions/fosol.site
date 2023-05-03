@@ -10,6 +10,7 @@ public class ContactMessageConfiguration : AuditableConfiguration<BasicMessage>
   {
     builder.HasKey(m => m.Id);
     builder.Property(m => m.Id).IsRequired().ValueGeneratedOnAdd();
+    builder.Property(m => m.IpAddress).IsRequired().HasMaxLength(100);
     builder.Property(m => m.Name).IsRequired().HasMaxLength(100);
     builder.Property(m => m.Company).IsRequired().HasMaxLength(100);
     builder.Property(m => m.Email).IsRequired().HasMaxLength(100);

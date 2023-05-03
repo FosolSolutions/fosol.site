@@ -1,4 +1,7 @@
+using System.Security.Claims;
+using Fosol.Core.Encryption;
 using Fosol.Mail;
+using Fosol.Site.Api.Authentication;
 using Fosol.Site.Api.Middleware;
 using Fosol.Site.Api.Swagger;
 using Fosol.Site.UoW;
@@ -57,6 +60,10 @@ public class Program
         })
       .ConfigureOptions<ConfigureSwaggerOptions>()
       .Configure<RouteOptions>(options => options.LowercaseUrls = true)
+      .AddHttpContextAccessor()
+      .AddTransient(s => s.GetService<IHttpContextAccessor>()?.HttpContext?.User ?? new ClaimsPrincipal())
+      .AddSingleton<IHashPassword, HashPassword>()
+      .AddScoped<IAuthenticator, Authenticator>()
       .AddSiteUoW(config)
       .AddMail(config)
       .Configure<ForwardedHeadersOptions>(options =>

@@ -14,7 +14,7 @@ public class ErrorResponseModel
   /// <summary>
   /// get/set - The error message.
   /// </summary>
-  public string? Error { get; set; }
+  public string Error { get; set; } = "";
 
   /// <summary>
   /// get/set - The exception type that threw thew exception.
@@ -45,7 +45,7 @@ public class ErrorResponseModel
   /// <param name="ex"></param>
   /// <param name="message"></param>
   /// <param name="details"></param>
-  public ErrorResponseModel(IWebHostEnvironment environment, Exception ex, string? message = null, string? details = null)
+  public ErrorResponseModel(IWebHostEnvironment environment, Exception ex, string message, string? details = null)
   {
     var showError = !environment.IsProduction();
     this.Error = showError ? ex.Message : message;

@@ -1,7 +1,10 @@
 import { Banner } from '@/components'
-import { parseValues } from '@/utils'
+import { IErrorModel } from '@/hooks'
 import { Button, TextField } from '@mui/material'
+import { Formik } from 'formik'
 import React from 'react'
+import { toast } from 'react-toastify'
+import * as yup from 'yup'
 import { IContactUsForm } from './IContactUsForm'
 import * as styled from './styled'
 
@@ -10,11 +13,55 @@ const defaultValues: IContactUsForm = {
   company: '',
   email: '',
   phone: '',
-  message: '',
+  text: '',
 }
 
+const validationSchema = yup.object({
+  name: yup.string().required('Name is required'),
+  company: yup.string().optional(),
+  email: yup.string().email('Enter a valid email').required('Email is required'),
+  phone: yup.string().optional(),
+  text: yup.string().required('Message is required'),
+})
+
 export const ContactUs = () => {
-  const [form, setForm] = React.useState<IContactUsForm>(defaultValues)
+  const [sent, setSent] = React.useState(false)
+
+  const addMessage = React.useCallback(async (values: IContactUsForm) => {
+    try {
+      const res = await fetch('/api/v1/contacts/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      })
+      if (res.status === 201) {
+        toast.success(
+          `Thank you for your message ${values.name}.  We will respond as soon as possible.`,
+        )
+        setSent(true)
+      } else {
+        var error = 'We are terribly sorry but an error has occurred.'
+        const contentType = res.headers.get('content-type')
+        if (contentType && contentType.indexOf('application/json') !== -1) {
+          error = ((await res.json()) as IErrorModel).error
+        }
+        toast.error(
+          <div>
+            <h1>
+              {res.status}: {res.statusText}
+            </h1>
+            <p>{error}</p>
+          </div>,
+        )
+      }
+    } catch (ex) {
+      toast.error(
+        <div>
+          <div>We are terribly sorry but an unexpected error has occurred.</div>
+        </div>,
+      )
+    }
+  }, [])
 
   return (
     <styled.ContactUs>
@@ -22,68 +69,89 @@ export const ContactUs = () => {
         <p>We would love to hear from you</p>
       </Banner>
       <section>
-        <p>We'll respond to your inquiry as soon as possible.</p>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault()
-            const form = e.target as HTMLFormElement
-            const values = parseValues<IContactUsForm>(form)
-
-            console.debug(values)
-            setForm(values)
+        <Formik
+          initialValues={defaultValues}
+          validationSchema={validationSchema}
+          onSubmit={async (values, { setSubmitting }) => {
+            await addMessage(values)
+            setSubmitting(false)
           }}
         >
-          <TextField
-            name="name"
-            label="Name"
-            required
-            placeholder="Your name"
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-            inputProps={{ maxLength: 100 }}
-          />
-          <TextField
-            name="company"
-            label="Company"
-            value={form.company}
-            onChange={(e) => setForm({ ...form, company: e.target.value })}
-            inputProps={{ maxLength: 100 }}
-          />
-          <div className="row stretch">
-            <TextField
-              name="email"
-              label="Email"
-              type="email"
-              required
-              value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-              inputProps={{ maxLength: 250 }}
-            />
-            <TextField
-              name="phone"
-              label="Phone"
-              type="phone"
-              value={form.phone}
-              placeholder="+1 123 123-1234"
-              onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              inputProps={{ maxLength: 15 }}
-            />
-          </div>
-          <TextField
-            name="message"
-            label="Message"
-            value={form.message}
-            multiline
-            rows="5"
-            placeholder="Tell us what you would like to know"
-            required
-            onChange={(e) => setForm({ ...form, message: e.target.value })}
-            inputProps={{ maxLength: 2000 }}
-          />
-          <Button variant="contained" type="submit">
-            Submit
-          </Button>
-        </form>
+          {({ values, errors, touched, isSubmitting, handleSubmit, handleChange, handleBlur }) => (
+            <form onSubmit={handleSubmit}>
+              <TextField
+                name="name"
+                label="Name"
+                required
+                placeholder="Your name"
+                value={values.name}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                inputProps={{ maxLength: 100 }}
+                error={touched.name && !!errors.name}
+                helperText={touched.name && errors.name}
+                disabled={sent}
+              />
+              <TextField
+                name="company"
+                label="Company"
+                value={values.company}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                inputProps={{ maxLength: 100 }}
+                error={touched.company && !!errors.company}
+                helperText={touched.company && errors.company}
+                disabled={sent}
+              />
+              <div className="row stretch">
+                <TextField
+                  name="email"
+                  label="Email"
+                  type="email"
+                  required
+                  value={values.email}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  inputProps={{ maxLength: 250 }}
+                  error={touched.email && !!errors.email}
+                  helperText={touched.email && errors.email}
+                  disabled={sent}
+                />
+                <TextField
+                  name="phone"
+                  label="Phone"
+                  type="phone"
+                  value={values.phone}
+                  placeholder="+1 123 123-1234"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  inputProps={{ maxLength: 15 }}
+                  error={touched.phone && !!errors.phone}
+                  helperText={touched.phone && errors.phone}
+                  disabled={sent}
+                />
+              </div>
+              <TextField
+                name="text"
+                label="Message"
+                value={values.text}
+                multiline
+                rows="5"
+                placeholder="Tell us what you would like to know"
+                required
+                onChange={handleChange}
+                onBlur={handleBlur}
+                inputProps={{ maxLength: 2000 }}
+                error={touched.text && !!errors.text}
+                helperText={touched.text && errors.text}
+                disabled={sent}
+              />
+              <Button variant="contained" type="submit" disabled={isSubmitting || sent}>
+                Submit
+              </Button>
+            </form>
+          )}
+        </Formik>
       </section>
     </styled.ContactUs>
   )

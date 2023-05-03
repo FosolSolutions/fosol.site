@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { Footer, Header } from '..'
 
 export interface IDefaultLayout {
@@ -8,6 +10,7 @@ export interface IDefaultLayout {
 export const DefaultLayout = ({ children }: IDefaultLayout): JSX.Element => {
   return (
     <>
+      <ToastContainer />
       <Header>
         <nav>
           <ul>

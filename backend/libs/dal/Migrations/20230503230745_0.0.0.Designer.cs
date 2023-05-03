@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Fosol.Site.Dal.Migrations
 {
     [DbContext(typeof(SiteContext))]
-    [Migration("20230503194625_0.0.0")]
+    [Migration("20230503230745_0.0.0")]
     partial class _000
     {
         /// <inheritdoc />
@@ -102,16 +102,14 @@ namespace Fosol.Site.Dal.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id");
+                        .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Company")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("character varying(100)")
-                        .HasColumnName("company");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -126,29 +124,28 @@ namespace Fosol.Site.Dal.Migrations
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("character varying(100)")
-                        .HasColumnName("email");
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<string>("IpAddress")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("character varying(100)")
-                        .HasColumnName("name");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasMaxLength(15)
-                        .HasColumnType("character varying(15)")
-                        .HasColumnName("phone");
+                        .HasColumnType("character varying(15)");
 
                     b.Property<int>("Status")
-                        .HasColumnType("integer")
-                        .HasColumnName("status");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Text")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("text");
+                        .HasColumnType("text");
 
                     b.Property<string>("UpdatedBy")
                         .IsRequired()
@@ -170,7 +167,7 @@ namespace Fosol.Site.Dal.Migrations
 
                     b.HasIndex(new[] { "Name", "Company", "Email", "Phone", "Status" }, "IX_basic_message");
 
-                    b.ToTable("basic_message");
+                    b.ToTable("BasicMessages");
                 });
 
             modelBuilder.Entity("Fosol.Site.Entities.Claim", b =>
@@ -245,16 +242,14 @@ namespace Fosol.Site.Dal.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id");
+                        .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Company")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("character varying(100)")
-                        .HasColumnName("company");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -269,35 +264,29 @@ namespace Fosol.Site.Dal.Migrations
                     b.Property<string>("DisplayName")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("character varying(50)")
-                        .HasColumnName("display_name");
+                        .HasColumnType("character varying(50)");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("character varying(100)")
-                        .HasColumnName("email");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("first_name");
+                        .HasColumnType("text");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("last_name");
+                        .HasColumnType("text");
 
                     b.Property<string>("Note")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("note");
+                        .HasColumnType("text");
 
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasMaxLength(15)
-                        .HasColumnType("character varying(15)")
-                        .HasColumnName("phone");
+                        .HasColumnType("character varying(15)");
 
                     b.Property<string>("UpdatedBy")
                         .IsRequired()
@@ -319,7 +308,7 @@ namespace Fosol.Site.Dal.Migrations
 
                     b.HasIndex(new[] { "Email", "DisplayName" }, "IX_contact");
 
-                    b.ToTable("contact");
+                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("Fosol.Site.Entities.Role", b =>

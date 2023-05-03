@@ -3,5 +3,5 @@ export interface IContactUsForm {
   company: string
   email: string
   phone: string
-  message: string
+  text: string
 }
