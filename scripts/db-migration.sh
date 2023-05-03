@@ -7,7 +7,7 @@ echo "Updating migration '$FILE1'";
 sed -i "2iusing Fosol.Site.Dal;" $FILE1;
 
 search=":\ Migration";
-replace=":\ PostgresServerSeedMigration";
+replace=":\ PostgresSeedMigration";
 sed -i "s/$search/$replace/" $FILE1;
 
 fl1=$(grep -n "protected override void Up(MigrationBuilder migrationBuilder)" $FILE1 | head -n 1 | cut -d: -f1);

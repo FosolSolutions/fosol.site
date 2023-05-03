@@ -17,6 +17,11 @@ public class Claim : SortableAuditable<int>
   public Account? Account { get; set; }
 
   /// <summary>
+  /// get/set - A name identifies the type, whereas the value provides the specific detail (i.e. skill=engineer [name=value]).
+  /// </summary>
+  public string Value { get; set; } = "";
+
+  /// <summary>
   /// get - Collection of roles.
   /// </summary>
   public ICollection<Role> Roles { get; } = new List<Role>();
@@ -36,22 +41,26 @@ public class Claim : SortableAuditable<int>
   /// <summary>
   /// Creates a new instance of a Claim object, initializes with specified parameters.
   /// </summary>
-  /// <param name="name"></param>
   /// <param name="account"></param>
-  public Claim(string name, Account account) : base(name)
+  /// <param name="name"></param>
+  /// <param name="value"></param>
+  public Claim(Account account, string name, string value) : base(name)
   {
     this.Account = account ?? throw new ArgumentNullException(nameof(account));
     this.AccountId = account.Id;
+    this.Value = value ?? throw new ArgumentNullException(nameof(value));
   }
 
   /// <summary>
   /// Creates a new instance of a Claim object, initializes with specified parameters.
   /// </summary>
-  /// <param name="name"></param>
   /// <param name="accountId"></param>
-  public Claim(string name, int accountId) : base(name)
+  /// <param name="name"></param>
+  /// <param name="value"></param>
+  public Claim(int accountId, string name, string value) : base(name)
   {
     this.AccountId = accountId;
+    this.Value = value ?? throw new ArgumentNullException(nameof(value));
   }
   #endregion
 
@@ -60,9 +69,9 @@ public class Claim : SortableAuditable<int>
   /// Converts the specified 'claim' to a KeyValuePair object.
   /// </summary>
   /// <param name="claim"></param>
-  public static implicit operator KeyValuePair<int, string>(Claim claim)
+  public static implicit operator KeyValuePair<string, string>(Claim claim)
   {
-    return new KeyValuePair<int, string>(claim.AccountId, claim.Name);
+    return new KeyValuePair<string, string>(claim.Name, claim.Value);
   }
   #endregion
 }

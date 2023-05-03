@@ -15,6 +15,8 @@ public class RoleConfiguration : SortableAuditableConfiguration<Role, int>
 
     builder.HasOne(m => m.Account).WithMany(m => m.Roles).HasForeignKey(m => m.AccountId).OnDelete(DeleteBehavior.Cascade);
 
+    builder.HasMany(m => m.Claims).WithMany(m => m.Roles).UsingEntity<RoleClaim>();
+
     builder.HasIndex(m => new { m.IsEnabled }, "IX_role");
     builder.HasIndex(m => new { m.AccountId, m.Name }, "IX_role_name").IsUnique();
     builder.HasIndex(m => m.Key, "IX_role_key").IsUnique();

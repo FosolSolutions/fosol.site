@@ -28,6 +28,9 @@ public class UserConfiguration : AuditableConfiguration<User>
     builder.Property(m => m.Status).IsRequired();
     builder.Property(m => m.LastLoginOn);
 
+    builder.HasMany(m => m.Accounts).WithMany(m => m.Users).UsingEntity<UserAccount>();
+    builder.HasMany(m => m.Roles).WithMany(m => m.Users).UsingEntity<UserRole>();
+
     builder.HasIndex(m => m.Username, "IX_user_username").IsUnique();
     builder.HasIndex(m => m.DisplayName, "IX_user_display_name").IsUnique();
     builder.HasIndex(m => m.Key, "IX_user_key").IsUnique();

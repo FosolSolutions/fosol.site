@@ -30,4 +30,10 @@
     <ProjectReference Include="..\entities\Fosol.Site.Entities.csproj" />
     <ProjectReference Include="..\core\Fosol.Core.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Migrations\**\*.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>

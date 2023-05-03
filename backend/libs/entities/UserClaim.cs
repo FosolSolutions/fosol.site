@@ -27,12 +27,12 @@ public class UserClaim : Auditable
   public Account? Account { get; set; }
 
   /// <summary>
-  /// 
+  /// get/set - The claim name.
   /// </summary>
   public string Name { get; set; } = "";
 
   /// <summary>
-  /// 
+  /// get/set - The claim value.
   /// </summary>
   public string Value { get; set; } = "";
   #endregion
@@ -42,6 +42,23 @@ public class UserClaim : Auditable
   /// 
   /// </summary>
   protected UserClaim() { }
+
+  /// <summary>
+  /// 
+  /// </summary>
+  /// <param name="user"></param>
+  /// <param name="account"></param>
+  /// <param name="claim"></param>
+  /// <exception cref="ArgumentNullException"></exception>
+  public UserClaim(User user, Account account, Claim claim)
+  {
+    this.User = user ?? throw new ArgumentNullException(nameof(user));
+    this.UserId = user.Id;
+    this.Account = account ?? throw new ArgumentNullException(nameof(account));
+    this.AccountId = account.Id;
+    this.Name = claim?.Name ?? throw new ArgumentNullException(nameof(claim));
+    this.Value = claim?.Value ?? throw new ArgumentNullException(nameof(claim));
+  }
 
   /// <summary>
   /// 
