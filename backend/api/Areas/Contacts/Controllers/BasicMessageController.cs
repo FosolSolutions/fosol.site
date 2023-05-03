@@ -1,6 +1,7 @@
 using System.Net.Mime;
 using Fosol.Site.Models.Contacts.Messages;
 using Fosol.Site.UoW;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -12,7 +13,7 @@ namespace Fosol.Site.Api.Controllers;
 [ApiController]
 [ApiVersion("1.0")]
 [Area("contacts")]
-[Route("v{version:apiVersion}/messages")]
+[Route("v{version:apiVersion}/[area]/messages")]
 public class BasicMessageController : ControllerBase
 {
   #region Variables
@@ -42,8 +43,9 @@ public class BasicMessageController : ControllerBase
   [SwaggerOperation(Tags = new[] { "Contacts" })]
   public IActionResult AddMessage(BasicMessageModel model)
   {
-    var message = _messageService.AddAndSave(model.ToEntity());
-    return new JsonResult(new BasicMessageModel(message));
+    var newMessage = model.ToEntity(Request.HttpContext.Connection.RemoteIpAddress?.ToString() ?? "");
+    var message = _messageService.AddAndSave(newMessage);
+    return StatusCode(201, new BasicMessageModel(message));
   }
   #endregion
 }

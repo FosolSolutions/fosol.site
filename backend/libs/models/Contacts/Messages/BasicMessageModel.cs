@@ -26,9 +26,9 @@ public class BasicMessageModel
   #endregion
 
   #region Methods
-  public BasicMessage ToEntity()
+  public BasicMessage ToEntity(string ipAddress)
   {
-    return new BasicMessage(this.Name, this.Company, this.Email, this.Phone, this.Text);
+    return new BasicMessage(ipAddress, this.Name, this.Company, this.Email, this.Phone, this.Text);
   }
   #endregion
 }
