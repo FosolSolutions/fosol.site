@@ -45,5 +45,10 @@ public class MailOptions
   /// get/set - How long to wait in milliseconds before timing out a request to send email.
   /// </summary>
   public int Timeout { get; set; } = 15000;
+
+  /// <summary>
+  /// get/set - A target name.
+  /// </summary>
+  public string TargetName { get; set; } = "";
   #endregion
 }
