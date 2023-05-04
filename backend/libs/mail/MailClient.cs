@@ -27,8 +27,10 @@ public class MailClient
     _client = new SmtpClient(_options.Host)
     {
       Port = _options.Port,
+      DeliveryMethod = SmtpDeliveryMethod.Network,
       UseDefaultCredentials = _options.UseDefaultCredentials,
       Credentials = new System.Net.NetworkCredential(!String.IsNullOrWhiteSpace(_options.Username) ? _options.Username : _options.FromEmail, _options.Password),
+      TargetName = _options.TargetName,
       EnableSsl = _options.EnableSsl,
       Timeout = _options.Timeout
     };
@@ -49,7 +51,7 @@ public class MailClient
   /// </summary>
   /// <param name="model"></param>
   /// <returns></returns>
-  public MailMessage CreateInvitation(EmailModel model)
+  public MailMessage PrepareMessage(EmailModel model)
   {
     // TODO: Move this to some kind of templating service.
     // TODO: Need to include the current domain name instead of hardcoding it.

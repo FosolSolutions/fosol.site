@@ -27,7 +27,7 @@ const validationSchema = yup.object({
 export const ContactUs = () => {
   const [sent, setSent] = React.useState(false)
 
-  const addMessage = React.useCallback(async (values: IContactUsForm) => {
+  const sendMessage = React.useCallback(async (values: IContactUsForm) => {
     try {
       const res = await fetch('/api/v1/contacts/messages', {
         method: 'POST',
@@ -73,7 +73,7 @@ export const ContactUs = () => {
           initialValues={defaultValues}
           validationSchema={validationSchema}
           onSubmit={async (values, { setSubmitting }) => {
-            await addMessage(values)
+            await sendMessage(values)
             setSubmitting(false)
           }}
         >
