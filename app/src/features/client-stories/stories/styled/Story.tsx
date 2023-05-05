@@ -6,7 +6,7 @@ export const Story = styled.div`
 
   .banner {
     > div {
-      gap: 1em;
+      gap: 1rem;
 
       > *:nth-child(1) {
         flex: 2;
@@ -45,14 +45,14 @@ export const Story = styled.div`
   }
 
   > div:nth-child(2) {
-    margin: 1em;
+    margin: 1rem;
   }
 
   article {
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
-    gap: 1em;
+    gap: 1rem;
 
     > div {
       flex: 1;

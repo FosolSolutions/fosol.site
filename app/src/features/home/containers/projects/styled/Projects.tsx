@@ -5,7 +5,7 @@ export const Projects = styled.section`
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
-    gap: 1em;
+    gap: 1rem;
     align-items: stretch;
 
     .container {
@@ -15,14 +15,14 @@ export const Projects = styled.section`
       margin: 0.25em 0 0 0;
       min-width: 300px;
       min-height: 200px;
-      border-radius: 0.75em;
+      border-radius: 0.75rem;
       background-color: rgba(188, 51, 52, 0.9);
       color: #fff;
       overflow: hidden;
 
       & h2 {
-        padding: 1em;
-        font-size: 1em;
+        padding: 1rem;
+        font-size: 1rem;
       }
 
       &:hover > :first-child {
@@ -38,12 +38,12 @@ export const Projects = styled.section`
 
       .icon {
         height: 35px;
-        margin: 0.25em;
-        padding: 0.25em;
+        margin: 0.25rem;
+        padding: 0.25rem;
       }
 
       .icon-bk {
-        border-radius: 0.5em;
+        border-radius: 0.5rem;
         background-color: rgb(255, 255, 255, 0.25);
       }
 
@@ -51,7 +51,7 @@ export const Projects = styled.section`
         flex: 1 1 auto;
         display: flex;
         flex-flow: column;
-        padding: 1em;
+        padding: 1rem;
         background-color: rgb(255, 255, 255, 0.5);
 
         & > p:last-of-type {

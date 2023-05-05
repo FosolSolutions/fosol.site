@@ -9,27 +9,27 @@ export const Clients = styled.section`
     > .client-list {
       display: flex;
       flex-flow: row;
-      gap: 0.5em;
+      gap: 0.5rem;
       -webkit-overflow-scrolling: touch;
       overflow: auto;
       background-color: ${(props) => props.theme.css.theme5thColor};
-      padding: 0.5em;
-      border-radius: 0.75em;
+      padding: 0.5rem;
+      border-radius: 0.75rem;
 
       > article {
         flex: 1 1 0;
         display: flex;
         flex-flow: column;
         align-content: stretch;
-        padding: 1em;
+        padding: 1rem;
         background-color: ${(props) => props.theme.css.primaryBkColor};
-        border-radius: 0.5em;
+        border-radius: 0.5rem;
         min-width: 120px;
         border: solid 1px ${(props) => props.theme.css.theme5thColor};
 
         > h2 {
-          font-size: 1em;
-          margin-bottom: 1em;
+          font-size: 1rem;
+          margin-bottom: 1rem;
         }
 
         > * {
@@ -41,7 +41,7 @@ export const Clients = styled.section`
           justify-content: center;
           align-items: center;
           background-color: ${(props) => props.theme.css.primaryBkColor};
-          border-radius: 0.5em;
+          border-radius: 0.5rem;
           min-height: 75px;
         }
       }

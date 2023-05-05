@@ -36,7 +36,7 @@ export const Footer = styled.footer`
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    border-radius: 0.25em;
+    border-radius: 0.25rem;
     width: 52px;
     height: 52px;
 

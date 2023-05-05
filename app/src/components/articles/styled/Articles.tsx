@@ -4,7 +4,7 @@ export const Articles = styled.section`
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
-  gap: 1em;
+  gap: 1rem;
   background-color: ${(props) => props.theme.css.theme7thColor};
   padding: 0 5%;
 
@@ -13,8 +13,8 @@ export const Articles = styled.section`
     display: flex;
     flex-flow: column;
     align-items: center;
-    padding: 2em;
-    font-size: 1.15em;
+    padding: 2rem;
+    font-size: 1.15rem;
     color: ${(props) => props.theme.css.secondaryColor};
 
     .icon {
@@ -28,7 +28,7 @@ export const Articles = styled.section`
     }
 
     > h1 {
-      font-size: 1.25em;
+      font-size: 1.25rem;
       color: ${(props) => props.theme.css.secondaryColor};
     }
   }

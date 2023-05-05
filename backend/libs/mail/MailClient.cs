@@ -32,7 +32,7 @@ public class MailClient
       Credentials = new System.Net.NetworkCredential(!String.IsNullOrWhiteSpace(_options.Username) ? _options.Username : _options.FromEmail, _options.Password),
       TargetName = _options.TargetName,
       EnableSsl = _options.EnableSsl,
-      Timeout = _options.Timeout
+      Timeout = _options.Timeout,
     };
   }
 
