@@ -12,7 +12,7 @@ export const Skills = styled.div`
     background-color: ${(props) => props.theme.css.theme2ndColor};
     color: #fff;
     text-align: center;
-    padding: 0.25em;
+    padding: 0.25rem;
     margin: 0;
   }
 
@@ -24,7 +24,7 @@ export const Skills = styled.div`
 
   .shift {
     text-align: center;
-    font-size: 2em;
+    font-size: 2rem;
     color: ${(props) => props.theme.css.themePrimaryColor};
 
     &:hover {
@@ -38,16 +38,16 @@ export const Skills = styled.div`
     flex-flow: row;
     flex-wrap: nowrap;
     align-items: center;
-    gap: 1em;
+    gap: 1rem;
     overflow-x: scroll;
     overflow-y: hidden;
     width: 100%;
     background-color: rgb(255, 255, 255, 0.5);
     color: #000;
     /* text-shadow: 1px 1px 5px #000; */
-    font-size: 1.25em;
-    border-radius: 0.5em;
-    padding: 0 1em;
+    font-size: 1.25rem;
+    border-radius: 0.5rem;
+    padding: 0 1rem;
     -ms-overflow-style: none;
     /* IE and Edge */
     scrollbar-width: none;
@@ -70,14 +70,14 @@ export const Skills = styled.div`
       flex-flow: row;
       flex-wrap: nowrap;
       align-items: center;
-      gap: 0.25em;
-      padding-right: 0.25em;
+      gap: 0.25rem;
+      padding-right: 0.25rem;
 
       &:hover:not(.hr) {
         cursor: pointer;
         color: ${(props) => props.theme.css.theme3rdColor};
         box-shadow: 0 0 10px ${(props) => props.theme.css.theme3rdColor};
-        border-radius: 0.5em;
+        border-radius: 0.5rem;
       }
     }
   }

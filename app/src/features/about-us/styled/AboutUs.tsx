@@ -29,7 +29,7 @@ export const AboutUs = styled.div`
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 1em;
+    gap: 1rem;
 
     p {
       max-width: unset;
@@ -43,17 +43,17 @@ export const AboutUs = styled.div`
 
   .center {
     text-align: center;
-    padding: 1em 0 0 0;
+    padding: 1rem 0 0 0;
   }
 
   > div.story {
-    padding: 1em;
+    padding: 1rem;
     background-color: ${(props) => props.theme.css.themeSecondaryColor};
     color: ${(props) => props.theme.css.primaryBkColor};
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
-    gap: 1em;
+    gap: 1rem;
 
     > div {
       flex: 1 1 0;
@@ -61,7 +61,7 @@ export const AboutUs = styled.div`
     }
 
     div.image {
-      border-radius: 1em;
+      border-radius: 1rem;
       background-image: url('/assets/background-09.jpg');
       background-repeat: no-repeat;
       background-position: center;
@@ -69,17 +69,17 @@ export const AboutUs = styled.div`
     }
 
     ul {
-      margin-top: 1em;
+      margin-top: 1rem;
       background-color: ${(props) => props.theme.css.primaryBkColor};
-      border-radius: 1em;
+      border-radius: 1rem;
       color: ${(props) => props.theme.css.black};
       list-style: disc;
-      padding: 1em 2em;
+      padding: 1rem 2rem;
 
       li {
-        padding: 0.25em;
+        padding: 0.25rem;
         margin: 0.5em 0;
-        border-radius: 0.25em;
+        border-radius: 0.25rem;
       }
     }
   }
@@ -93,9 +93,9 @@ export const AboutUs = styled.div`
       display: flex;
       flex-flow: column;
       align-items: center;
-      gap: 1em;
+      gap: 1rem;
       max-width: 60%;
-      padding: 1em;
+      padding: 1rem;
 
       @media only screen and (max-width: 1024px) {
         max-width: 80%;
@@ -107,15 +107,15 @@ export const AboutUs = styled.div`
 
       > h1 {
         color: ${(props) => props.theme.css.secondaryColor};
-        font-size: 1.75em;
+        font-size: 1.75rem;
       }
 
       > article {
         display: flex;
         flex-flow: row;
         flex-wrap: wrap;
-        gap: 1em;
-        column-gap: 5em;
+        gap: 1rem;
+        column-gap: 5rem;
         width: 100%;
         min-height: 130px;
         justify-content: center;

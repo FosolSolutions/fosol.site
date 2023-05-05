@@ -17,6 +17,6 @@ public static class ServiceCollectionExtensions
   public static IServiceCollection AddMail(this IServiceCollection services, IConfiguration config)
   {
     services.AddOptions<MailOptions>().Bind(config.GetSection("Mail"));
-    return services.AddSingleton<MailClient>();
+    return services.AddScoped<MailClient>();
   }
 }

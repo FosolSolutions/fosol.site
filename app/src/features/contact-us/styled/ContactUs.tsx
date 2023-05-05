@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const ContactUs = styled.div`
   section {
-    padding: 1em;
+    padding: 1rem;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -10,7 +10,7 @@ export const ContactUs = styled.div`
     > form {
       display: flex;
       flex-flow: column;
-      gap: 1em;
+      gap: 1rem;
       width: 100%;
       max-width: 50%;
 

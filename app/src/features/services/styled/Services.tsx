@@ -5,7 +5,7 @@ export const Services = styled.div`
   flex-flow: column;
 
   section.services {
-    padding: 1em;
+    padding: 1rem;
     background-color: ${(props) => props.theme.css.theme2ndColor};
 
     h1 {
@@ -16,14 +16,14 @@ export const Services = styled.div`
       display: flex;
       flex-flow: row;
       flex-wrap: wrap;
-      gap: 1em;
+      gap: 1rem;
 
       > div:nth-child(1) {
         flex: 1 1 0;
         min-width: 300px;
-        padding: 1em;
+        padding: 1rem;
         color: ${(props) => props.theme.css.theme6thColor};
-        font-size: 1.15em;
+        font-size: 1.15rem;
       }
 
       > div:nth-child(2) {
@@ -31,7 +31,7 @@ export const Services = styled.div`
         display: flex;
         flex-flow: row;
         flex-wrap: wrap;
-        gap: 1em;
+        gap: 1rem;
         align-items: stretch;
         justify-content: stretch;
 
@@ -40,15 +40,15 @@ export const Services = styled.div`
           width: calc(33% - 4em);
           min-width: 300px;
           background-color: ${(props) => props.theme.css.primaryBkColor};
-          border-radius: 0.5em;
-          padding: 1em;
+          border-radius: 0.5rem;
+          padding: 1rem;
           display: flex;
           flex-flow: row;
           align-items: center;
-          gap: 1em;
+          gap: 1rem;
 
           h2 {
-            font-size: 1.5em;
+            font-size: 1.5rem;
           }
           .icon {
             flex: 1;
@@ -63,11 +63,11 @@ export const Services = styled.div`
   }
 
   section.skill {
-    padding: 2em;
+    padding: 2rem;
   }
 
   .center {
-    padding-top: 1em;
+    padding-top: 1rem;
     text-align: center;
   }
 `

@@ -3,7 +3,7 @@
 
 body {
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
-  font-size: 1em;
+  font-size: 1rem;
   background-color: rgba(249, 250, 251, 1);
   background-position: center;
   background-size: cover;
@@ -26,7 +26,7 @@ header {
   flex-flow: row;
   flex-wrap: wrap;
   align-items: stretch;
-  padding: 0 1em;
+  padding: 0 1rem;
   display: flex;
   flex-direction: row;
   background-color: rgba($primaryBkColor, 1);
@@ -34,7 +34,7 @@ header {
 
   h1.cname {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 4em;
+    font-size: 4rem;
     text-transform: uppercase;
     margin: 0;
     padding: 0;
@@ -49,8 +49,8 @@ header {
     display: flex;
     flex-flow: row;
     flex-wrap: nowrap;
-    gap: 1em;
-    margin: 0.25em;
+    gap: 1rem;
+    margin: 0.25rem;
     align-items: center;
     width: 330px;
   }
@@ -60,7 +60,7 @@ header {
     display: flex;
     flex-flow: row;
     justify-content: center;
-    padding: 0 1em;
+    padding: 0 1rem;
 
     ul {
       display: flex;
@@ -82,7 +82,7 @@ main {
 
 footer {
   flex: 1 1 1;
-  padding: 0.5em;
+  padding: 0.5rem;
   background-color: $themePrimaryColor;
   color: $white;
 }
@@ -93,20 +93,20 @@ p {
 }
 
 p.copyright {
-  font-size: 0.75em;
+  font-size: 0.75rem;
   text-align: center;
 }
 
 nav {
   margin: 0;
   padding: 0;
-  font-size: 1em;
+  font-size: 1rem;
 
   &>ul {
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
-    gap: 1em;
+    gap: 1rem;
   }
 }
 
@@ -143,7 +143,7 @@ h3,
 h4,
 h5,
 h6 {
-  padding-bottom: 0.5em;
+  padding-bottom: 0.5rem;
   margin: 0;
   font-family: "Antonio", Sans-serif;
 }
@@ -156,7 +156,7 @@ details {
   display: flex;
   flex-flow: column;
   flex-wrap: wrap;
-  gap: 1em;
+  gap: 1rem;
 }
 
 .box {
@@ -165,7 +165,7 @@ details {
   display: flex;
   flex-flow: column;
   background-color: rgba($primaryBkColor, 0.65);
-  border-radius: 0.5em;
+  border-radius: 0.5rem;
 
   &::before {
     content: "";
@@ -202,7 +202,7 @@ details {
 }
 
 .pad {
-  padding: 1em;
+  padding: 1rem;
 }
 
 .text-white {
@@ -214,13 +214,13 @@ details {
   flex-flow: row;
   flex-wrap: wrap;
   align-items: stretch;
-  gap: 1em;
+  gap: 1rem;
 }
 
 .col {
   display: flex;
   flex-flow: column;
-  gap: 1em;
+  gap: 1rem;
 }
 
 .row.stretch {
@@ -243,7 +243,7 @@ details {
 
 
 img.logo {
-  height: 4em;
+  height: 4rem;
   margin: 0;
 
   &.small {
@@ -254,7 +254,7 @@ img.logo {
 
 .grid {
   display: grid;
-  gap: 0.5em;
+  gap: 0.5rem;
 
   &.gc-2 {
     grid-template-columns: 1fr 1fr;
@@ -275,7 +275,7 @@ img.logo {
   }
 
   &>div:nth-child(even) {
-    padding-left: 0.5em;
+    padding-left: 0.5rem;
   }
 }
 
@@ -287,7 +287,7 @@ img.logo {
 }
 
 .section {
-  margin: 0 1em;
+  margin: 0 1rem;
 }
 
 

@@ -7,7 +7,7 @@ export const ContactUs = styled.section`
     flex-wrap: wrap-reverse;
     overflow: hidden;
     height: 100%;
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
 
     &:first-child {
       flex: 1;

@@ -12,11 +12,11 @@ export const ClientStories = styled.div`
   > div:nth-child(2) {
     overflow: auto;
     height: calc(100vh - 420px);
-    padding: 1em;
+    padding: 1rem;
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
-    gap: 1em;
+    gap: 1rem;
     align-items: center;
     justify-content: center;
 
@@ -24,17 +24,17 @@ export const ClientStories = styled.div`
       cursor: pointer;
       width: 250px;
       min-height: 200px;
-      padding: 1em;
+      padding: 1rem;
       display: flex;
       flex-flow: column;
       background-color: ${(props) => props.theme.css.primaryBkColor};
       border: solid 1px ${(props) => props.theme.css.themePrimaryColor};
-      border-top-right-radius: 1em;
-      border-bottom-left-radius: 1em;
+      border-top-right-radius: 1rem;
+      border-bottom-left-radius: 1rem;
 
       h1 {
         font-weight: 100;
-        font-size: 1.25em;
+        font-size: 1.25rem;
       }
 
       .logo {
@@ -46,7 +46,7 @@ export const ClientStories = styled.div`
         flex: 1;
         display: flex;
         flex-flow: row;
-        gap: 1em;
+        gap: 1rem;
         align-items: center;
         justify-content: center;
       }
@@ -56,7 +56,7 @@ export const ClientStories = styled.div`
       }
 
       .link {
-        font-size: 0.75em;
+        font-size: 0.75rem;
       }
 
       &:hover {

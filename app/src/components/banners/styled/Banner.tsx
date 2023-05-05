@@ -6,7 +6,7 @@ export const Banner = styled.div<IBanner>`
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  padding: 1em;
+  padding: 1rem;
   background-color: ${(props) => {
     switch (props.variant) {
       case 'secondary':
