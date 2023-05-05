@@ -39,10 +39,21 @@ export const Resume = styled.div`
       }
 
       .skill {
+        padding: 0.25rem;
+        border-radius: 0.5rem;
+        border: solid 1px ${(props) => props.theme.palette.primary.light};
+
         div.row {
           > div {
             flex: 1 1 auto;
+
+            &.trash {
+              flex: 0;
+            }
           }
+        }
+
+        &:nth-child(odd) {
         }
       }
     }
