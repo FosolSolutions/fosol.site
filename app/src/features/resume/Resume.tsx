@@ -68,6 +68,7 @@ const validationSchema = yup.object({
 })
 
 export const Resume = () => {
+  const uploadResumeRef = React.useRef<HTMLInputElement>(null)
   const [sent, setSent] = React.useState(false)
   const [locationExpanded, setLocationExpanded] = React.useState(false)
   const [detailExpanded, setDetailExpanded] = React.useState(false)
@@ -497,6 +498,37 @@ export const Resume = () => {
                   </CardContent>
                 </Collapse>
               </Card>
+              <div className="row">
+                <Button variant="outlined" component="label">
+                  Attach Resume
+                  <input
+                    name="resume"
+                    type="file"
+                    accept="application/pdf"
+                    ref={uploadResumeRef}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    hidden
+                  />
+                </Button>
+                {!!uploadResumeRef.current?.files?.length &&
+                  uploadResumeRef.current?.files?.[0].name}
+                {!!uploadResumeRef.current?.files?.length && (
+                  <div>
+                    <Tooltip title="Remove file">
+                      <IconButton
+                        color="error"
+                        onClick={() => {
+                          setFieldValue('resume', null)
+                          if (uploadResumeRef.current) uploadResumeRef.current.value = ''
+                        }}
+                      >
+                        <FaTrash />
+                      </IconButton>
+                    </Tooltip>
+                  </div>
+                )}
+              </div>
               <Button
                 variant="contained"
                 type="submit"
