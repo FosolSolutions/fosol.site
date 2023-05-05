@@ -1,5 +1,6 @@
 import { Banner } from '@/components'
 import { IErrorModel } from '@/hooks'
+import { hasError } from '@/utils'
 import {
   Button,
   Card,
@@ -15,14 +16,16 @@ import {
   Radio,
   RadioGroup,
   TextField,
+  Tooltip,
 } from '@mui/material'
-import { FieldArray, Formik } from 'formik'
+import { FieldArray, Formik, FormikErrors, setNestedObjectValues } from 'formik'
 import React from 'react'
-import { FaCaretDown, FaCaretUp, FaPlus } from 'react-icons/fa'
+import { FaCaretDown, FaCaretUp, FaPlus, FaTrash } from 'react-icons/fa'
 import { ClipLoader } from 'react-spinners'
 import { toast } from 'react-toastify'
 import * as yup from 'yup'
 import { IResumeForm } from './IResumeForm'
+import { ISkillForm } from './ISkillForm'
 import * as styled from './styled'
 
 const defaultValues: IResumeForm = {
@@ -55,6 +58,13 @@ const validationSchema = yup.object({
   region: yup.string().optional(),
   country: yup.string().optional(),
   salary: yup.string().optional(),
+  skills: yup.array().of(
+    yup.object().shape({
+      name: yup.string().required('Skill name is required'),
+      level: yup.string().required('Experience level required'),
+      description: yup.string().optional(),
+    }),
+  ),
 })
 
 export const Resume = () => {
@@ -101,13 +111,17 @@ export const Resume = () => {
 
   return (
     <styled.Resume>
-      <Banner title="Join Our Team"></Banner>
+      <Banner title="Join Our Team">
+        <p>Submit your resume and when an opening becomes available we will contact you</p>
+      </Banner>
 
       <section>
-        <p>Tell us about yourself</p>
+        <p>Tell us about yourself. It never hurts to network out and keep tabs on opportunities.</p>
         <Formik
           initialValues={defaultValues}
           validationSchema={validationSchema}
+          validateOnChange={false}
+          validateOnBlur={true}
           onSubmit={async (values, { setSubmitting }) => {
             setLocationExpanded(false)
             setDetailExpanded(false)
@@ -125,6 +139,8 @@ export const Resume = () => {
             handleChange,
             handleBlur,
             setFieldValue,
+            setFieldTouched,
+            setTouched,
           }) => (
             <form onSubmit={handleSubmit}>
               <div className="row">
@@ -202,7 +218,13 @@ export const Resume = () => {
                 disabled={sent || isSubmitting}
               >
                 <FormLabel id="employment">Looking for Employment</FormLabel>
-                <RadioGroup name="employment" row onChange={handleChange} onBlur={handleBlur}>
+                <RadioGroup
+                  name="employment"
+                  row
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.employment}
+                >
                   <FormControlLabel value="fulltime" label="Fulltime" control={<Radio />} />
                   <FormControlLabel value="contractor" label="Contractor" control={<Radio />} />
                   <FormControlLabel value="part-time" label="Part-time" control={<Radio />} />
@@ -225,7 +247,7 @@ export const Resume = () => {
               )}
               <Card variant="outlined">
                 <CardHeader
-                  title="Location"
+                  title="Address"
                   action={
                     <IconButton
                       onClick={() => {
@@ -287,15 +309,16 @@ export const Resume = () => {
                     <IconButton
                       onClick={() => {
                         setLocationExpanded(false)
-                        setDetailExpanded(!detailExpanded)
-                        setSkillsExpanded(false)
+                        setDetailExpanded(!detailExpanded || !!errors.description)
+                        setSkillsExpanded(false || hasError(errors.skills))
+                        console.debug(errors)
                       }}
                     >
                       {detailExpanded ? <FaCaretUp /> : <FaCaretDown />}
                     </IconButton>
                   }
                 />
-                <Collapse in={detailExpanded}>
+                <Collapse in={detailExpanded || (!!touched.description && !!errors.description)}>
                   <CardContent>
                     <div className="col">
                       <TextField
@@ -333,26 +356,63 @@ export const Resume = () => {
                 <CardHeader
                   title="Skills"
                   action={
-                    <IconButton
-                      onClick={() => {
-                        setLocationExpanded(false)
-                        setDetailExpanded(false)
-                        setSkillsExpanded(!skillsExpanded)
-                      }}
-                    >
-                      {skillsExpanded ? <FaCaretUp /> : <FaCaretDown />}
-                    </IconButton>
+                    <div>
+                      <Tooltip title="Add additional skill">
+                        <IconButton
+                          color="secondary"
+                          onClick={() => {
+                            setFieldValue('skills', [
+                              ...values.skills,
+                              {
+                                name: '',
+                                experience: '',
+                                level: '',
+                                description: '',
+                              },
+                            ])
+                            setSkillsExpanded(true)
+                          }}
+                        >
+                          <FaPlus />
+                        </IconButton>
+                      </Tooltip>
+                      <IconButton
+                        onClick={() => {
+                          setLocationExpanded(false)
+                          setDetailExpanded(false || !!errors.description)
+                          setSkillsExpanded(!skillsExpanded || hasError(errors.skills))
+                        }}
+                      >
+                        {skillsExpanded ? <FaCaretUp /> : <FaCaretDown />}
+                      </IconButton>
+                    </div>
                   }
                 />
-                <Collapse in={skillsExpanded}>
+                <Collapse
+                  in={
+                    skillsExpanded ||
+                    (errors.skills as FormikErrors<ISkillForm>[])?.some((s) => !!s)
+                  }
+                >
                   <CardContent>
+                    <p>Add all your skills.</p>
                     <FieldArray
                       name="skills"
                       render={(arrayHelpers) => (
                         <div className="col">
                           {values.skills.map((skill, index) => (
-                            <FormGroup className="skill">
+                            <FormGroup key={index} className="skill">
                               <div className="row">
+                                <div className="trash">
+                                  <Tooltip title="Remove skill">
+                                    <IconButton
+                                      color={'error'}
+                                      onClick={() => arrayHelpers.remove(index)}
+                                    >
+                                      <FaTrash />
+                                    </IconButton>
+                                  </Tooltip>
+                                </div>
                                 <TextField
                                   name={`skills.${index}.name`}
                                   label="Name"
@@ -361,30 +421,42 @@ export const Resume = () => {
                                   onChange={handleChange}
                                   onBlur={handleBlur}
                                   inputProps={{ maxLength: 50 }}
-                                  error={touched.city && !!errors.city}
-                                  helperText={touched.city && errors.city}
+                                  error={
+                                    touched.skills?.[index]?.name &&
+                                    !!(errors.skills?.[index] as FormikErrors<ISkillForm>)?.name
+                                  }
+                                  helperText={
+                                    <>
+                                      {touched.skills?.[index]?.name &&
+                                        (errors.skills?.[index] as FormikErrors<ISkillForm>)?.name}
+                                    </>
+                                  }
                                   disabled={sent || isSubmitting}
                                 />
                                 <FormControl
                                   required
-                                  error={touched.employment && !!errors.employment}
+                                  error={
+                                    touched.skills &&
+                                    !!(errors.skills?.[index] as FormikErrors<ISkillForm>)?.level
+                                  }
                                   disabled={sent || isSubmitting}
                                 >
                                   <FormLabel id={`skills.${index}.level`}>Skill Level</FormLabel>
                                   <RadioGroup
                                     name={`skills.${index}.level`}
+                                    value={skill.level}
                                     row
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                   >
                                     <FormControlLabel
                                       value="learning"
-                                      label="learning"
+                                      label="Learning"
                                       control={<Radio />}
                                     />
                                     <FormControlLabel
                                       value="experienced"
-                                      label="experienced"
+                                      label="Experienced"
                                       control={<Radio />}
                                     />
                                     <FormControlLabel
@@ -393,7 +465,12 @@ export const Resume = () => {
                                       control={<Radio />}
                                     />
                                     <FormHelperText>
-                                      {touched.employment && errors.employment}
+                                      {
+                                        (
+                                          touched.skills &&
+                                          (errors.skills?.[index] as FormikErrors<ISkillForm>)
+                                        )?.level
+                                      }
                                     </FormHelperText>
                                   </RadioGroup>
                                 </FormControl>
@@ -402,6 +479,7 @@ export const Resume = () => {
                                 name={`skills.${index}.description`}
                                 label="Description"
                                 value={skill.description}
+                                placeholder="Tell us what you have done with this skill"
                                 multiline
                                 rows="5"
                                 onChange={handleChange}
@@ -413,29 +491,20 @@ export const Resume = () => {
                               />
                             </FormGroup>
                           ))}
-                          <div>
-                            <Button
-                              variant="contained"
-                              color="secondary"
-                              onClick={() =>
-                                arrayHelpers.push({
-                                  name: '',
-                                  experience: '',
-                                  level: '',
-                                  description: '',
-                                })
-                              }
-                            >
-                              <FaPlus />
-                            </Button>
-                          </div>
                         </div>
                       )}
                     />
                   </CardContent>
                 </Collapse>
               </Card>
-              <Button variant="contained" type="submit" disabled={isSubmitting || sent}>
+              <Button
+                variant="contained"
+                type="submit"
+                disabled={isSubmitting || sent}
+                onClick={() => {
+                  setTouched(setNestedObjectValues(errors, true))
+                }}
+              >
                 {!isSubmitting && 'Submit'}
                 {isSubmitting && <ClipLoader color="white" size={30} />}
               </Button>
