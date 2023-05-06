@@ -30,6 +30,8 @@ public class SiteContext : DbContext
   public DbSet<UserClaim> UserClaims => Set<UserClaim>();
   public DbSet<UserAccount> UserAccounts => Set<UserAccount>();
   public DbSet<UserRole> UserRoles => Set<UserRole>();
+  public DbSet<Resume> Resumes => Set<Resume>();
+  public DbSet<ResumeSkill> ResumeSkills => Set<ResumeSkill>();
   #endregion
 
   #region Constructors
