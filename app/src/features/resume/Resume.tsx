@@ -517,7 +517,7 @@ export const Resume = () => {
                   </Card>
                   <div className="row">
                     <Button variant="outlined" component="label">
-                      Attach Resume
+                      Attach Resume (PDF)
                       <input
                         name="resume"
                         type="file"

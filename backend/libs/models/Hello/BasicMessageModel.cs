@@ -1,6 +1,6 @@
 ﻿using Fosol.Site.Entities;
 
-namespace Fosol.Site.Models.Contacts.Messages;
+namespace Fosol.Site.Models.Hello;
 
 public class BasicMessageModel
 {
