@@ -21,4 +21,12 @@ RUN apt -y install curl
 WORKDIR /app
 COPY --from=build-env /app/out .
 
+RUN mkdir /mnt/storage
+VOLUME /mnt/storage
+RUN chgrp -R 0 /mnt/storage && \
+    chmod -R g=u /mnt/storage && \
+    chown -R 1001 /mnt/storage
+
+USER 1001
+
 ENTRYPOINT ["dotnet", "Fosol.Site.Api.dll"]

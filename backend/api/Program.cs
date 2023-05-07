@@ -4,6 +4,7 @@ using Fosol.Mail;
 using Fosol.Site.Api.Authentication;
 using Fosol.Site.Api.Middleware;
 using Fosol.Site.Api.Swagger;
+using Fosol.Site.Options;
 using Fosol.Site.UoW;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
@@ -60,6 +61,7 @@ public class Program
         })
       .ConfigureOptions<ConfigureSwaggerOptions>()
       .Configure<RouteOptions>(options => options.LowercaseUrls = true)
+      .Configure<StorageOptions>(config.GetSection("Storage"))
       .AddHttpContextAccessor()
       .AddTransient(s => s.GetService<IHttpContextAccessor>()?.HttpContext?.User ?? new ClaimsPrincipal())
       .AddSingleton<IHashPassword, HashPassword>()

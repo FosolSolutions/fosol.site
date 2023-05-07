@@ -1,8 +1,9 @@
 import { Banner } from '@/components'
 import { IErrorModel } from '@/hooks'
-import { Button, TextField } from '@mui/material'
+import { Button, CircularProgress, TextField } from '@mui/material'
 import { Formik } from 'formik'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import * as yup from 'yup'
 import { IContactUsForm } from './IContactUsForm'
@@ -25,11 +26,11 @@ const validationSchema = yup.object({
 })
 
 export const ContactUs = () => {
-  const [sent, setSent] = React.useState(false)
+  const navigate = useNavigate()
 
   const sendMessage = React.useCallback(async (values: IContactUsForm) => {
     try {
-      const res = await fetch('/api/v1/contacts/messages', {
+      const res = await fetch('/api/v1/hello/messages', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(values),
@@ -38,7 +39,7 @@ export const ContactUs = () => {
         toast.success(
           `Thank you for your message ${values.name}.  We will respond as soon as possible.`,
         )
-        setSent(true)
+        navigate('/')
       } else {
         var error = 'We are terribly sorry but an error has occurred.'
         const contentType = res.headers.get('content-type')
@@ -90,7 +91,7 @@ export const ContactUs = () => {
                 inputProps={{ maxLength: 100 }}
                 error={touched.name && !!errors.name}
                 helperText={touched.name && errors.name}
-                disabled={sent}
+                disabled={isSubmitting}
               />
               <TextField
                 name="company"
@@ -101,7 +102,7 @@ export const ContactUs = () => {
                 inputProps={{ maxLength: 100 }}
                 error={touched.company && !!errors.company}
                 helperText={touched.company && errors.company}
-                disabled={sent}
+                disabled={isSubmitting}
               />
               <div className="row stretch">
                 <TextField
@@ -115,7 +116,7 @@ export const ContactUs = () => {
                   inputProps={{ maxLength: 250 }}
                   error={touched.email && !!errors.email}
                   helperText={touched.email && errors.email}
-                  disabled={sent}
+                  disabled={isSubmitting}
                 />
                 <TextField
                   name="phone"
@@ -128,7 +129,7 @@ export const ContactUs = () => {
                   inputProps={{ maxLength: 15 }}
                   error={touched.phone && !!errors.phone}
                   helperText={touched.phone && errors.phone}
-                  disabled={sent}
+                  disabled={isSubmitting}
                 />
               </div>
               <TextField
@@ -144,10 +145,11 @@ export const ContactUs = () => {
                 inputProps={{ maxLength: 2000 }}
                 error={touched.text && !!errors.text}
                 helperText={touched.text && errors.text}
-                disabled={sent}
+                disabled={isSubmitting}
               />
-              <Button variant="contained" type="submit" disabled={isSubmitting || sent}>
-                Submit
+              <Button variant="contained" type="submit" disabled={isSubmitting}>
+                {!isSubmitting && 'Submit'}
+                {isSubmitting && <CircularProgress color="inherit" size="1.5rem" />}
               </Button>
             </form>
           )}
