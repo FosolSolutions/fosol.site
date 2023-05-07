@@ -15,6 +15,7 @@ import {
   FormHelperText,
   FormLabel,
   IconButton,
+  Link,
   Paper,
   Radio,
   RadioGroup,
@@ -102,13 +103,14 @@ export const Resume = () => {
         var error = 'We are terribly sorry but an error has occurred.'
         const contentType = res.headers.get('content-type')
         if (contentType && contentType.indexOf('application/json') !== -1) {
-          error = ((await res.json()) as IErrorModel).error
+          var json = await res.json()
+          error = (json as IErrorModel).error ?? json
         }
         toast.error(
           <div>
-            <h1>
+            <h2>
               {res.status}: {res.statusText}
-            </h1>
+            </h2>
             <p>{error}</p>
           </div>,
         )
@@ -269,7 +271,20 @@ export const Resume = () => {
                   )}
                   <Card variant="outlined">
                     <CardHeader
-                      title="Address"
+                      title={
+                        <Link
+                          href=""
+                          underline="none"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            setLocationExpanded(!locationExpanded)
+                            setDetailExpanded(false)
+                            setSkillsExpanded(false)
+                          }}
+                        >
+                          Address
+                        </Link>
+                      }
                       action={
                         <IconButton
                           onClick={() => {
@@ -326,7 +341,21 @@ export const Resume = () => {
                   </Card>
                   <Card variant="outlined">
                     <CardHeader
-                      title="Details"
+                      title={
+                        <Link
+                          href=""
+                          underline="none"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            setLocationExpanded(false)
+                            if (detailExpanded && errors.description) setFieldTouched('description')
+                            setDetailExpanded(!detailExpanded || !!errors.description)
+                            setSkillsExpanded(false || hasError(errors.skills))
+                          }}
+                        >
+                          Details
+                        </Link>
+                      }
                       action={
                         <IconButton
                           onClick={() => {
@@ -378,7 +407,20 @@ export const Resume = () => {
                   </Card>
                   <Card variant="outlined">
                     <CardHeader
-                      title="Skills"
+                      title={
+                        <Link
+                          href=""
+                          underline="none"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            setLocationExpanded(false)
+                            setDetailExpanded(false || !!errors.description)
+                            setSkillsExpanded(!skillsExpanded || hasError(errors.skills))
+                          }}
+                        >
+                          Skills
+                        </Link>
+                      }
                       action={
                         <div>
                           <Tooltip title="Add additional skill">

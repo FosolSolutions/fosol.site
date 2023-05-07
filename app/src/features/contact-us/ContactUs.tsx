@@ -44,13 +44,14 @@ export const ContactUs = () => {
         var error = 'We are terribly sorry but an error has occurred.'
         const contentType = res.headers.get('content-type')
         if (contentType && contentType.indexOf('application/json') !== -1) {
-          error = ((await res.json()) as IErrorModel).error
+          var json = await res.json()
+          error = (json as IErrorModel).error ?? json
         }
         toast.error(
           <div>
-            <h1>
+            <h2>
               {res.status}: {res.statusText}
-            </h1>
+            </h2>
             <p>{error}</p>
           </div>,
         )

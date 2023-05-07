@@ -78,9 +78,11 @@ public class HelloController : ControllerBase
 
     if (model.File?.Length > 0)
     {
+      if (Path.GetExtension(model.File.FileName).ToLowerInvariant() != ".pdf") return BadRequest("File type is invalid");
+
       if (!Path.Exists(_storageOptions.Resume.Path)) Directory.CreateDirectory(_storageOptions.Resume.Path);
 
-      var filename = Path.GetRandomFileName();
+      var filename = Path.GetRandomFileName().Replace(".", String.Empty) + ".pdf";
       var path = Path.Combine(_storageOptions.Resume.Path, filename);
       using var stream = System.IO.File.Create(path);
       await model.File.CopyToAsync(stream);
