@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
 using Fosol.Core.Extensions;
 using Fosol.Site.Entities;
 using Microsoft.AspNetCore.Http;
