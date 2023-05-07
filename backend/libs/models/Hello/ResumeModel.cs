@@ -1,5 +1,8 @@
-﻿using Fosol.Core.Extensions;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
+using Fosol.Core.Extensions;
 using Fosol.Site.Entities;
+using Microsoft.AspNetCore.Http;
 
 namespace Fosol.Site.Models.Hello;
 
@@ -9,18 +12,28 @@ public class ResumeModel
   public string FirstName { get; set; } = "";
   public string LastName { get; set; } = "";
   public string Email { get; set; } = "";
+  [DisplayFormat(ConvertEmptyStringToNull = false)]
   public string Phone { get; set; } = "";
   public string Position { get; set; } = "";
+  [DisplayFormat(ConvertEmptyStringToNull = false)]
   public string Company { get; set; } = "";
   public string Employment { get; set; } = "";
+  [DisplayFormat(ConvertEmptyStringToNull = false)]
   public string Address { get; set; } = "";
+  [DisplayFormat(ConvertEmptyStringToNull = false)]
   public string City { get; set; } = "";
+  [DisplayFormat(ConvertEmptyStringToNull = false)]
   public string Region { get; set; } = "";
+  [DisplayFormat(ConvertEmptyStringToNull = false)]
   public string Country { get; set; } = "";
+  [DisplayFormat(ConvertEmptyStringToNull = false)]
   public string Postal { get; set; } = "";
   public string Description { get; set; } = "";
+  [DisplayFormat(ConvertEmptyStringToNull = false)]
   public string Salary { get; set; } = "";
+  [DisplayFormat(ConvertEmptyStringToNull = false)]
   public string FilePath { get; set; } = "";
+  public IFormFile? File { get; set; }
 
   public IEnumerable<ResumeSkillModel> Skills { get; set; } = Array.Empty<ResumeSkillModel>();
   #endregion

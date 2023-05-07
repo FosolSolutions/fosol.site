@@ -14,5 +14,5 @@ export interface IResumeForm {
   employment: 'fulltime' | 'contractor' | 'part-time' | 'any' | ''
   skills: ISkillForm[]
   salary: string
-  resume: File | null
+  file: File | null
 }

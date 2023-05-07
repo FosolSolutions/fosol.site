@@ -20,7 +20,7 @@ namespace Fosol.Site.Dal.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    IpAddress = table.Column<string>(type: "text", nullable: false),
+                    IpAddress = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     Company = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     Email = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
@@ -63,6 +63,38 @@ namespace Fosol.Site.Dal.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Resumes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    FirstName = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    LastName = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    Email = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Phone = table.Column<string>(type: "character varying(15)", maxLength: 15, nullable: false),
+                    Position = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    Employment = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    Company = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Address = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    City = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    Region = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    Country = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    Postal = table.Column<string>(type: "character varying(25)", maxLength: 25, nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: false),
+                    Salary = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    FilePath = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
+                    CreatedBy = table.Column<string>(type: "character varying(250)", maxLength: 250, nullable: false),
+                    CreatedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
+                    UpdatedBy = table.Column<string>(type: "character varying(250)", maxLength: 250, nullable: false),
+                    UpdatedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
+                    Version = table.Column<long>(type: "bigint", nullable: false, defaultValueSql: "0")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Resumes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -94,6 +126,33 @@ namespace Fosol.Site.Dal.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ResumeSkills",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    ResumeId = table.Column<int>(type: "integer", nullable: false),
+                    Name = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    Level = table.Column<int>(type: "integer", nullable: false),
+                    Description = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
+                    CreatedBy = table.Column<string>(type: "character varying(250)", maxLength: 250, nullable: false),
+                    CreatedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
+                    UpdatedBy = table.Column<string>(type: "character varying(250)", maxLength: 250, nullable: false),
+                    UpdatedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
+                    Version = table.Column<long>(type: "bigint", nullable: false, defaultValueSql: "0")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ResumeSkills", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ResumeSkills_Resumes_ResumeId",
+                        column: x => x.ResumeId,
+                        principalTable: "Resumes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -345,6 +404,21 @@ namespace Fosol.Site.Dal.Migrations
                 columns: new[] { "Email", "DisplayName" });
 
             migrationBuilder.CreateIndex(
+                name: "IX_resume",
+                table: "Resumes",
+                columns: new[] { "Email", "FirstName", "LastName", "Position" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_resume_skill",
+                table: "ResumeSkills",
+                columns: new[] { "Name", "Level" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ResumeSkills_ResumeId",
+                table: "ResumeSkills",
+                column: "ResumeId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_RoleClaims_ClaimId",
                 table: "RoleClaims",
                 column: "ClaimId");
@@ -417,6 +491,9 @@ namespace Fosol.Site.Dal.Migrations
                 name: "Contacts");
 
             migrationBuilder.DropTable(
+                name: "ResumeSkills");
+
+            migrationBuilder.DropTable(
                 name: "RoleClaims");
 
             migrationBuilder.DropTable(
@@ -427,6 +504,9 @@ namespace Fosol.Site.Dal.Migrations
 
             migrationBuilder.DropTable(
                 name: "UserRoles");
+
+            migrationBuilder.DropTable(
+                name: "Resumes");
 
             migrationBuilder.DropTable(
                 name: "Claims");

@@ -7,6 +7,7 @@ import {
   Card,
   CardContent,
   CardHeader,
+  CircularProgress,
   Collapse,
   FormControl,
   FormControlLabel,
@@ -23,7 +24,7 @@ import {
 import { FieldArray, Formik, FormikErrors, setNestedObjectValues } from 'formik'
 import React from 'react'
 import { FaCaretDown, FaCaretUp, FaPlus, FaTrash } from 'react-icons/fa'
-import { ClipLoader } from 'react-spinners'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import * as yup from 'yup'
 import { IResumeForm } from './IResumeForm'
@@ -44,7 +45,7 @@ const defaultValues: IResumeForm = {
   description: '',
   skills: [],
   salary: '',
-  resume: null,
+  file: null,
 }
 
 const validationSchema = yup.object({
@@ -70,24 +71,33 @@ const validationSchema = yup.object({
 })
 
 export const Resume = () => {
+  const navigate = useNavigate()
+
   const uploadResumeRef = React.useRef<HTMLInputElement>(null)
-  const [sent, setSent] = React.useState(false)
   const [locationExpanded, setLocationExpanded] = React.useState(false)
   const [detailExpanded, setDetailExpanded] = React.useState(false)
   const [skillsExpanded, setSkillsExpanded] = React.useState(false)
 
-  const sendMessage = React.useCallback(async (values: IResumeForm) => {
+  const uploadResume = React.useCallback(async (values: IResumeForm) => {
     try {
-      const res = await fetch('/api/v1/contacts/messages', {
+      const data = new FormData()
+      for (const name in values) {
+        if (name !== 'file') data.append(name, (values as any)[name])
+      }
+      const file =
+        uploadResumeRef.current?.files && uploadResumeRef.current?.files?.length > 0
+          ? uploadResumeRef.current.files[0]
+          : null
+      if (file) {
+        data.append('file', file)
+      }
+      const res = await fetch('/api/v1/hello/resumes', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values),
+        body: data,
       })
       if (res.status === 201) {
-        toast.success(
-          `Thank you for your message ${values.firstName}.  We will respond as soon as possible.`,
-        )
-        setSent(true)
+        toast.success(`Thank you for submitting your resume ${values.firstName}.`)
+        navigate('/careers')
       } else {
         var error = 'We are terribly sorry but an error has occurred.'
         const contentType = res.headers.get('content-type')
@@ -125,8 +135,8 @@ export const Resume = () => {
               title="Resume"
               subheader={
                 <p>
-                  Tell us about yourself. It never hurts to network out and keep tabs on
-                  opportunities.
+                  Tell us about yourself. Networking and being aware of opportunities is important
+                  for your career.
                 </p>
               }
             />
@@ -138,7 +148,7 @@ export const Resume = () => {
               onSubmit={async (values, { setSubmitting }) => {
                 setLocationExpanded(false)
                 setDetailExpanded(false)
-                await sendMessage(values)
+                await uploadResume(values)
                 setSubmitting(false)
               }}
             >
@@ -154,7 +164,7 @@ export const Resume = () => {
                 setTouched,
                 setFieldTouched,
               }) => (
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} encType="multipart/form-data">
                   <div className="row">
                     <TextField
                       name="firstName"
@@ -167,7 +177,7 @@ export const Resume = () => {
                       inputProps={{ maxLength: 100 }}
                       error={touched.firstName && !!errors.firstName}
                       helperText={touched.firstName && errors.firstName}
-                      disabled={sent || isSubmitting}
+                      disabled={isSubmitting}
                     />
                     <TextField
                       name="lastName"
@@ -180,7 +190,7 @@ export const Resume = () => {
                       inputProps={{ maxLength: 100 }}
                       error={touched.lastName && !!errors.lastName}
                       helperText={touched.lastName && errors.lastName}
-                      disabled={sent || isSubmitting}
+                      disabled={isSubmitting}
                     />
                   </div>
                   <div className="row stretch">
@@ -195,7 +205,7 @@ export const Resume = () => {
                       inputProps={{ maxLength: 250 }}
                       error={touched.email && !!errors.email}
                       helperText={touched.email && errors.email}
-                      disabled={sent || isSubmitting}
+                      disabled={isSubmitting}
                     />
                     <TextField
                       name="phone"
@@ -208,7 +218,7 @@ export const Resume = () => {
                       inputProps={{ maxLength: 15 }}
                       error={touched.phone && !!errors.phone}
                       helperText={touched.phone && errors.phone}
-                      disabled={sent || isSubmitting}
+                      disabled={isSubmitting}
                     />
                   </div>
                   <TextField
@@ -222,12 +232,12 @@ export const Resume = () => {
                     inputProps={{ maxLength: 100 }}
                     error={touched.position && !!errors.position}
                     helperText={touched.position && errors.position}
-                    disabled={sent || isSubmitting}
+                    disabled={isSubmitting}
                   />
                   <FormControl
                     required
                     error={touched.employment && !!errors.employment}
-                    disabled={sent || isSubmitting}
+                    disabled={isSubmitting}
                   >
                     <FormLabel id="employment">Looking for Employment</FormLabel>
                     <RadioGroup
@@ -254,7 +264,7 @@ export const Resume = () => {
                       inputProps={{ maxLength: 100 }}
                       error={touched.company && !!errors.company}
                       helperText={touched.company && errors.company}
-                      disabled={sent || isSubmitting}
+                      disabled={isSubmitting}
                     />
                   )}
                   <Card variant="outlined">
@@ -285,7 +295,7 @@ export const Resume = () => {
                               inputProps={{ maxLength: 50 }}
                               error={touched.city && !!errors.city}
                               helperText={touched.city && errors.city}
-                              disabled={sent || isSubmitting}
+                              disabled={isSubmitting}
                             />
                             <TextField
                               name="region"
@@ -296,7 +306,7 @@ export const Resume = () => {
                               inputProps={{ maxLength: 50 }}
                               error={touched.region && !!errors.region}
                               helperText={touched.region && errors.region}
-                              disabled={sent || isSubmitting}
+                              disabled={isSubmitting}
                             />
                             <TextField
                               name="country"
@@ -307,7 +317,7 @@ export const Resume = () => {
                               inputProps={{ maxLength: 50 }}
                               error={touched.country && !!errors.country}
                               helperText={touched.country && errors.country}
-                              disabled={sent || isSubmitting}
+                              disabled={isSubmitting}
                             />
                           </div>
                         </FormGroup>
@@ -348,7 +358,7 @@ export const Resume = () => {
                             inputProps={{ maxLength: 2000 }}
                             error={touched.description && !!errors.description}
                             helperText={touched.description && errors.description}
-                            disabled={sent || isSubmitting}
+                            disabled={isSubmitting}
                           />
                           <TextField
                             name="salary"
@@ -360,7 +370,7 @@ export const Resume = () => {
                             inputProps={{ maxLength: 20 }}
                             error={touched.salary && !!errors.salary}
                             helperText={touched.salary && errors.salary}
-                            disabled={sent || isSubmitting}
+                            disabled={isSubmitting}
                           />
                         </div>
                       </CardContent>
@@ -446,7 +456,7 @@ export const Resume = () => {
                                               ?.name}
                                         </>
                                       }
-                                      disabled={sent || isSubmitting}
+                                      disabled={isSubmitting}
                                     />
                                     <FormControl
                                       required
@@ -455,7 +465,7 @@ export const Resume = () => {
                                         !!(errors.skills?.[index] as FormikErrors<ISkillForm>)
                                           ?.level
                                       }
-                                      disabled={sent || isSubmitting}
+                                      disabled={isSubmitting}
                                     >
                                       <FormLabel id={`skills.${index}.level`}>
                                         Skill Level
@@ -505,7 +515,7 @@ export const Resume = () => {
                                     inputProps={{ maxLength: 50 }}
                                     error={touched.country && !!errors.country}
                                     helperText={touched.country && errors.country}
-                                    disabled={sent || isSubmitting}
+                                    disabled={isSubmitting}
                                   />
                                 </FormGroup>
                               ))}
@@ -519,7 +529,7 @@ export const Resume = () => {
                     <Button variant="outlined" component="label">
                       Attach Resume (PDF)
                       <input
-                        name="resume"
+                        name="file"
                         type="file"
                         accept="application/pdf"
                         ref={uploadResumeRef}
@@ -536,7 +546,7 @@ export const Resume = () => {
                           <IconButton
                             color="error"
                             onClick={() => {
-                              setFieldValue('resume', null)
+                              setFieldValue('file', null)
                               if (uploadResumeRef.current) uploadResumeRef.current.value = ''
                             }}
                           >
@@ -549,13 +559,13 @@ export const Resume = () => {
                   <Button
                     variant="contained"
                     type="submit"
-                    disabled={isSubmitting || sent}
+                    disabled={isSubmitting}
                     onClick={() => {
                       setTouched(setNestedObjectValues(errors, true))
                     }}
                   >
                     {!isSubmitting && 'Submit'}
-                    {isSubmitting && <ClipLoader color="white" size={30} />}
+                    {isSubmitting && <CircularProgress color="inherit" size="1.5rem" />}
                   </Button>
                 </form>
               )}

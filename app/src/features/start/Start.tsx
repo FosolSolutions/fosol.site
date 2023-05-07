@@ -6,6 +6,7 @@ import {
   CardContent,
   CardHeader,
   Checkbox,
+  CircularProgress,
   Collapse,
   FormControlLabel,
   FormGroup,
@@ -16,7 +17,7 @@ import { DatePicker } from '@mui/x-date-pickers'
 import { Formik } from 'formik'
 import React from 'react'
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa'
-import { ClipLoader } from 'react-spinners'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import * as yup from 'yup'
 import { IStartProjectForm } from './IStartProjectForm'
@@ -59,7 +60,8 @@ const validationSchema = yup.object({
 })
 
 export const Start = () => {
-  const [sent, setSent] = React.useState(false)
+  const navigate = useNavigate()
+
   const [locationExpanded, setLocationExpanded] = React.useState(false)
   const [detailExpanded, setDetailExpanded] = React.useState(false)
 
@@ -78,7 +80,7 @@ export const Start = () => {
           <div>Budget: ${values.budget}</div>
           <div>${values.description}</div>`,
       }
-      const res = await fetch('/api/v1/contacts/messages', {
+      const res = await fetch('/api/v1/hello/messages', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
@@ -87,7 +89,7 @@ export const Start = () => {
         toast.success(
           `Thank you for your message ${values.name}.  We will respond as soon as possible.`,
         )
-        setSent(true)
+        navigate('/')
       } else {
         var error = 'We are terribly sorry but an error has occurred.'
         const contentType = res.headers.get('content-type')
@@ -149,7 +151,7 @@ export const Start = () => {
                 inputProps={{ maxLength: 100 }}
                 error={touched.name && !!errors.name}
                 helperText={touched.name && errors.name}
-                disabled={sent || isSubmitting}
+                disabled={isSubmitting}
               />
               <TextField
                 name="company"
@@ -160,7 +162,7 @@ export const Start = () => {
                 inputProps={{ maxLength: 100 }}
                 error={touched.company && !!errors.company}
                 helperText={touched.company && errors.company}
-                disabled={sent || isSubmitting}
+                disabled={isSubmitting}
               />
               <div className="row stretch">
                 <TextField
@@ -174,7 +176,7 @@ export const Start = () => {
                   inputProps={{ maxLength: 250 }}
                   error={touched.email && !!errors.email}
                   helperText={touched.email && errors.email}
-                  disabled={sent || isSubmitting}
+                  disabled={isSubmitting}
                 />
                 <TextField
                   name="phone"
@@ -187,7 +189,7 @@ export const Start = () => {
                   inputProps={{ maxLength: 15 }}
                   error={touched.phone && !!errors.phone}
                   helperText={touched.phone && errors.phone}
-                  disabled={sent || isSubmitting}
+                  disabled={isSubmitting}
                 />
               </div>
               <Card variant="outlined">
@@ -211,7 +213,7 @@ export const Start = () => {
                         inputProps={{ maxLength: 50 }}
                         error={touched.address && !!errors.address}
                         helperText={touched.address && errors.address}
-                        disabled={sent || isSubmitting}
+                        disabled={isSubmitting}
                       />
                       <TextField
                         name="city"
@@ -222,7 +224,7 @@ export const Start = () => {
                         inputProps={{ maxLength: 50 }}
                         error={touched.city && !!errors.city}
                         helperText={touched.city && errors.city}
-                        disabled={sent || isSubmitting}
+                        disabled={isSubmitting}
                       />
                       <div className="row">
                         <TextField
@@ -234,7 +236,7 @@ export const Start = () => {
                           inputProps={{ maxLength: 50 }}
                           error={touched.region && !!errors.region}
                           helperText={touched.region && errors.region}
-                          disabled={sent || isSubmitting}
+                          disabled={isSubmitting}
                         />
                         <TextField
                           name="country"
@@ -245,7 +247,7 @@ export const Start = () => {
                           inputProps={{ maxLength: 50 }}
                           error={touched.country && !!errors.country}
                           helperText={touched.country && errors.country}
-                          disabled={sent || isSubmitting}
+                          disabled={isSubmitting}
                         />
                       </div>
                       <FormControlLabel
@@ -254,7 +256,7 @@ export const Start = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.allowRemote}
-                        disabled={sent || isSubmitting}
+                        disabled={isSubmitting}
                         control={<Checkbox />}
                       />
                     </FormGroup>
@@ -285,7 +287,7 @@ export const Start = () => {
                         value={values.isStarted}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        disabled={sent || isSubmitting}
+                        disabled={isSubmitting}
                         control={<Checkbox />}
                       />
                       <div className="dates">
@@ -294,7 +296,7 @@ export const Start = () => {
                             label="Start"
                             value={values.startDate}
                             onChange={(val) => setFieldValue('startDate', val)}
-                            disabled={sent || isSubmitting}
+                            disabled={isSubmitting}
                             slotProps={{
                               textField: {
                                 error: touched.startDate && !!errors.startDate,
@@ -308,7 +310,7 @@ export const Start = () => {
                             label="Due"
                             value={values.endDate}
                             onChange={(val) => setFieldValue('endDate', val)}
-                            disabled={sent || isSubmitting}
+                            disabled={isSubmitting}
                             slotProps={{
                               textField: {
                                 error: touched.endDate && !!errors.endDate,
@@ -331,7 +333,7 @@ export const Start = () => {
                         inputProps={{ maxLength: 2000 }}
                         error={touched.description && !!errors.description}
                         helperText={touched.description && errors.description}
-                        disabled={sent || isSubmitting}
+                        disabled={isSubmitting}
                       />
                       <TextField
                         name="budget"
@@ -343,15 +345,15 @@ export const Start = () => {
                         inputProps={{ maxLength: 20 }}
                         error={touched.budget && !!errors.budget}
                         helperText={touched.budget && errors.budget}
-                        disabled={sent || isSubmitting}
+                        disabled={isSubmitting}
                       />
                     </div>
                   </CardContent>
                 </Collapse>
               </Card>
-              <Button variant="contained" type="submit" disabled={isSubmitting || sent}>
+              <Button variant="contained" type="submit" disabled={isSubmitting}>
                 {!isSubmitting && 'Submit'}
-                {isSubmitting && <ClipLoader color="white" size={30} />}
+                {isSubmitting && <CircularProgress color="inherit" size="1.5rem" />}
               </Button>
             </form>
           )}

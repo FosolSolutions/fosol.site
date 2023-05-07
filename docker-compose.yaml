@@ -34,6 +34,8 @@ services:
       - ${API_HTTPS_PORT:-30002}:8443
     extra_hosts:
       - host.docker.internal:host-gateway
+    volumes:
+      - fosol-storage:/mnt/storage
     networks:
       - fosol
 
@@ -91,3 +93,5 @@ networks:
 volumes:
   fosol-database:
     name: fss-database
+  fosol-storage:
+    name: fss.storage
