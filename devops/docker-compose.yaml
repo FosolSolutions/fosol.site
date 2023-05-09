@@ -89,6 +89,7 @@ networks:
   fosol:
     name: fss-net
     driver: bridge
+    external: true
 
 volumes:
   fosol-database:
