@@ -12,7 +12,7 @@ services:
     env_file:
       - db/.env
     ports:
-      - ${DB_PORT:-30000}:5432
+      - ${DB_PORT:-5432}:5432
     volumes:
       - fosol-database:${DB_VOLUME:-/var/lib/postgresql/data}
     networks:
@@ -30,8 +30,8 @@ services:
     env_file:
       - backend/api/.env
     ports:
-      - ${API_HTTP_PORT:-30001}:8080
-      - ${API_HTTPS_PORT:-30002}:8443
+      - ${API_HTTP_PORT:-8080}:8080
+      - ${API_HTTPS_PORT:-8443}:8443
     extra_hosts:
       - host.docker.internal:host-gateway
     volumes:
@@ -55,8 +55,8 @@ services:
       - ./app/src:/usr/app/src
       - ./app/public:/usr/app/public
     ports:
-      - ${APP_HTTP_PORT:-30003}:5173
-      - ${APP_HTTPS_PORT:-30004}:5443
+      - ${APP_HTTP_PORT:-5173}:5173
+      - ${APP_HTTPS_PORT:-5443}:5443
     extra_hosts:
       - host.docker.internal:host-gateway
     depends_on:
@@ -75,8 +75,8 @@ services:
     env_file:
       - nginx/.env
     ports:
-      - ${NGINX_HTTP_PORT:-30080}:80
-      - ${NGINX_HTTPS_PORT:-30443}:443
+      - ${NGINX_HTTP_PORT:-80}:80
+      - ${NGINX_HTTPS_PORT:-443}:443
     extra_hosts:
       - host.docker.internal:host-gateway
     depends_on:
