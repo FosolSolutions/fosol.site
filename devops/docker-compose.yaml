@@ -8,9 +8,9 @@ services:
     restart: "no"
     container_name: fss-database
     build:
-      context: db
+      context: ../db
     env_file:
-      - db/.env
+      - ../db/.env
     ports:
       - ${DB_PORT:-5432}:5432
     volumes:
@@ -25,10 +25,10 @@ services:
     restart: "no"
     container_name: fss-api
     build:
-      context: backend
+      context: ../backend
       dockerfile: api/Dockerfile
     env_file:
-      - backend/api/.env
+      - ../backend/api/.env
     ports:
       - ${API_HTTP_PORT:-8080}:8080
       - ${API_HTTPS_PORT:-8443}:8443
@@ -48,12 +48,12 @@ services:
     restart: "no"
     container_name: fss-app
     build:
-      context: app
+      context: ../app
       dockerfile: Dockerfile
-    env_file: ./app/.env
+    env_file: ../app/.env
     volumes:
-      - ./app/src:/usr/app/src
-      - ./app/public:/usr/app/public
+      - ../app/src:/usr/app/src
+      - ../app/public:/usr/app/public
     ports:
       - ${APP_HTTP_PORT:-5173}:5173
       - ${APP_HTTPS_PORT:-5443}:5443
@@ -71,9 +71,9 @@ services:
     restart: "no"
     container_name: fss-nginx
     build:
-      context: ./nginx
+      context: ../nginx
     env_file:
-      - nginx/.env
+      - ../nginx/.env
     ports:
       - ${NGINX_HTTP_PORT:-80}:80
       - ${NGINX_HTTPS_PORT:-443}:443
