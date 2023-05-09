@@ -27,7 +27,7 @@ elif [ "$action" = "down" ]; then
 elif [ "$action" = "refresh" ]; then
   docker_refresh $s
 elif [ "$action" = "ssh" ]; then
-  docker exec -it "ce-$2" sh
+  docker exec -it "fss-$2" sh
 
 # Database
 elif [ "$action" = "tool-update" ]; then

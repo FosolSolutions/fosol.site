@@ -45,9 +45,9 @@ docker_down () {
 
 # Remove all the docker services and images.
 docker_remove () {
-  echo "Removing container ce-$1"
-  docker rm -f ce-$1
-  docker image rm -f coevent:$1
+  echo "Removing container fss-$1"
+  docker rm -f fss-$1
+  docker image rm -f fosol:$1
 }
 
 # Stop, remove, build and run the specified docker service.
