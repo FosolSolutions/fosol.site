@@ -12,7 +12,7 @@ export const Clients = styled.section`
       gap: 0.5rem;
       -webkit-overflow-scrolling: touch;
       overflow: auto;
-      background-color: ${(props) => props.theme.css.theme5thColor};
+      background-color: ${(props) => props.theme.palette.secondary.main};
       padding: 0.5rem;
       border-radius: 0.75rem;
 
@@ -50,5 +50,15 @@ export const Clients = styled.section`
 
   h1 {
     color: ${(props) => props.theme.css.themePrimaryColor};
+  }
+
+  img.logo {
+    height: 2.5rem;
+    margin: 0;
+
+    &.small {
+      max-width: 60px;
+      height: auto;
+    }
   }
 `

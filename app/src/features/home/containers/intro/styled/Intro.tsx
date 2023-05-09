@@ -11,6 +11,7 @@ export const Intro = styled.section`
 
     .text {
       flex: 1;
+      margin: auto;
       min-width: 300px;
     }
   }
@@ -26,10 +27,17 @@ export const Intro = styled.section`
   }
 
   h1 {
-    color: ${(props) => props.theme.css.themePrimaryColor};
+    color: ${(props) => props.theme.palette.secondary.main};
+    font-size: 2rem;
+    font-family: KatahdinRound, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
   }
 
   .center {
     text-align: center;
+  }
+
+  p {
+    color: ${(props) => props.theme.palette.secondary.main};
   }
 `

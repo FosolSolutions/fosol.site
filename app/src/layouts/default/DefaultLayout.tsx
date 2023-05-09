@@ -1,7 +1,14 @@
-import { Link } from 'react-router-dom'
+import { FaFileContract, FaHeartbeat, FaInfoCircle, FaUsers } from 'react-icons/fa'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { Footer, Header } from '..'
+import { Footer, Header, IHeaderMenuItem } from '..'
+
+const menu: IHeaderMenuItem[] = [
+  { icon: <FaUsers />, label: 'Services', to: '/services' },
+  { icon: <FaHeartbeat />, label: 'Client Stories', to: '/clients/stories' },
+  { icon: <FaFileContract />, label: 'Careers', to: '/careers' },
+  { icon: <FaInfoCircle />, label: 'About Us', to: '/about-us' },
+]
 
 export interface IDefaultLayout {
   children?: React.ReactNode
@@ -11,24 +18,7 @@ export const DefaultLayout = ({ children }: IDefaultLayout): JSX.Element => {
   return (
     <>
       <ToastContainer />
-      <Header>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/services">Services</Link>
-            </li>
-            <li>
-              <Link to="/clients/stories">Client Stories</Link>
-            </li>
-            <li>
-              <Link to="/careers">Careers</Link>
-            </li>
-            <li>
-              <Link to="/about-us">About Us</Link>
-            </li>
-          </ul>
-        </nav>
-      </Header>
+      <Header menu={menu}></Header>
       <main>{children}</main>
       <Footer></Footer>
     </>

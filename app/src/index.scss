@@ -1,6 +1,16 @@
 @import './css/_variables';
 @import './css/_colors';
 
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/Inter/Inter-VariableFont_slnt,wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'KatahdinRound';
+  src: url('/assets/fonts/katahdin-round/KatahdinRound.otf') format('opentype');
+}
+
 body {
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
   font-size: 1rem;
@@ -20,61 +30,7 @@ body {
   height: 100vh;
 }
 
-header {
-  flex: 1 1 1;
-  display: flex;
-  flex-flow: row;
-  flex-wrap: wrap;
-  align-items: stretch;
-  padding: 0 1rem;
-  display: flex;
-  flex-direction: row;
-  background-color: rgba($primaryBkColor, 1);
-  border-bottom: solid 1px hwb(210 98% 12%);
 
-  h1.cname {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 4rem;
-    text-transform: uppercase;
-    margin: 0;
-    padding: 0;
-    color: $themePrimaryColor;
-  }
-
-  >a>img {
-    padding: 0.5em 0 0 0;
-  }
-
-  >.company-logo {
-    display: flex;
-    flex-flow: row;
-    flex-wrap: nowrap;
-    gap: 1rem;
-    margin: 0.25rem;
-    align-items: center;
-    width: 330px;
-  }
-
-  >nav {
-    flex: 1;
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    padding: 0 1rem;
-
-    ul {
-      display: flex;
-      flex-flow: row;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: stretch;
-    }
-  }
-
-  >div:last-child {
-    width: 330px;
-  }
-}
 
 main {
   flex: 1;
@@ -242,15 +198,7 @@ details {
 }
 
 
-img.logo {
-  height: 4rem;
-  margin: 0;
 
-  &.small {
-    max-width: 60px;
-    height: auto;
-  }
-}
 
 .grid {
   display: grid;
@@ -324,4 +272,29 @@ img.logo {
 .th7 {
   background-color: $theme7thColor;
   color: $black;
+}
+
+
+.company-logo-small {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  margin: 0.25rem;
+  align-items: center;
+
+  img.logo {
+    height: 40px;
+    width: auto;
+  }
+
+  .company-name {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+    color: $primaryColor;
+  }
 }
