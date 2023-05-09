@@ -24,11 +24,24 @@ export const ContactUs = styled.section`
     min-width: 200px;
   }
 
-  h1 {
-    color: ${(props) => props.theme.css.themePrimaryColor};
-  }
-
   .center {
     text-align: center;
+  }
+
+  .pad {
+    display: flex;
+    flex-flow: column;
+
+    & > div {
+      flex: 2;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+
+      &:last-child {
+        flex: 1;
+      }
+    }
   }
 `

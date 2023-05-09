@@ -12,6 +12,7 @@ export const Intro = ({ children }: IIntro) => {
   return (
     <styled.Intro className="box row intro">
       <div className="col pad text">
+        <h1>Custom software solutions that make your business better</h1>
         <p>
           Fosol Software Solutions is a Canadian technology corporation located in Victoria BC. We
           offer consulting and contractor resources for building software solutions.

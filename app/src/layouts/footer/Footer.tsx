@@ -37,6 +37,7 @@ export const Footer = ({ children }: IFooter): JSX.Element => {
             &copy; {year} Fosol Software Solutions Inc. All rights reserved.
           </p>
         </div>
+        <div></div>
       </div>
     </styled.Footer>
   )

@@ -16,6 +16,8 @@ export const Footer = styled.footer`
   div.contact {
     display: flex;
     flex-flow: column;
+    align-items: flex-start;
+    justify-content: center;
 
     @media only screen and (max-width: 600px) {
       margin-left: unset;
