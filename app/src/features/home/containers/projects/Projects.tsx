@@ -90,7 +90,7 @@ export const Projects = () => {
               </div>
               <div>
                 <a
-                  href="https://github.com/fosolsolutions/coevent"
+                  href="https://github.com/fosolsolutions/coevent2.0"
                   className="text-white"
                   target="_blank"
                 >

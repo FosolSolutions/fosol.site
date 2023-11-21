@@ -5,7 +5,7 @@ services:
     image: fosol:database
     profiles:
       - all
-    restart: "no"
+    restart: "always"
     container_name: fss-database
     build:
       context: ../db
@@ -22,7 +22,7 @@ services:
     image: fosol:api
     profiles:
       - all
-    restart: "no"
+    restart: "always"
     container_name: fss-api
     build:
       context: ../backend
@@ -45,7 +45,7 @@ services:
       - all
     stdin_open: true
     tty: true
-    restart: "no"
+    restart: "always"
     container_name: fss-app
     build:
       context: ../app
@@ -68,7 +68,7 @@ services:
     image: fosol:nginx
     profiles:
       - all
-    restart: "no"
+    restart: "always"
     container_name: fss-nginx
     build:
       context: ../nginx
